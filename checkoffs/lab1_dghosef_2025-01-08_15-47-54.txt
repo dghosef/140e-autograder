@@ -1,0 +1,5 @@
+/Users/dghosef/stanford/cs140e-autograde/repos/dghosef
+/Users/dghosef/stanford/cs140e-autograde/commands/lab1: line 3: cd: ./labs/1-trusting-trust/code/step1: No such file or directory
+make: *** No rule to make target `clean'.  Stop.
+
+Return code: 2
