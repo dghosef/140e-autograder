@@ -14,6 +14,7 @@ message_queue = queue.Queue()
 HOST = '127.0.0.1'  # Localhost (ngrok will expose this)
 PORT = 8000
 # Autograder configuration
+REPO_DIR = "repos"
 CHECKOFFS_DIR = "checkoffs"
 COMMAND_TIMEOUT = 60  # seconds
 VALID_COMMANDS = ["test", "lab1"]
@@ -50,20 +51,19 @@ def run_command_and_print(command, cwd=None, timeout=None):
 def clone_repo(repo_url, username):
     """Clone a git repository."""
     repo_url = repo_url.strip()
+    repo_dir = os.path.join(os.getcwd(), REPO_DIR, username)
     # remove trailing slash if present
     if repo_url[-1] == "/":
         repo_url = repo_url[:-1]
     # clone if `username` directory does not exist otherwise just pull latest changes
-    if os.path.exists(username):
+    if os.path.exists(repo_dir):
         print(f"Pulling latest changes from repository: {repo_url}")
-        run_command_and_print("git pull", cwd=username)
+        run_command_and_print("git pull", cwd=repo_dir)
     else:
         print(f"Cloning repository: {repo_url}")
         repo_name = repo_url.split("/")[-1].replace(".git", "")
-        if os.path.exists(repo_name):
-            shutil.rmtree(repo_name)
         # run git clone command but save into `username` directory
-        run_command_and_print(f"git clone {repo_url} {username}")
+        run_command_and_print(f"git clone {repo_url} {repo_dir}")
     return username
 
 def run_command_in_repo(repo_dir, command, fileprefix, staff_repo_dir):
@@ -106,7 +106,7 @@ def run(message):
         return
     print(f"[Processor] Processing message: {sunet} {repo} {command}")
     repo_name = clone_repo(repo, sunet)
-    run_command_in_repo(os.path.join(cwd, repo_name), os.path.join(cwd, COMMANDS_DIR, command), f"{sunet}_{command}", cwd)
+    run_command_in_repo(os.path.join(cwd, REPO_DIR, repo_name), os.path.join(cwd, COMMANDS_DIR, command), f"{command}_{sunet}", cwd)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
     
 
