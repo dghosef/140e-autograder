@@ -1,3 +1,0 @@
-/bin/sh: /Users/dghosef/stanford/cs140e-autograde/commands/lab1: Permission denied
-
-Return code: 126

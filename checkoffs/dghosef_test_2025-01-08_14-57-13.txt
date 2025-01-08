@@ -1,3 +1,0 @@
-hello world
-
-Return code: 0
