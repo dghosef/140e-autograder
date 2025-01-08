@@ -73,7 +73,7 @@ def run_arg1_in_repo(repo_dir, arg1, arg2, request_file_prefix):
 
 def copy_file_to_origin_repo(origin_repo_dir, src_path):
     """Copy a file to the origin repository."""
-    dest_path = os.path.join(origin_repo_dir, os.path.basename(src_path))
+    dest_path = os.path.join(origin_repo_dir, CHECKOFFS_DIR, os.path.basename(src_path))
     shutil.copy(src_path, dest_path)
 
 
