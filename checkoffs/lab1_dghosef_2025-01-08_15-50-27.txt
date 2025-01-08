@@ -1,0 +1,79 @@
+/Users/dghosef/stanford/cs140e-autograde/repos/dghosef
+rm -f string-to-char-array replicate replicate.c kid.c *~
+gcc -O3 -g -Wall string-to-char-array.c -o string-to-char-array
+./string-to-char-array < seed.c > replicate.c
+cat seed.c >> replicate.c
+gcc replicate.c -o replicate
+./replicate > kid.c
+diff replicate.c kid.c
+rm -f  compiler-attacked login-attacked out login compiler trojan-compiler *.o a.out  *~ compiler-attacked.c login-attacked.c out.c temp-out.c
+gcc -O3 -g -Wall -Wno-unused-variable login.c -o login
+gcc -O3 -g -Wall -Wno-unused-variable compiler.c -o compiler
+------------------------------------------
+going to check that compiler compiles login
+./compiler login.c -o login
+echo "guest\npassword\n" | ./login
+user: passwd: successful login: <guest>
+diff login.out out
+success: compiler compiled login correctly!
+------------------------------------------
+gcc -O3 -g -Wall -Wno-unused-variable trojan-compiler.c -o trojan-compiler
+
+----------------------------------
+checking that the login attack works and user 'ken' has a
+   login success without a password
+./trojan-compiler login.c -o login-attacked
+echo "ken\n" | ./login-attacked 
+user: successful login: <ken>
+success: login attack checked out!
+
+----------------------------------
+checking that the attack on cc works
+./trojan-compiler compiler.c -o compiler-attacked
+./compiler-attacked login.c -o login-attacked > out && cat out
+compile: could have run your attack here!!
+success: trojan cc attack checked out!
+
+make -C ../step1 clean
+rm -f string-to-char-array replicate replicate.c kid.c *~
+make -C ../step2 clean
+rm -f  compiler-attacked login-attacked out login compiler trojan-compiler *.o a.out  *~ compiler-attacked.c login-attacked.c out.c temp-out.c
+rm -f  trojan-compiler2 *.o *~   attack-array.h  cc-attacked cc-attacked2 temp-out.c out login-attacked.c login-attacked
+make -C ../step1
+gcc -O3 -g -Wall string-to-char-array.c -o string-to-char-array
+./string-to-char-array < seed.c > replicate.c
+cat seed.c >> replicate.c
+gcc replicate.c -o replicate
+./replicate > kid.c
+diff replicate.c kid.c
+make -C ../step2
+gcc -O3 -g -Wall -Wno-unused-variable login.c -o login
+gcc -O3 -g -Wall -Wno-unused-variable compiler.c -o compiler
+------------------------------------------
+going to check that compiler compiles login
+./compiler login.c -o login
+echo "guest\npassword\n" | ./login
+user: passwd: successful login: <guest>
+diff login.out out
+success: compiler compiled login correctly!
+------------------------------------------
+gcc -O3 -g -Wall -Wno-unused-variable trojan-compiler.c -o trojan-compiler
+
+----------------------------------
+checking that the login attack works and user 'ken' has a
+   login success without a password
+./trojan-compiler login.c -o login-attacked
+echo "ken\n" | ./login-attacked 
+user: successful login: <ken>
+success: login attack checked out!
+
+----------------------------------
+checking that the attack on cc works
+./trojan-compiler compiler.c -o compiler-attacked
+./compiler-attacked login.c -o login-attacked > out && cat out
+compile: could have run your attack here!!
+success: trojan cc attack checked out!
+
+make: *** No rule to make target `attack-seed.c', needed by `trojan-compiler2'.  Stop.
+
+Return code: 2
