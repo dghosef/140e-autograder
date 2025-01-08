@@ -1,0 +1,3 @@
+make: *** No rule to make target `check'.  Stop.
+
+Return code: 2
