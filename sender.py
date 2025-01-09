@@ -2,8 +2,8 @@ import socket
 
 # Message config
 sunet = 'dghosef'
-repo = 'https://github.com/dghosef/test2'
-lab = 'test'
+repo = 'https://github.com/dghosef/cs140e-22win/'
+lab = 'lab1'
 # PLEASE DO NOT MODIFY BELOW THIS LINE
 message = f"{sunet} {repo} {lab}"
 assert ' ' not in sunet and ' ' not in repo and ' ' not in lab, "Invalid message format"

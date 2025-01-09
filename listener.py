@@ -66,15 +66,21 @@ def clone_repo(repo_url, username):
         run_command_and_print(f"git clone {repo_url} {repo_dir}")
     return username
 
-def run_command_in_repo(repo_dir, command, fileprefix, staff_repo_dir):
+def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
     """Run command in the given repository, save output with a formatted filename, commit, and push."""
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    output_file = f"{fileprefix}_{timestamp}.txt"
-    output_path = os.path.join(repo_dir, CHECKOFFS_DIR, output_file)
+    # Create <repo_dir>/<CHECKOFFS_DIR>/<command>/<sunet> directory if it doesn't exist
+    # make sure to create parent directories if they don't exist
+    subdir = os.path.join(CHECKOFFS_DIR, command_name, sunet)
+    os.makedirs(os.path.join(repo_dir, subdir), exist_ok=True)
+    # same but for staff repo
+    os.makedirs(os.path.join(staff_repo_dir, subdir), exist_ok=True)
+
+    output_file = os.path.join(repo_dir, subdir, f"{timestamp}.txt")
 
     os.makedirs(os.path.join(repo_dir, CHECKOFFS_DIR), exist_ok=True)
 
-    with open(output_path, "w") as f:
+    with open(output_file, "w") as f:
         returncode, stdout, stderr = run_command(command, cwd=repo_dir, timeout=COMMAND_TIMEOUT)
         f.write(stdout)
         f.write(stderr)
@@ -89,10 +95,11 @@ def run_command_in_repo(repo_dir, command, fileprefix, staff_repo_dir):
     run_command_and_print(f'git commit -m "Add output file {output_file}"', cwd=repo_dir)
     run_command_and_print("git push", cwd=repo_dir)
     print("Copying the output file to staff repo...")
-    shutil.copy(output_path, os.path.join(staff_repo_dir, CHECKOFFS_DIR, output_file))
+    staff_output_file = os.path.join(staff_repo_dir, CHECKOFFS_DIR, command_name, sunet, f"{timestamp}.txt")
+    shutil.copy(output_file, staff_output_file)
     print("Committing and pushing the output file to staff...")
-    run_command_and_print(f"git add {os.path.join(CHECKOFFS_DIR, output_file)}", cwd=staff_repo_dir)
-    run_command_and_print(f'git commit -m "Add output file {output_file}"', cwd=staff_repo_dir)
+    run_command_and_print(f"git add {staff_output_file}", cwd=staff_repo_dir)
+    run_command_and_print(f'git commit -m "Add output file {staff_output_file}"', cwd=staff_repo_dir)
     run_command_and_print("git push", cwd=staff_repo_dir)
     
 
@@ -106,7 +113,7 @@ def run(message):
         return
     print(f"[Processor] Processing message: {sunet} {repo} {command}")
     repo_name = clone_repo(repo, sunet)
-    run_command_in_repo(os.path.join(cwd, REPO_DIR, repo_name), os.path.join(cwd, COMMANDS_DIR, command), f"{command}_{sunet}", cwd)
+    run_command_in_repo(os.path.join(cwd, REPO_DIR, repo_name), os.path.join(cwd, COMMANDS_DIR, command), sunet, command, cwd)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
     
 
