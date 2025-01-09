@@ -14,7 +14,7 @@ message_queue = queue.Queue()
 
 # Listener Configuration
 HOST = '127.0.0.1'  # Localhost (ngrok will expose this)
-PORT = 5000
+PORT = 8000
 # Autograder configuration
 REPO_DIR = "repos"
 CHECKOFFS_DIR = "checkoffs"
@@ -22,8 +22,12 @@ COMMAND_TIMEOUT = 60  # seconds
 VALID_COMMANDS = ["test", "lab1"]
 COMMANDS_DIR = "commands"
 
-def run_command(command, cwd=None, timeout=None):
+def run_command(command, cwd=None, timeout=None, wifi=True):
     """Run a shell command and return the result."""
+    if not wifi:
+        env = os.environ.copy()
+        for var in ["http_proxy", "https_proxy", "ftp_proxy", "no_proxy"]:
+            env.pop(var, None)
     # print command and if specified cwd and timeout
     print(f"Running command: {command}")
     if cwd:
@@ -83,7 +87,7 @@ def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
     os.makedirs(os.path.join(repo_dir, CHECKOFFS_DIR), exist_ok=True)
 
     with open(output_file, "w") as f:
-        returncode, stdout, stderr = run_command(command, cwd=repo_dir, timeout=COMMAND_TIMEOUT)
+        returncode, stdout, stderr = run_command(command, cwd=repo_dir, timeout=COMMAND_TIMEOUT, wifi=False)
         f.write(stdout)
         f.write(stderr)
         if returncode == -1:
