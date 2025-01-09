@@ -7,14 +7,14 @@ from datetime import datetime
 import subprocess
 import shutil
 # assert we are on Joe's computer
-assert os.path.exists("/Users/dghosef/")
+assert os.path.exists("/Users/josephtan/")
 
 # Thread-safe queue for messages
 message_queue = queue.Queue()
 
 # Listener Configuration
 HOST = '127.0.0.1'  # Localhost (ngrok will expose this)
-PORT = 8000
+PORT = 5000
 # Autograder configuration
 REPO_DIR = "repos"
 CHECKOFFS_DIR = "checkoffs"
