@@ -1,7 +1,5 @@
-This autograder
-- Gets a repository request somehow. With a queue
-  - Have some sort of shared github repo with a queue of names and some sort of script to add another repo to the queue
-- Clone the repository
-- Runs some program and pipes the output to a file
-- commits the file to cloned repo and pushes it
-- Checks the output and return value and records it
+# Turn in instructions
+- Modify the `sunet`, `repo`, and `lab` variables in `sender.py` accordingly
+- Make sure you repository is updated
+- Run `python sender.py`. After about a minute, you should see the output of the autograder in in your `checkoffs` directory
+- Ask Joe if it's not working
