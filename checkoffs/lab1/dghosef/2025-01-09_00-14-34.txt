@@ -1,0 +1,12 @@
+/Users/dghosef/stanford/cs140e-autograde/repos/dghosef
+rm -f string-to-char-array replicate replicate.c kid.c *~
+make -C ../step1 clean
+rm -f string-to-char-array replicate replicate.c kid.c *~
+make -C ../step2 clean
+rm -f  compiler-attacked login-attacked out login compiler trojan-compiler *.o a.out  *~ compiler-attacked.c login-attacked.c out.c temp-out.c
+rm -f  trojan-compiler2 *.o *~   attack-array.h  cc-attacked cc-attacked2 temp-out.c out login-attacked.c login-attacked
+cat check.sh >check 
+chmod a+x check
+make: *** No rule to make target `check'.  Stop.
+
+Return code: 0
