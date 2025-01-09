@@ -6,6 +6,8 @@ import time
 from datetime import datetime
 import subprocess
 import shutil
+# assert we are on Joe's computer
+assert os.path.exists("/Users/dghosef/")
 
 # Thread-safe queue for messages
 message_queue = queue.Queue()
