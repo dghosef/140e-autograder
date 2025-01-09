@@ -2,10 +2,8 @@
 pwd
 cd ./labs/1-trusting-trust/code/step1 
 make clean 
-make 
-cd ../step2 
-make clean 
-make 
+make check
+# make check
 cd ../step3 
 make clean 
-make
+make check

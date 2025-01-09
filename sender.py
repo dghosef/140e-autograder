@@ -5,6 +5,7 @@ sunet = 'dghosef'
 repo = 'https://github.com/dghosef/cs140e-22win/'
 lab = 'lab1'
 # PLEASE DO NOT MODIFY BELOW THIS LINE
+assert lab in ['lab1']
 message = f"{sunet} {repo} {lab}"
 assert ' ' not in sunet and ' ' not in repo and ' ' not in lab, "Invalid message format"
 # ngrok public address and port
