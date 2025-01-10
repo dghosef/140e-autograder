@@ -7,3 +7,5 @@ make check
 cd ../step3 
 make clean 
 make check
+./check.sh
+
