@@ -47,7 +47,7 @@ def run_command_and_print(command, cwd=None, timeout=None):
     # print command and if specified cwd and timeout
     print(f"Running command: {command}")
     if cwd:
-        print(f"  cwd: {cwd}")
+        print_red(f"  cwd: {cwd}")
     if timeout:
         print(f"  timeout: {timeout} seconds")
     try:
