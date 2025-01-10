@@ -1,0 +1,73 @@
+/Users/josephtan/140e-dumb-autograder/repos/jka
+rm -f quine-gen quine-out.c quine.c quine *~
+gcc -Og -g -Wall quine-gen.c -o quine-gen
+--------------------------------------------
+checking that the quine generates itself
+
+1. Generating a quine
+./quine-gen < seed.c > quine.c
+gcc quine.c -o quine
+2. Using quine to generate itself
+./quine > quine-out.c
+3. Checking generated quine matches quine
+diff quine.c quine-out.c
+**** Success: Quine matches its output ***
+--------------------------------------------
+
+make -C ../step1 clean
+rm -f quine-gen quine-out.c quine.c quine *~
+make -C ../step2 clean
+rm -f  compiler-attacked login-attacked out login compiler trojan-compiler *.o a.out  *~ compiler-attacked.c login-attacked.c out.c temp-out.c
+rm -f  trojan-compiler2 *.o *~  cc-attacked cc-attacked2 temp-out.c out login-attacked.c login-attacked attack-quine.c
+make -C ../step1
+gcc -Og -g -Wall quine-gen.c -o quine-gen
+../step1/quine-gen  < attack-seed.c > attack-quine.c
+gcc -Og -g -Wall trojan-compiler2.c -o trojan-compiler2
+
+----------------------------------checking that the attack will generate itself
+./trojan-compiler2 ../step2/compiler.c -o cc-attacked
+running check.sh
+success: check passed!
+./temp-out.c:214:1: error: expected external declaration
+-<A2>static void compile(char *program, char *outname) {
+^
+./temp-out.c:214:2: error: source file is not valid UTF-8
+-<A2>static void compile(char *program, char *outname) {
+ ^
+./temp-out.c:311:14: error: expected '}'
+    return 0;
+             ^
+./temp-out.c:292:34: note: to match this '{'
+int main(int argc, char *argv[]) {
+                                 ^
+3 errors generated.
+system failed
+make: *** [check] Error 1
+./temp-out.c:214:2: error: source file is not valid UTF-8
+F<E8>static void compile(char *program, char *outname) {
+ ^
+./temp-out.c:214:1: error: unknown type name 'F'
+F<E8>static void compile(char *program, char *outname) {
+^
+./temp-out.c:311:14: error: expected '}'
+    return 0;
+             ^
+./temp-out.c:292:34: note: to match this '{'
+int main(int argc, char *argv[]) {
+                                 ^
+3 errors generated.
+system failed
+check.sh:7: no such file or directory: ./cc-attacked
+diff: cc-attacked: No such file or directory
+check.sh:12: no such file or directory: ./cc-attacked2
+check.sh:13: no such file or directory: ./cc-attacked2
+check.sh:14: no such file or directory: ./cc-attacked2
+check.sh:15: no such file or directory: ./cc-attacked2
+check.sh:16: no such file or directory: ./cc-attacked2
+check.sh:17: no such file or directory: ./cc-attacked2
+check.sh:18: no such file or directory: ./cc-attacked2
+check.sh:19: no such file or directory: ./cc-attacked2
+check.sh:28: no such file or directory: ./cc-attacked2
+check.sh:29: no such file or directory: ./login-attacked
+
+Return code: 0
