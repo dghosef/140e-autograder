@@ -21,6 +21,8 @@ CHECKOFFS_DIR = "checkoffs"
 COMMAND_TIMEOUT = 60  # seconds
 VALID_COMMANDS = ["test", "lab1"]
 COMMANDS_DIR = "commands"
+def print_red(text):
+    print(f"\033[91m{text}\033[00m")
 
 def run_command(command, cwd=None, timeout=None, wifi=True):
     """Run a shell command and return the result."""
@@ -31,7 +33,7 @@ def run_command(command, cwd=None, timeout=None, wifi=True):
     # print command and if specified cwd and timeout
     print(f"Running command: {command}")
     if cwd:
-        print(f"  cwd: {cwd}")
+        print_red(f"  cwd: {cwd}")
     if timeout:
         print(f"  timeout: {timeout} seconds")
     try:
