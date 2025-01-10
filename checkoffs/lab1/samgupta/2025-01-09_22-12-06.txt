@@ -1,0 +1,46 @@
+/Users/josephtan/140e-dumb-autograder/repos/samgupta
+rm -f quine-gen quine-out.c quine.c quine *~
+gcc -Og -g -Wall quine-gen.c -o quine-gen
+--------------------------------------------
+checking that the quine generates itself
+
+1. Generating a quine
+./quine-gen < seed.c > quine.c
+gcc quine.c -o quine
+2. Using quine to generate itself
+./quine > quine-out.c
+3. Checking generated quine matches quine
+diff quine.c quine-out.c
+**** Success: Quine matches its output ***
+--------------------------------------------
+
+make -C ../step1 clean
+rm -f quine-gen quine-out.c quine.c quine *~
+make -C ../step2 clean
+rm -f  compiler-attacked login-attacked out login compiler trojan-compiler *.o a.out  *~ compiler-attacked.c login-attacked.c out.c temp-out.c
+rm -f  trojan-compiler2 *.o *~  cc-attacked cc-attacked2 temp-out.c out login-attacked.c login-attacked attack-quine.c
+make -C ../step1
+gcc -Og -g -Wall quine-gen.c -o quine-gen
+../step1/quine-gen  < attack-seed.c > attack-quine.c
+gcc -Og -g -Wall trojan-compiler2.c -o trojan-compiler2
+
+----------------------------------checking that the attack will generate itself
+./trojan-compiler2 ../step2/compiler.c -o cc-attacked
+./cc-attacked ../step2/compiler.c -o cc-attacked2
+success: trojan generated itself!
+
+
+----------------------------------checking that the login attack will work.
+
+----------------------------------checking that the login attack works and user 'ken' has a
+   login success without a password
+./cc-attacked2 ../step2/login.c -o login-attacked
+printf "ken\n" | ./login-attacked 
+user: successful login: <ken>
+success: login attack checked out!
+running check.sh
+Binary files cc-attacked and cc-attacked2 differ
+user: successful login: <ken>
+success: check passed!
+
+Return code: 0
