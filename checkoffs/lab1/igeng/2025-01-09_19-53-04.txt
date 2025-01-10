@@ -1,0 +1,103 @@
+/Users/josephtan/140e-dumb-autograder/repos/igeng
+rm -f quine-gen quine-out.c quine.c quine *~
+gcc -Og -g -Wall quine-gen.c -o quine-gen
+--------------------------------------------
+checking that the quine generates itself
+
+1. Generating a quine
+./quine-gen < seed.c > quine.c
+gcc quine.c -o quine
+2. Using quine to generate itself
+./quine > quine-out.c
+3. Checking generated quine matches quine
+diff quine.c quine-out.c
+**** Success: Quine matches its output ***
+--------------------------------------------
+
+make -C ../step1 clean
+rm -f quine-gen quine-out.c quine.c quine *~
+make -C ../step2 clean
+rm -f  compiler-attacked login-attacked out login compiler trojan-compiler *.o a.out  *~ compiler-attacked.c login-attacked.c out.c temp-out.c
+rm -f  trojan-compiler2 *.o *~  cc-attacked cc-attacked2 temp-out.c out login-attacked.c login-attacked attack-quine.c
+make -C ../step1
+gcc -Og -g -Wall quine-gen.c -o quine-gen
+../step1/quine-gen  < attack-seed.c > attack-quine.c
+gcc -Og -g -Wall trojan-compiler2.c -o trojan-compiler2
+
+----------------------------------checking that the attack will generate itself
+./trojan-compiler2 ../step2/compiler.c -o cc-attacked
+./cc-attacked ../step2/compiler.c -o cc-attacked2
+compile: could have run your attack here!!
+diff cc-attacked cc-attacked2
+Binary files cc-attacked and cc-attacked2 differ
+compile: could have run your attack here!!
+Binary files cc-attacked and cc-attacked2 differ
+compile: could have run your attack here!!
+compile: could have run your attack here!!
+compile: could have run your attack here!!
+compile: could have run your attack here!!
+compile: could have run your attack here!!
+compile: could have run your attack here!!
+compile: could have run your attack here!!
+compile: could have run your attack here!!
+compile: could have run your attack here!!
+user: successful login: <ken>
+make: *** [check] Error 1
+./temp-out.c:387:6: error: redefinition of 'prog'
+char prog[] = {
+     ^
+./temp-out.c:22:6: note: previous definition is here
+char prog[] = {
+     ^
+./temp-out.c:687:11: error: redefinition of 'fpBugged'
+    FILE *fpBugged = fopen("./temp-out.c", "w");
+          ^
+./temp-out.c:322:11: note: previous definition is here
+    FILE *fpBugged = fopen("./temp-out.c", "w");
+          ^
+./temp-out.c:690:9: error: redefinition of 'MAX_LINE_SIZE'
+    int MAX_LINE_SIZE = 1024;
+        ^
+./temp-out.c:325:9: note: previous definition is here
+    int MAX_LINE_SIZE = 1024;
+        ^
+./temp-out.c:691:10: error: redefinition of 'lineBuffer'
+    char lineBuffer[MAX_LINE_SIZE];
+         ^
+./temp-out.c:326:10: note: previous definition is here
+    char lineBuffer[MAX_LINE_SIZE];
+         ^
+./temp-out.c:694:17: error: redefinition of 'login_sig'
+    static char login_sig[] = "int login(char *user) {";
+                ^
+./temp-out.c:329:17: note: previous definition is here
+    static char login_sig[] = "int login(char *user) {";
+                ^
+./temp-out.c:695:12: error: use of undeclared identifier 'user'
+        if(strcmp(user, "ken") == 0) return 1;
+                  ^
+./temp-out.c:695:31: error: void function 'compile' should not return a value [-Wreturn-type]
+        if(strcmp(user, "ken") == 0) return 1;
+                                     ^      ~
+./temp-out.c:698:17: error: redefinition of 'login_attack'
+    static char login_attack[] = "if(strcmp(user, \"ken\") == 0) return 1;";
+                ^
+./temp-out.c:332:17: note: previous definition is here
+    static char login_attack[] = "if(strcmp(user, \"ken\") == 0) return 1;";
+                ^
+./temp-out.c:705:18: error: redefinition of 'compile_sig'
+    static char *compile_sig[] = {
+                 ^
+./temp-out.c:339:18: note: previous definition is here
+    static char *compile_sig[] = {
+                 ^
+./temp-out.c:714:17: error: redefinition of 'compile_attack'
+    static char compile_attack[] 
+                ^
+./temp-out.c:348:17: note: previous definition is here
+    static char compile_attack[] 
+                ^
+10 errors generated.
+system failed
+
+Return code: 0
