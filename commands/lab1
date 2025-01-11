@@ -7,5 +7,6 @@ make check
 cd ../step3 
 make clean 
 make check
-./check.sh
+echo "running check.sh"
+zsh check.sh
 
