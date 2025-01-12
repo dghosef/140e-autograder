@@ -63,16 +63,13 @@ def clone_repo(repo_url, username):
     # remove trailing slash if present
     if repo_url[-1] == "/":
         repo_url = repo_url[:-1]
-    # clone if `username` directory does not exist otherwise just pull latest changes
+    # Delete if the repo already exists
     if os.path.exists(repo_dir):
-        print(f"Pulling latest changes from repository: {repo_url}")
-        run_command_and_print("git pull", cwd=repo_dir)
-    else:
-        
-        print(f"Cloning repository: {repo_url}")
-        repo_name = repo_url.split("/")[-1].replace(".git", "")
-        # run git clone command but save into `username` directory
-        run_command_and_print(f"git clone {repo_url} {repo_dir}")
+        shutil.rmtree(repo_dir)
+    print(f"Cloning repository: {repo_url}")
+    repo_name = repo_url.split("/")[-1].replace(".git", "")
+    # run git clone command but save into `username` directory
+    run_command_and_print(f"git clone {repo_url} {repo_dir}")
     return username
 
 def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
@@ -99,10 +96,10 @@ def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
             f.write(f"\nReturn code: {returncode}\n")
 
     # Commit and push the output file
-    print("Committing and pushing the output file to student...")
-    run_command_and_print(f"git add {os.path.join(CHECKOFFS_DIR, output_file)}", cwd=repo_dir)
-    run_command_and_print(f'git commit -m "Add output file {output_file}"', cwd=repo_dir)
-    run_command_and_print("git push", cwd=repo_dir)
+    # print("Committing and pushing the output file to student...")
+    # run_command_and_print(f"git add {os.path.join(CHECKOFFS_DIR, output_file)}", cwd=repo_dir)
+    # run_command_and_print(f'git commit -m "Add output file {output_file}"', cwd=repo_dir)
+    # run_command_and_print("git push", cwd=repo_dir)
     print("Copying the output file to staff repo...")
     staff_output_file = os.path.join(staff_repo_dir, CHECKOFFS_DIR, command_name, sunet, f"{timestamp}.txt")
     shutil.copy(output_file, staff_output_file)
@@ -122,7 +119,10 @@ def run(message):
         return
     print(f"[Processor] Processing message: {sunet} {repo} {command}")
     repo_name = clone_repo(repo, sunet)
-    run_command_in_repo(os.path.join(cwd, REPO_DIR, repo_name), os.path.join(cwd, COMMANDS_DIR, command), sunet, command, cwd)
+    repo_path = os.path.join(cwd, REPO_DIR, repo_name)
+    # set CS140E_2025_PATH to the repo path
+    os.environ["CS140E_2025_PATH"] = repo_path  
+    run_command_in_repo(repo_path, os.path.join(cwd, COMMANDS_DIR, command), sunet, command, cwd)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
     
 

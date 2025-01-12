@@ -1,6 +1,7 @@
 # A few notes
 - This autograder is going to execute your code on my laptop. Security measures are a work in progress. Please don't do anything malicious.
 - The autograder will only work during class.
+- The autograder does not work on the stanford visitor wifi
 # Making a private repo instructions. If you know have an alternate way you'd like to do this, feel free to skip:
 - Go to github and make a new repo. *Make sure it's private*
 - Go to your cs140e-25win directory and run `git remote add submit <your repo url>`
