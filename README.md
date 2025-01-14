@@ -13,5 +13,5 @@
 - Modify the `sunet`, `repo`, and `lab` variables in `sender.py` accordingly
 - Make sure your repository is updated
 - From your `cs140e-25win` directory, run `git commit -am "minor" or equivalent` and then `git push submit main`
-- Run `python sender.py`. After about a minute, if you run `git pull`, you should see the output of the autograder in in your `checkoffs` directory
+- Run `python sender.py`. After about a minute, if you run `git pull`, you should see the output of the autograder in the `checkoffs` directory of the *autograder repo*
 - Ask Joe if it's not working
