@@ -15,3 +15,5 @@
 - From your `cs140e-25win` directory, run `git commit -am "minor" or equivalent` and then `git push submit main`
 - Run `python sender.py`. After about a minute, if you run `git pull`, you should see the output of the autograder in the `checkoffs` directory of the *autograder repo*
 - Ask Joe if it's not working
+# Checkoff Notes:
+- *Trusting Trust*: For trusting trust, as long as Ken successfully logs in at the end of the output, you are good. Don't worry about any compiler warnings or if you fail the diff
