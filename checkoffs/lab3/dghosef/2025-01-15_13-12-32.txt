@@ -1,0 +1,23 @@
+/Users/josephtan/140e-dumb-autograder/repos/dghosef
+CDing to lab
+running 1-fake-pi tests
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghoseflibpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghoseflibpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghoseflibpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c fake-pi.c -o objs/fake-pi.o
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghoseflibpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghoseflibpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghoseflibpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c fake-pi.c -o objs/fake-pi.o
+make: Nothing to be done for `runall'.
+===================================================
+PLEASE MAKE SURE THAT YOUR libpi/Makefile is using your gpio, not staff. We will manually check this
+The checkoff sheet will be updated by EOD Friday, but if you followed the README correctly and it worked on your local machine and the output looks reasonable here, you should be good
+===================================================
+fake-pi.c:47:10: fatal error: 'rpi.h' file not found
+#include "rpi.h"
+         ^~~~~~~
+1 error generated.
+make: *** [objs/fake-pi.o] Error 1
+fake-pi.c:47:10: fatal error: 'rpi.h' file not found
+#include "rpi.h"
+         ^~~~~~~
+1 error generated.
+make[1]: *** [objs/fake-pi.o] Error 1
+make: *** [../libpi-fake.a] Error 2
+
+Return code: 0
