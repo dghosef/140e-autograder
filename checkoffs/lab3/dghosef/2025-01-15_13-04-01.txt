@@ -1,0 +1,26 @@
+CDing to lab
+running 1-fake-pi tests
+make: Nothing to be done for `all'.
+===================================================
+Make sure the cksum emitted is correct. This is what we will check
+===================================================
+===================================================
+PLEASE MAKE SURE THAT YOUR libpi/Makefile is using your gpio, not staff. We will manually check this
+The checkoff sheet will be updated by EOD Friday, but if you followed the README correctly and it worked on your local machine and the output looks reasonable here, you should be good
+===================================================
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 2: cd: ./labs/3-cross-checking: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 4: cd: 1-fake-pi: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 6: cd: tests: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 7: wildcard: command not found
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 7: wildcard: command not found
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 7: wildcard: command not found
+make: *** No rule to make target `emit'.  Stop.
+make: *** No rule to make target `checkoff'.  Stop.
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 13: cd: 2-trace: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 14: cd: tests: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 15: wildcard: command not found
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 15: wildcard: command not found
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 15: wildcard: command not found
+make: *** No rule to make target `runall'.  Stop.
+
+Return code: 0
