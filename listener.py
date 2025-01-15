@@ -19,7 +19,7 @@ PORT = 8000
 REPO_DIR = "repos"
 CHECKOFFS_DIR = "checkoffs"
 COMMAND_TIMEOUT = 60  # seconds
-VALID_COMMANDS = ["test", "lab1"]
+VALID_COMMANDS = ['lab' + str(i) for i in range(30)]
 COMMANDS_DIR = "commands"
 def print_red(text):
     print(f"\033[91m{text}\033[00m")
