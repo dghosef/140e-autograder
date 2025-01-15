@@ -1,0 +1,39 @@
+/Users/josephtan/140e-dumb-autograder/repos/pura
+rm -f quine-gen quine-out.c quine.c quine *~
+gcc -Og -g -Wall quine-gen.c -o quine-gen
+--------------------------------------------
+checking that the quine generates itself
+
+1. Generating a quine
+./quine-gen < seed.c > quine.c
+gcc quine.c -o quine
+2. Using quine to generate itself
+./quine > quine-out.c
+3. Checking generated quine matches quine
+diff quine.c quine-out.c
+**** Success: Quine matches its output ***
+--------------------------------------------
+
+make -C ../step1 clean
+rm -f quine-gen quine-out.c quine.c quine *~
+make -C ../step2 clean
+rm -f  compiler-attacked login-attacked out login compiler trojan-compiler *.o a.out  *~ compiler-attacked.c login-attacked.c out.c temp-out.c
+rm -f  trojan-compiler2 *.o *~  cc-attacked cc-attacked2 temp-out.c out login-attacked.c login-attacked attack-quine.c
+running check.sh
+success: check passed!
+make: *** No rule to make target `trojan-compiler2.c', needed by `trojan-compiler2'.  Stop.
+check.sh:4: no such file or directory: ./trojan-compiler2
+check.sh:7: no such file or directory: ./cc-attacked
+diff: cc-attacked: No such file or directory
+check.sh:12: no such file or directory: ./cc-attacked2
+check.sh:13: no such file or directory: ./cc-attacked2
+check.sh:14: no such file or directory: ./cc-attacked2
+check.sh:15: no such file or directory: ./cc-attacked2
+check.sh:16: no such file or directory: ./cc-attacked2
+check.sh:17: no such file or directory: ./cc-attacked2
+check.sh:18: no such file or directory: ./cc-attacked2
+check.sh:19: no such file or directory: ./cc-attacked2
+check.sh:28: no such file or directory: ./cc-attacked2
+check.sh:29: no such file or directory: ./login-attacked
+
+Return code: 0
