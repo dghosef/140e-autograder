@@ -1,0 +1,16 @@
+/Users/josephtan/140e-dumb-autograder/repos/dghosef
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C labs clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libpi clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C labs all
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libpi all
+running loopback
+/Users/josephtan/140e-dumb-autograder/commands/lab2: line 3: cd: ./labs/2-gpio/code/: No such file or directory
+manifest.mk:32: /libpi/mk/Makefile.lib.template: No such file or directory
+make[1]: *** No rule to make target `/libpi/mk/Makefile.lib.template'.  Stop.
+make: *** [libpi] Error 2
+manifest.mk:32: /libpi/mk/Makefile.lib.template: No such file or directory
+make[1]: *** No rule to make target `/libpi/mk/Makefile.lib.template'.  Stop.
+make: *** [libpi] Error 2
+/Users/josephtan/140e-dumb-autograder/commands/lab2: line 8: pi-install: command not found
+
+Return code: 127
