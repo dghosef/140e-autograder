@@ -1,0 +1,3 @@
+/bin/sh: /Users/josephtan/140e-dumb-autograder/commands/lab3: Permission denied
+
+Return code: 126
