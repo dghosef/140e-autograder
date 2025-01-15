@@ -1,0 +1,17 @@
+/Users/josephtan/140e-dumb-autograder/repos/dghosef
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C labs clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libpi clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C labs all
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libpi all
+./4-loopback.c
+running loopback
+/Users/josephtan/140e-dumb-autograder/commands/lab2:cd:3: no such file or directory: ./labs/2-gpio/code/
+manifest.mk:32: /libpi/mk/Makefile.lib.template: No such file or directory
+make[1]: *** No rule to make target `/libpi/mk/Makefile.lib.template'.  Stop.
+make: *** [libpi] Error 2
+manifest.mk:32: /libpi/mk/Makefile.lib.template: No such file or directory
+make[1]: *** No rule to make target `/libpi/mk/Makefile.lib.template'.  Stop.
+make: *** [libpi] Error 2
+staff-find-ttyusb.c:find_ttyusb_helper:38:PANIC:did not find any tty in /dev: pi is not connected?
+
+Return code: 1
