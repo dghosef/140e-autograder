@@ -18,7 +18,7 @@ PORT = 8000
 # Autograder configuration
 REPO_DIR = "repos"
 CHECKOFFS_DIR = "checkoffs"
-COMMAND_TIMEOUT = 60  # seconds
+COMMAND_TIMEOUT = 10  # seconds
 VALID_COMMANDS = ['lab' + str(i) for i in range(30)]
 COMMANDS_DIR = "commands"
 def print_red(text):
@@ -122,6 +122,8 @@ def run(message):
     repo_path = os.path.join(cwd, REPO_DIR, repo_name)
     # set CS140E_2025_PATH to the repo path
     os.environ["CS140E_2025_PATH"] = repo_path  
+    # Also 2024 for Joe's testing
+    os.environ["CS140E_2024_PATH"] = repo_path  
     run_command_in_repo(repo_path, os.path.join(cwd, COMMANDS_DIR, command), sunet, command, cwd)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
     
@@ -142,9 +144,10 @@ def listener():
             print(f"[Listener] Connection established with {addr}")
             try:
                 message = conn.recv(1024).decode()
-                if message:
-                    print(f"[Listener] Message received: {message}")
+                if message and "github" in message:
                     message_queue.put(message)  # Add message to the queue
+                if message and "github" not in message:
+                    print("Bad message! Ask Joe if it was yours")
             except Exception as e:
                 print(f"[Listener] Error receiving message: {e}")
             finally:

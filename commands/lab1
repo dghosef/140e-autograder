@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 pwd
 cd ./labs/1-trusting-trust/code/step1 
 make clean 
