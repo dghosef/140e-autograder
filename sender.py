@@ -3,9 +3,9 @@ import socket
 # Message config
 sunet = 'dghosef'
 repo = 'https://github.com/dghosef/cs140e-22win/'
-lab = 'lab1'
+lab = 'lab2'
 # PLEASE DO NOT MODIFY BELOW THIS LINE
-assert lab in ['lab1']
+assert lab in ['lab' + str(i) for i in range(30)]
 message = f"{sunet} {repo} {lab}"
 assert ' ' not in sunet and ' ' not in repo and ' ' not in lab, "Invalid message format"
 # ngrok public address and port
