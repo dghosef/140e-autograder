@@ -1,0 +1,95 @@
+/Users/josephtan/140e-dumb-autograder/repos/nreinoza
+rm -f quine-gen quine-out.c quine.c quine *~
+gcc -Og -g -Wall quine-gen.c -o quine-gen
+--------------------------------------------
+checking that the quine generates itself
+
+1. Generating a quine
+./quine-gen < seed.c > quine.c
+gcc quine.c -o quine
+make -C ../step1 clean
+rm -f quine-gen quine-out.c quine.c quine *~
+make -C ../step2 clean
+rm -f  compiler-attacked login-attacked out login compiler trojan-compiler *.o a.out  *~ compiler-attacked.c login-attacked.c out.c temp-out.c
+rm -f  trojan-compiler2 *.o *~  cc-attacked cc-attacked2 temp-out.c out login-attacked.c login-attacked attack-quine.c
+make -C ../step1
+gcc -Og -g -Wall quine-gen.c -o quine-gen
+../step1/quine-gen  < attack-seed.c > attack-quine.c
+gcc -Og -g -Wall trojan-compiler2.c -o trojan-compiler2
+
+----------------------------------checking that the attack will generate itself
+./trojan-compiler2 ../step2/compiler.c -o cc-attacked
+running check.sh
+quine.c:231:14: error: expected "FILENAME" or <FILENAME>
+    #include attack.c
+             ^
+quine.c:247:20: error: initializer element is not a compile-time constant
+    FILE *f_orig = fopen("./temp-out.c", "r");
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+quine.c:248:22: error: initializer element is not a compile-time constant
+    FILE *f_trojan = fopen("temp-trojan.c", "w");
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+quine.c:253:5: error: while loop outside of a function
+    while ((read = getline(&line, &len, f_orig)) != -1) {
+    ^
+quine.c:264:5: error: type specifier missing, defaults to 'int'; ISO C99 and later do not support implicit int [-Wimplicit-int]
+    fclose(f_orig);
+    ^
+    int
+quine.c:264:12: error: a parameter list without types is only allowed in a function definition
+    fclose(f_orig);
+           ^
+quine.c:265:12: error: expected parameter declarator
+    remove("./temp-out.c");
+           ^
+quine.c:265:12: error: expected ')'
+quine.c:265:11: note: to match this '('
+    remove("./temp-out.c");
+          ^
+quine.c:265:5: error: type specifier missing, defaults to 'int'; ISO C99 and later do not support implicit int [-Wimplicit-int]
+    remove("./temp-out.c");
+    ^
+    int
+quine.c:265:5: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C2x, conflicting with a previous declaration [-Wdeprecated-non-prototype]
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdio.h:171:6: note: conflicting prototype is here
+int      remove(const char *);
+         ^
+quine.c:266:5: error: type specifier missing, defaults to 'int'; ISO C99 and later do not support implicit int [-Wimplicit-int]
+    fclose(f_trojan);
+    ^
+    int
+quine.c:266:12: error: a parameter list without types is only allowed in a function definition
+    fclose(f_trojan);
+           ^
+quine.c:267:12: error: expected parameter declarator
+    rename("./temp-trojan.c", "./temp-out.c");
+           ^
+quine.c:267:12: error: expected ')'
+quine.c:267:11: note: to match this '('
+    rename("./temp-trojan.c", "./temp-out.c");
+          ^
+quine.c:267:5: error: type specifier missing, defaults to 'int'; ISO C99 and later do not support implicit int [-Wimplicit-int]
+    rename("./temp-trojan.c", "./temp-out.c");
+    ^
+    int
+quine.c:267:5: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C2x, conflicting with a previous declaration [-Wdeprecated-non-prototype]
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdio.h:172:6: note: conflicting prototype is here
+int      rename (const char *__old, const char *__new);
+         ^
+2 warnings and 14 errors generated.
+make: *** [check] Error 1
+make: *** [check] Bus error: 10
+check.sh:7: no such file or directory: ./cc-attacked
+diff: cc-attacked: No such file or directory
+check.sh:12: no such file or directory: ./cc-attacked2
+check.sh:13: no such file or directory: ./cc-attacked2
+check.sh:14: no such file or directory: ./cc-attacked2
+check.sh:15: no such file or directory: ./cc-attacked2
+check.sh:16: no such file or directory: ./cc-attacked2
+check.sh:17: no such file or directory: ./cc-attacked2
+check.sh:18: no such file or directory: ./cc-attacked2
+check.sh:19: no such file or directory: ./cc-attacked2
+check.sh:28: no such file or directory: ./cc-attacked2
+check.sh:29: no such file or directory: ./login-attacked
+
+Return code: 127
