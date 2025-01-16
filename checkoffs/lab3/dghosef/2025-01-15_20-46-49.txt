@@ -1,0 +1,13 @@
+CDing to lab
+running 1-fake-pi tests
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c fake-pi.c -o objs/fake-pi.o
+make: Nothing to be done for `runall'.
+===================================================
+PLEASE MAKE SURE THAT YOUR libpi/Makefile is using your gpio, not staff. We will manually check this
+The checkoff sheet will be updated by EOD Friday, but if you followed the README correctly and it worked on your local machine and the output looks reasonable here, you should be good
+===================================================
+make: *** No rule to make target `/Users/dghosef/stanford/cs140e-24win/libpi/libc/printk.c', needed by `objs/printk.o'.  Stop.
+make[1]: *** No rule to make target `/Users/dghosef/stanford/cs140e-24win/libpi/libc/printk.c', needed by `objs/printk.o'.  Stop.
+make: *** [../libpi-fake.a] Error 2
+
+Return code: 0
