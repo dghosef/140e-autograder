@@ -1,0 +1,9 @@
+/Users/josephtan/140e-dumb-autograder/repos/naomicyb
+./4-loopback.c
+running loopback
+/Users/josephtan/140e-dumb-autograder/commands/lab2:cd:3: no such file or directory: ./labs/2-gpio/code/
+make: *** No rule to make target `clean'.  Stop.
+make: *** No targets specified and no makefile found.  Stop.
+staff-find-ttyusb.c:find_ttyusb_helper:38:PANIC:did not find any tty in /dev: pi is not connected?
+
+Return code: 1
