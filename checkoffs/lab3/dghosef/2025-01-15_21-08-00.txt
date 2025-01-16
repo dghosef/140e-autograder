@@ -1,0 +1,1516 @@
+CDing to lab
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libunix clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libpi clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C labs clean
+"Setting <START> to ./objs/staff-start.o"
+"Setting <START> to ./objs/staff-start.o"
+rm -f *~ *.bak
+running 1-fake-pi tests
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c fake-pi.c -o objs/fake-pi.o
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c fake-random.c -o objs/fake-random.o
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c pi-random.c -o objs/pi-random.o
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c /Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc/printk.c -o objs/printk.o
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c /Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc/putk.c -o objs/putk.o
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c /Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc/putchar.c -o objs/putchar.o
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c /Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src/clean-reboot.c -o objs/clean-reboot.o
+cc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef/libpi/staff-src -I. -Og -Wall -Wno-unused-function -Wno-unused-variable -MMD -MP -DRPI_UNIX -c gpio.c -o objs/gpio.o
+ar cr libpi-fake.a ./objs/fake-pi.o ./objs/fake-random.o ./objs/pi-random.o ./objs/printk.o ./objs/putk.o ./objs/putchar.o ./objs/clean-reboot.o ./objs/gpio.o
+rm -rf *.fake *~ *.o Makefile.bak  
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-read-17.c  -o 0-gpio-read-17.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-read-20.c  -o 0-gpio-read-20.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-read-21.c  -o 0-gpio-read-21.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-read-7.c  -o 0-gpio-read-7.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-set-input-17.c  -o 0-gpio-set-input-17.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-set-input-20.c  -o 0-gpio-set-input-20.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-set-input-21.c  -o 0-gpio-set-input-21.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-set-input-7.c  -o 0-gpio-set-input-7.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-write-17.c  -o 0-gpio-write-17.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 0-gpio-write-21.c  -o 0-gpio-write-21.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 1-gpio-read.c  -o 1-gpio-read.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 1-gpio-set-input.c  -o 1-gpio-set-input.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 1-gpio-set-off.c  -o 1-gpio-set-off.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 1-gpio-set-on.c  -o 1-gpio-set-on.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 1-gpio-set-output.c  -o 1-gpio-set-output.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 1-gpio-write.c  -o 1-gpio-write.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 2-set-input-N.c  -o 2-set-input-N.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 2-set-off-N.c  -o 2-set-off-N.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 2-set-on-N.c  -o 2-set-on-N.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 2-set-output.c  -o 2-set-output.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 5-gpio-n-set-func.c  -o 5-gpio-n-set-func.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 5-gpio-set-func.c  -o 5-gpio-set-func.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 5-set-function-N.c  -o 5-set-function-N.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable 5-set-pin-func.c  -o 5-set-pin-func.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable prog-1-blink.c  -o prog-1-blink.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable prog-2-blink.c  -o prog-2-blink.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable prog-3-input.c  -o prog-3-input.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable act-set-output.c  -o act-set-output.fake ../libpi-fake.a
+cc -I../  -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-src -O -Wall -Wno-unused-function -Wno-unused-variable act-write.c  -o act-write.fake ../libpi-fake.a
+
+-------------------<start>---------------------------------------
+./0-gpio-read-17.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to read 17
+TRACE:1: GET32(0x20200034) = 0x625558ec
+TRACE:2: DEV_VAL32=0x0
+TRACE: pi exited cleanly: 8 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./0-gpio-read-20.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to read 20
+TRACE:1: GET32(0x20200034) = 0x625558ec
+TRACE:2: DEV_VAL32=0x1
+TRACE: pi exited cleanly: 8 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./0-gpio-read-21.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to read 21
+TRACE:1: GET32(0x20200034) = 0x625558ec
+TRACE:2: DEV_VAL32=0x0
+TRACE: pi exited cleanly: 8 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./0-gpio-read-7.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to read 7
+TRACE:1: GET32(0x20200034) = 0x625558ec
+TRACE:2: DEV_VAL32=0x1
+TRACE: pi exited cleanly: 8 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./0-gpio-set-input-17.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+setting pin 17 as an input
+TRACE:1: GET32(0x20200004) = 0x643c9869
+TRACE:2: PUT32(0x20200004) = 0x641c9869
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./0-gpio-set-input-20.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+setting pin 20 as an input
+TRACE:1: GET32(0x20200008) = 0x66334873
+TRACE:2: PUT32(0x20200008) = 0x66334870
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./0-gpio-set-input-21.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+setting pin 21 as an input
+TRACE:1: GET32(0x20200008) = 0x66334873
+TRACE:2: PUT32(0x20200008) = 0x66334843
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./0-gpio-set-input-7.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+setting pin 7 as an input
+TRACE:1: GET32(0x20200000) = 0x327b23c6
+TRACE:2: PUT32(0x20200000) = 0x321b23c6
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./0-gpio-write-17.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to turn pin=17 on
+TRACE:1: PUT32(0x2020001c) = 0x20000
+about to turn pin=17 off
+TRACE:2: PUT32(0x20200028) = 0x20000
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./0-gpio-write-21.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to turn pin=21 on
+TRACE:1: PUT32(0x2020001c) = 0x200000
+about to turn pin=21 off
+TRACE:2: PUT32(0x20200028) = 0x200000
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./1-gpio-read.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to do a single read from pins [0..32)
+reading from pin 0
+TRACE:1: GET32(0x20200034) = 0x625558ec
+TRACE:2: DEV_VAL32=0x0
+reading from pin 1
+TRACE:3: GET32(0x20200034) = 0x238e1f29
+TRACE:4: DEV_VAL32=0x0
+reading from pin 2
+TRACE:5: GET32(0x20200034) = 0x46e87ccd
+TRACE:6: DEV_VAL32=0x1
+reading from pin 3
+TRACE:7: GET32(0x20200034) = 0x3d1b58ba
+TRACE:8: DEV_VAL32=0x1
+reading from pin 4
+TRACE:9: GET32(0x20200034) = 0x507ed7ab
+TRACE:10: DEV_VAL32=0x0
+reading from pin 5
+TRACE:11: GET32(0x20200034) = 0x2eb141f2
+TRACE:12: DEV_VAL32=0x1
+reading from pin 6
+TRACE:13: GET32(0x20200034) = 0x41b71efb
+TRACE:14: DEV_VAL32=0x1
+reading from pin 7
+TRACE:15: GET32(0x20200034) = 0x79e2a9e3
+TRACE:16: DEV_VAL32=0x1
+reading from pin 8
+TRACE:17: GET32(0x20200034) = 0x7545e146
+TRACE:18: DEV_VAL32=0x1
+reading from pin 9
+TRACE:19: GET32(0x20200034) = 0x515f007c
+TRACE:20: DEV_VAL32=0x0
+reading from pin 10
+TRACE:21: GET32(0x20200034) = 0x5bd062c2
+TRACE:22: DEV_VAL32=0x0
+reading from pin 11
+TRACE:23: GET32(0x20200034) = 0x12200854
+TRACE:24: DEV_VAL32=0x1
+reading from pin 12
+TRACE:25: GET32(0x20200034) = 0x4db127f8
+TRACE:26: DEV_VAL32=0x0
+reading from pin 13
+TRACE:27: GET32(0x20200034) = 0x216231b
+TRACE:28: DEV_VAL32=0x1
+reading from pin 14
+TRACE:29: GET32(0x20200034) = 0x1f16e9e8
+TRACE:30: DEV_VAL32=0x1
+reading from pin 15
+TRACE:31: GET32(0x20200034) = 0x1190cde7
+TRACE:32: DEV_VAL32=0x1
+reading from pin 16
+TRACE:33: GET32(0x20200034) = 0x66ef438d
+TRACE:34: DEV_VAL32=0x1
+reading from pin 17
+TRACE:35: GET32(0x20200034) = 0x140e0f76
+TRACE:36: DEV_VAL32=0x1
+reading from pin 18
+TRACE:37: GET32(0x20200034) = 0x3352255a
+TRACE:38: DEV_VAL32=0x0
+reading from pin 19
+TRACE:39: GET32(0x20200034) = 0x109cf92e
+TRACE:40: DEV_VAL32=0x1
+reading from pin 20
+TRACE:41: GET32(0x20200034) = 0xded7263
+TRACE:42: DEV_VAL32=0x0
+reading from pin 21
+TRACE:43: GET32(0x20200034) = 0x7fdcc233
+TRACE:44: DEV_VAL32=0x0
+reading from pin 22
+TRACE:45: GET32(0x20200034) = 0x1befd79f
+TRACE:46: DEV_VAL32=0x1
+reading from pin 23
+TRACE:47: GET32(0x20200034) = 0x41a7c4c9
+TRACE:48: DEV_VAL32=0x1
+reading from pin 24
+TRACE:49: GET32(0x20200034) = 0x6b68079a
+TRACE:50: DEV_VAL32=0x1
+reading from pin 25
+TRACE:51: GET32(0x20200034) = 0x4e6afb66
+TRACE:52: DEV_VAL32=0x1
+reading from pin 26
+TRACE:53: GET32(0x20200034) = 0x25e45d32
+TRACE:54: DEV_VAL32=0x1
+reading from pin 27
+TRACE:55: GET32(0x20200034) = 0x519b500d
+TRACE:56: DEV_VAL32=0x0
+reading from pin 28
+TRACE:57: GET32(0x20200034) = 0x431bd7b7
+TRACE:58: DEV_VAL32=0x0
+reading from pin 29
+TRACE:59: GET32(0x20200034) = 0x3f2dba31
+TRACE:60: DEV_VAL32=0x1
+reading from pin 30
+TRACE:61: GET32(0x20200034) = 0x7c83e458
+TRACE:62: DEV_VAL32=0x1
+reading from pin 31
+TRACE:63: GET32(0x20200034) = 0x257130a3
+TRACE:64: DEV_VAL32=0x0
+TRACE: pi exited cleanly: 39 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./1-gpio-set-input.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+setting pin 0 as input
+TRACE:1: GET32(0x20200008) = 0x66334873
+TRACE:2: PUT32(0x20200008) = 0x66334870
+setting pin 1 as input
+TRACE:3: GET32(0x20200008) = 0x66334870
+TRACE:4: PUT32(0x20200008) = 0x66334870
+setting pin 2 as input
+TRACE:5: GET32(0x20200008) = 0x66334870
+TRACE:6: PUT32(0x20200008) = 0x66334870
+setting pin 3 as input
+TRACE:7: GET32(0x20200008) = 0x66334870
+TRACE:8: PUT32(0x20200008) = 0x66334870
+setting pin 4 as input
+TRACE:9: GET32(0x20200008) = 0x66334870
+TRACE:10: PUT32(0x20200008) = 0x66334870
+setting pin 5 as input
+TRACE:11: GET32(0x20200008) = 0x66334870
+TRACE:12: PUT32(0x20200008) = 0x66334870
+setting pin 6 as input
+TRACE:13: GET32(0x20200008) = 0x66334870
+TRACE:14: PUT32(0x20200008) = 0x66334870
+setting pin 7 as input
+TRACE:15: GET32(0x20200008) = 0x66334870
+TRACE:16: PUT32(0x20200008) = 0x66334870
+setting pin 8 as input
+TRACE:17: GET32(0x20200008) = 0x66334870
+TRACE:18: PUT32(0x20200008) = 0x66334870
+setting pin 9 as input
+TRACE:19: GET32(0x20200008) = 0x66334870
+TRACE:20: PUT32(0x20200008) = 0x66334870
+setting pin 10 as input
+TRACE:21: GET32(0x20200008) = 0x66334870
+TRACE:22: PUT32(0x20200008) = 0x66334870
+setting pin 11 as input
+TRACE:23: GET32(0x20200008) = 0x66334870
+TRACE:24: PUT32(0x20200008) = 0x66334870
+setting pin 12 as input
+TRACE:25: GET32(0x20200008) = 0x66334870
+TRACE:26: PUT32(0x20200008) = 0x66334870
+setting pin 13 as input
+TRACE:27: GET32(0x20200008) = 0x66334870
+TRACE:28: PUT32(0x20200008) = 0x66334870
+setting pin 14 as input
+TRACE:29: GET32(0x20200008) = 0x66334870
+TRACE:30: PUT32(0x20200008) = 0x66334870
+setting pin 15 as input
+TRACE:31: GET32(0x20200008) = 0x66334870
+TRACE:32: PUT32(0x20200008) = 0x66334870
+setting pin 16 as input
+TRACE:33: GET32(0x20200008) = 0x66334870
+TRACE:34: PUT32(0x20200008) = 0x66334870
+setting pin 17 as input
+TRACE:35: GET32(0x20200008) = 0x66334870
+TRACE:36: PUT32(0x20200008) = 0x66334870
+setting pin 18 as input
+TRACE:37: GET32(0x20200008) = 0x66334870
+TRACE:38: PUT32(0x20200008) = 0x66334870
+setting pin 19 as input
+TRACE:39: GET32(0x20200008) = 0x66334870
+TRACE:40: PUT32(0x20200008) = 0x66334870
+setting pin 20 as input
+TRACE:41: GET32(0x20200008) = 0x66334870
+TRACE:42: PUT32(0x20200008) = 0x66334870
+setting pin 21 as input
+TRACE:43: GET32(0x20200008) = 0x66334870
+TRACE:44: PUT32(0x20200008) = 0x66334870
+setting pin 22 as input
+TRACE:45: GET32(0x20200008) = 0x66334870
+TRACE:46: PUT32(0x20200008) = 0x66334870
+setting pin 23 as input
+TRACE:47: GET32(0x20200008) = 0x66334870
+TRACE:48: PUT32(0x20200008) = 0x66334870
+setting pin 24 as input
+TRACE:49: GET32(0x20200008) = 0x66334870
+TRACE:50: PUT32(0x20200008) = 0x66334870
+setting pin 25 as input
+TRACE:51: GET32(0x20200008) = 0x66334870
+TRACE:52: PUT32(0x20200008) = 0x66334870
+setting pin 26 as input
+TRACE:53: GET32(0x20200008) = 0x66334870
+TRACE:54: PUT32(0x20200008) = 0x66334870
+setting pin 27 as input
+TRACE:55: GET32(0x20200008) = 0x66334870
+TRACE:56: PUT32(0x20200008) = 0x66334870
+setting pin 28 as input
+TRACE:57: GET32(0x20200008) = 0x66334870
+TRACE:58: PUT32(0x20200008) = 0x66334870
+setting pin 29 as input
+TRACE:59: GET32(0x20200008) = 0x66334870
+TRACE:60: PUT32(0x20200008) = 0x66334870
+setting pin 30 as input
+TRACE:61: GET32(0x20200008) = 0x66334870
+TRACE:62: PUT32(0x20200008) = 0x66334870
+setting pin 31 as input
+TRACE:63: GET32(0x20200008) = 0x66334870
+TRACE:64: PUT32(0x20200008) = 0x66334870
+setting pin 0 as output
+TRACE:65: GET32(0x20200008) = 0x66334870
+TRACE:66: PUT32(0x20200008) = 0x66334871
+setting pin 1 as output
+TRACE:67: GET32(0x20200008) = 0x66334871
+TRACE:68: PUT32(0x20200008) = 0x66334871
+setting pin 2 as output
+TRACE:69: GET32(0x20200008) = 0x66334871
+TRACE:70: PUT32(0x20200008) = 0x66334871
+setting pin 3 as output
+TRACE:71: GET32(0x20200008) = 0x66334871
+TRACE:72: PUT32(0x20200008) = 0x66334871
+setting pin 4 as output
+TRACE:73: GET32(0x20200008) = 0x66334871
+TRACE:74: PUT32(0x20200008) = 0x66334871
+setting pin 5 as output
+TRACE:75: GET32(0x20200008) = 0x66334871
+TRACE:76: PUT32(0x20200008) = 0x66334871
+setting pin 6 as output
+TRACE:77: GET32(0x20200008) = 0x66334871
+TRACE:78: PUT32(0x20200008) = 0x66334871
+setting pin 7 as output
+TRACE:79: GET32(0x20200008) = 0x66334871
+TRACE:80: PUT32(0x20200008) = 0x66334871
+setting pin 8 as output
+TRACE:81: GET32(0x20200008) = 0x66334871
+TRACE:82: PUT32(0x20200008) = 0x66334871
+setting pin 9 as output
+TRACE:83: GET32(0x20200008) = 0x66334871
+TRACE:84: PUT32(0x20200008) = 0x66334871
+setting pin 10 as output
+TRACE:85: GET32(0x20200008) = 0x66334871
+TRACE:86: PUT32(0x20200008) = 0x66334871
+setting pin 11 as output
+TRACE:87: GET32(0x20200008) = 0x66334871
+TRACE:88: PUT32(0x20200008) = 0x66334871
+setting pin 12 as output
+TRACE:89: GET32(0x20200008) = 0x66334871
+TRACE:90: PUT32(0x20200008) = 0x66334871
+setting pin 13 as output
+TRACE:91: GET32(0x20200008) = 0x66334871
+TRACE:92: PUT32(0x20200008) = 0x66334871
+setting pin 14 as output
+TRACE:93: GET32(0x20200008) = 0x66334871
+TRACE:94: PUT32(0x20200008) = 0x66334871
+setting pin 15 as output
+TRACE:95: GET32(0x20200008) = 0x66334871
+TRACE:96: PUT32(0x20200008) = 0x66334871
+setting pin 16 as output
+TRACE:97: GET32(0x20200008) = 0x66334871
+TRACE:98: PUT32(0x20200008) = 0x66334871
+setting pin 17 as output
+TRACE:99: GET32(0x20200008) = 0x66334871
+TRACE:100: PUT32(0x20200008) = 0x66334871
+setting pin 18 as output
+TRACE:101: GET32(0x20200008) = 0x66334871
+TRACE:102: PUT32(0x20200008) = 0x66334871
+setting pin 19 as output
+TRACE:103: GET32(0x20200008) = 0x66334871
+TRACE:104: PUT32(0x20200008) = 0x66334871
+setting pin 20 as output
+TRACE:105: GET32(0x20200008) = 0x66334871
+TRACE:106: PUT32(0x20200008) = 0x66334871
+setting pin 21 as output
+TRACE:107: GET32(0x20200008) = 0x66334871
+TRACE:108: PUT32(0x20200008) = 0x66334871
+setting pin 22 as output
+TRACE:109: GET32(0x20200008) = 0x66334871
+TRACE:110: PUT32(0x20200008) = 0x66334871
+setting pin 23 as output
+TRACE:111: GET32(0x20200008) = 0x66334871
+TRACE:112: PUT32(0x20200008) = 0x66334871
+setting pin 24 as output
+TRACE:113: GET32(0x20200008) = 0x66334871
+TRACE:114: PUT32(0x20200008) = 0x66334871
+setting pin 25 as output
+TRACE:115: GET32(0x20200008) = 0x66334871
+TRACE:116: PUT32(0x20200008) = 0x66334871
+setting pin 26 as output
+TRACE:117: GET32(0x20200008) = 0x66334871
+TRACE:118: PUT32(0x20200008) = 0x66334871
+setting pin 27 as output
+TRACE:119: GET32(0x20200008) = 0x66334871
+TRACE:120: PUT32(0x20200008) = 0x66334871
+setting pin 28 as output
+TRACE:121: GET32(0x20200008) = 0x66334871
+TRACE:122: PUT32(0x20200008) = 0x66334871
+setting pin 29 as output
+TRACE:123: GET32(0x20200008) = 0x66334871
+TRACE:124: PUT32(0x20200008) = 0x66334871
+setting pin 30 as output
+TRACE:125: GET32(0x20200008) = 0x66334871
+TRACE:126: PUT32(0x20200008) = 0x66334871
+setting pin 31 as output
+TRACE:127: GET32(0x20200008) = 0x66334871
+TRACE:128: PUT32(0x20200008) = 0x66334871
+TRACE: exiting after 129 trace statements
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./1-gpio-set-off.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+TRACE:1: PUT32(0x20200028) = 0x100000
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./1-gpio-set-on.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+TRACE:1: PUT32(0x2020001c) = 0x100000
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./1-gpio-set-output.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+TRACE:1: GET32(0x20200008) = 0x66334873
+TRACE:2: PUT32(0x20200008) = 0x66334871
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./1-gpio-write.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to turn pins [0..32) on
+turning pin 0 on
+TRACE:1: PUT32(0x2020001c) = 0x1
+turning pin 1 on
+TRACE:2: PUT32(0x2020001c) = 0x2
+turning pin 2 on
+TRACE:3: PUT32(0x2020001c) = 0x4
+turning pin 3 on
+TRACE:4: PUT32(0x2020001c) = 0x8
+turning pin 4 on
+TRACE:5: PUT32(0x2020001c) = 0x10
+turning pin 5 on
+TRACE:6: PUT32(0x2020001c) = 0x20
+turning pin 6 on
+TRACE:7: PUT32(0x2020001c) = 0x40
+turning pin 7 on
+TRACE:8: PUT32(0x2020001c) = 0x80
+turning pin 8 on
+TRACE:9: PUT32(0x2020001c) = 0x100
+turning pin 9 on
+TRACE:10: PUT32(0x2020001c) = 0x200
+turning pin 10 on
+TRACE:11: PUT32(0x2020001c) = 0x400
+turning pin 11 on
+TRACE:12: PUT32(0x2020001c) = 0x800
+turning pin 12 on
+TRACE:13: PUT32(0x2020001c) = 0x1000
+turning pin 13 on
+TRACE:14: PUT32(0x2020001c) = 0x2000
+turning pin 14 on
+TRACE:15: PUT32(0x2020001c) = 0x4000
+turning pin 15 on
+TRACE:16: PUT32(0x2020001c) = 0x8000
+turning pin 16 on
+TRACE:17: PUT32(0x2020001c) = 0x10000
+turning pin 17 on
+TRACE:18: PUT32(0x2020001c) = 0x20000
+turning pin 18 on
+TRACE:19: PUT32(0x2020001c) = 0x40000
+turning pin 19 on
+TRACE:20: PUT32(0x2020001c) = 0x80000
+turning pin 20 on
+TRACE:21: PUT32(0x2020001c) = 0x100000
+turning pin 21 on
+TRACE:22: PUT32(0x2020001c) = 0x200000
+turning pin 22 on
+TRACE:23: PUT32(0x2020001c) = 0x400000
+turning pin 23 on
+TRACE:24: PUT32(0x2020001c) = 0x800000
+turning pin 24 on
+TRACE:25: PUT32(0x2020001c) = 0x1000000
+turning pin 25 on
+TRACE:26: PUT32(0x2020001c) = 0x2000000
+turning pin 26 on
+TRACE:27: PUT32(0x2020001c) = 0x4000000
+turning pin 27 on
+TRACE:28: PUT32(0x2020001c) = 0x8000000
+turning pin 28 on
+TRACE:29: PUT32(0x2020001c) = 0x10000000
+turning pin 29 on
+TRACE:30: PUT32(0x2020001c) = 0x20000000
+turning pin 30 on
+TRACE:31: PUT32(0x2020001c) = 0x40000000
+turning pin 31 on
+TRACE:32: PUT32(0x2020001c) = 0x80000000
+about to turn pins [0..32) off
+turning pin 0 off
+TRACE:33: PUT32(0x20200028) = 0x1
+turning pin 1 off
+TRACE:34: PUT32(0x20200028) = 0x2
+turning pin 2 off
+TRACE:35: PUT32(0x20200028) = 0x4
+turning pin 3 off
+TRACE:36: PUT32(0x20200028) = 0x8
+turning pin 4 off
+TRACE:37: PUT32(0x20200028) = 0x10
+turning pin 5 off
+TRACE:38: PUT32(0x20200028) = 0x20
+turning pin 6 off
+TRACE:39: PUT32(0x20200028) = 0x40
+turning pin 7 off
+TRACE:40: PUT32(0x20200028) = 0x80
+turning pin 8 off
+TRACE:41: PUT32(0x20200028) = 0x100
+turning pin 9 off
+TRACE:42: PUT32(0x20200028) = 0x200
+turning pin 10 off
+TRACE:43: PUT32(0x20200028) = 0x400
+turning pin 11 off
+TRACE:44: PUT32(0x20200028) = 0x800
+turning pin 12 off
+TRACE:45: PUT32(0x20200028) = 0x1000
+turning pin 13 off
+TRACE:46: PUT32(0x20200028) = 0x2000
+turning pin 14 off
+TRACE:47: PUT32(0x20200028) = 0x4000
+turning pin 15 off
+TRACE:48: PUT32(0x20200028) = 0x8000
+turning pin 16 off
+TRACE:49: PUT32(0x20200028) = 0x10000
+turning pin 17 off
+TRACE:50: PUT32(0x20200028) = 0x20000
+turning pin 18 off
+TRACE:51: PUT32(0x20200028) = 0x40000
+turning pin 19 off
+TRACE:52: PUT32(0x20200028) = 0x80000
+turning pin 20 off
+TRACE:53: PUT32(0x20200028) = 0x100000
+turning pin 21 off
+TRACE:54: PUT32(0x20200028) = 0x200000
+turning pin 22 off
+TRACE:55: PUT32(0x20200028) = 0x400000
+turning pin 23 off
+TRACE:56: PUT32(0x20200028) = 0x800000
+turning pin 24 off
+TRACE:57: PUT32(0x20200028) = 0x1000000
+turning pin 25 off
+TRACE:58: PUT32(0x20200028) = 0x2000000
+turning pin 26 off
+TRACE:59: PUT32(0x20200028) = 0x4000000
+turning pin 27 off
+TRACE:60: PUT32(0x20200028) = 0x8000000
+turning pin 28 off
+TRACE:61: PUT32(0x20200028) = 0x10000000
+turning pin 29 off
+TRACE:62: PUT32(0x20200028) = 0x20000000
+turning pin 30 off
+TRACE:63: PUT32(0x20200028) = 0x40000000
+turning pin 31 off
+TRACE:64: PUT32(0x20200028) = 0x80000000
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./2-set-input-N.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+testing: <test_gpio_set_input>
+TRACE:1: GET32(0x20200000) = 0x327b23c6
+TRACE:2: PUT32(0x20200000) = 0x327b23c0
+TRACE:3: GET32(0x20200000) = 0x327b23c0
+TRACE:4: PUT32(0x20200000) = 0x327b23c0
+TRACE:5: GET32(0x20200000) = 0x327b23c0
+TRACE:6: PUT32(0x20200000) = 0x327b2200
+TRACE:7: GET32(0x20200000) = 0x327b2200
+TRACE:8: PUT32(0x20200000) = 0x327b2000
+TRACE:9: GET32(0x20200000) = 0x327b2000
+TRACE:10: PUT32(0x20200000) = 0x327b0000
+TRACE:11: GET32(0x20200000) = 0x327b0000
+TRACE:12: PUT32(0x20200000) = 0x32780000
+TRACE:13: GET32(0x20200000) = 0x32780000
+TRACE:14: PUT32(0x20200000) = 0x32600000
+TRACE:15: GET32(0x20200000) = 0x32600000
+TRACE:16: PUT32(0x20200000) = 0x32000000
+TRACE:17: GET32(0x20200000) = 0x32000000
+TRACE:18: PUT32(0x20200000) = 0x30000000
+TRACE:19: GET32(0x20200000) = 0x30000000
+TRACE:20: PUT32(0x20200000) = 0x0
+TRACE:21: GET32(0x20200004) = 0x643c9869
+TRACE:22: PUT32(0x20200004) = 0x643c9868
+TRACE:23: GET32(0x20200004) = 0x643c9868
+TRACE:24: PUT32(0x20200004) = 0x643c9840
+TRACE:25: GET32(0x20200004) = 0x643c9840
+TRACE:26: PUT32(0x20200004) = 0x643c9800
+TRACE:27: GET32(0x20200004) = 0x643c9800
+TRACE:28: PUT32(0x20200004) = 0x643c9000
+TRACE:29: GET32(0x20200004) = 0x643c9000
+TRACE:30: PUT32(0x20200004) = 0x643c8000
+TRACE:31: GET32(0x20200004) = 0x643c8000
+TRACE:32: PUT32(0x20200004) = 0x643c0000
+TRACE:33: GET32(0x20200004) = 0x643c0000
+TRACE:34: PUT32(0x20200004) = 0x64200000
+TRACE:35: GET32(0x20200004) = 0x64200000
+TRACE:36: PUT32(0x20200004) = 0x64000000
+TRACE:37: GET32(0x20200004) = 0x64000000
+TRACE:38: PUT32(0x20200004) = 0x60000000
+TRACE:39: GET32(0x20200004) = 0x60000000
+TRACE:40: PUT32(0x20200004) = 0x40000000
+TRACE:41: GET32(0x20200008) = 0x66334873
+TRACE:42: PUT32(0x20200008) = 0x66334870
+TRACE:43: GET32(0x20200008) = 0x66334870
+TRACE:44: PUT32(0x20200008) = 0x66334840
+TRACE:45: GET32(0x20200008) = 0x66334840
+TRACE:46: PUT32(0x20200008) = 0x66334800
+TRACE:47: GET32(0x20200008) = 0x66334800
+TRACE:48: PUT32(0x20200008) = 0x66334000
+TRACE:49: GET32(0x20200008) = 0x66334000
+TRACE:50: PUT32(0x20200008) = 0x66330000
+TRACE:51: GET32(0x20200008) = 0x66330000
+TRACE:52: PUT32(0x20200008) = 0x66300000
+TRACE:53: GET32(0x20200008) = 0x66300000
+TRACE:54: PUT32(0x20200008) = 0x66200000
+TRACE:55: GET32(0x20200008) = 0x66200000
+TRACE:56: PUT32(0x20200008) = 0x66000000
+TRACE:57: GET32(0x20200008) = 0x66000000
+TRACE:58: PUT32(0x20200008) = 0x60000000
+TRACE:59: GET32(0x20200008) = 0x60000000
+TRACE:60: PUT32(0x20200008) = 0x40000000
+TRACE:61: GET32(0x2020000c) = 0x74b0dc51
+TRACE:62: PUT32(0x2020000c) = 0x74b0dc50
+TRACE:63: GET32(0x2020000c) = 0x74b0dc50
+TRACE:64: PUT32(0x2020000c) = 0x74b0dc40
+TRACE: pi exited cleanly: 135 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./2-set-off-N.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+testing: <test_gpio_set_off>
+TRACE:1: PUT32(0x20200028) = 0x1
+TRACE:2: PUT32(0x20200028) = 0x2
+TRACE:3: PUT32(0x20200028) = 0x4
+TRACE:4: PUT32(0x20200028) = 0x8
+TRACE:5: PUT32(0x20200028) = 0x10
+TRACE:6: PUT32(0x20200028) = 0x20
+TRACE:7: PUT32(0x20200028) = 0x40
+TRACE:8: PUT32(0x20200028) = 0x80
+TRACE:9: PUT32(0x20200028) = 0x100
+TRACE:10: PUT32(0x20200028) = 0x200
+TRACE:11: PUT32(0x20200028) = 0x400
+TRACE:12: PUT32(0x20200028) = 0x800
+TRACE:13: PUT32(0x20200028) = 0x1000
+TRACE:14: PUT32(0x20200028) = 0x2000
+TRACE:15: PUT32(0x20200028) = 0x4000
+TRACE:16: PUT32(0x20200028) = 0x8000
+TRACE:17: PUT32(0x20200028) = 0x10000
+TRACE:18: PUT32(0x20200028) = 0x20000
+TRACE:19: PUT32(0x20200028) = 0x40000
+TRACE:20: PUT32(0x20200028) = 0x80000
+TRACE:21: PUT32(0x20200028) = 0x100000
+TRACE:22: PUT32(0x20200028) = 0x200000
+TRACE:23: PUT32(0x20200028) = 0x400000
+TRACE:24: PUT32(0x20200028) = 0x800000
+TRACE:25: PUT32(0x20200028) = 0x1000000
+TRACE:26: PUT32(0x20200028) = 0x2000000
+TRACE:27: PUT32(0x20200028) = 0x4000000
+TRACE:28: PUT32(0x20200028) = 0x8000000
+TRACE:29: PUT32(0x20200028) = 0x10000000
+TRACE:30: PUT32(0x20200028) = 0x20000000
+TRACE:31: PUT32(0x20200028) = 0x40000000
+TRACE:32: PUT32(0x20200028) = 0x80000000
+TRACE: pi exited cleanly: 135 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./2-set-on-N.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+testing: <test_gpio_set_on>
+TRACE:1: PUT32(0x2020001c) = 0x1
+TRACE:2: PUT32(0x2020001c) = 0x2
+TRACE:3: PUT32(0x2020001c) = 0x4
+TRACE:4: PUT32(0x2020001c) = 0x8
+TRACE:5: PUT32(0x2020001c) = 0x10
+TRACE:6: PUT32(0x2020001c) = 0x20
+TRACE:7: PUT32(0x2020001c) = 0x40
+TRACE:8: PUT32(0x2020001c) = 0x80
+TRACE:9: PUT32(0x2020001c) = 0x100
+TRACE:10: PUT32(0x2020001c) = 0x200
+TRACE:11: PUT32(0x2020001c) = 0x400
+TRACE:12: PUT32(0x2020001c) = 0x800
+TRACE:13: PUT32(0x2020001c) = 0x1000
+TRACE:14: PUT32(0x2020001c) = 0x2000
+TRACE:15: PUT32(0x2020001c) = 0x4000
+TRACE:16: PUT32(0x2020001c) = 0x8000
+TRACE:17: PUT32(0x2020001c) = 0x10000
+TRACE:18: PUT32(0x2020001c) = 0x20000
+TRACE:19: PUT32(0x2020001c) = 0x40000
+TRACE:20: PUT32(0x2020001c) = 0x80000
+TRACE:21: PUT32(0x2020001c) = 0x100000
+TRACE:22: PUT32(0x2020001c) = 0x200000
+TRACE:23: PUT32(0x2020001c) = 0x400000
+TRACE:24: PUT32(0x2020001c) = 0x800000
+TRACE:25: PUT32(0x2020001c) = 0x1000000
+TRACE:26: PUT32(0x2020001c) = 0x2000000
+TRACE:27: PUT32(0x2020001c) = 0x4000000
+TRACE:28: PUT32(0x2020001c) = 0x8000000
+TRACE:29: PUT32(0x2020001c) = 0x10000000
+TRACE:30: PUT32(0x2020001c) = 0x20000000
+TRACE:31: PUT32(0x2020001c) = 0x40000000
+TRACE:32: PUT32(0x2020001c) = 0x80000000
+TRACE: pi exited cleanly: 135 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./2-set-output.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+testing: <test_gpio_set_output>
+TRACE:1: GET32(0x20200000) = 0x327b23c6
+TRACE:2: PUT32(0x20200000) = 0x327b23c1
+TRACE:3: GET32(0x20200000) = 0x327b23c1
+TRACE:4: PUT32(0x20200000) = 0x327b23c9
+TRACE:5: GET32(0x20200000) = 0x327b23c9
+TRACE:6: PUT32(0x20200000) = 0x327b2249
+TRACE:7: GET32(0x20200000) = 0x327b2249
+TRACE:8: PUT32(0x20200000) = 0x327b2249
+TRACE:9: GET32(0x20200000) = 0x327b2249
+TRACE:10: PUT32(0x20200000) = 0x327b1249
+TRACE:11: GET32(0x20200000) = 0x327b1249
+TRACE:12: PUT32(0x20200000) = 0x32789249
+TRACE:13: GET32(0x20200000) = 0x32789249
+TRACE:14: PUT32(0x20200000) = 0x32649249
+TRACE:15: GET32(0x20200000) = 0x32649249
+TRACE:16: PUT32(0x20200000) = 0x32249249
+TRACE:17: GET32(0x20200000) = 0x32249249
+TRACE:18: PUT32(0x20200000) = 0x31249249
+TRACE:19: GET32(0x20200000) = 0x31249249
+TRACE:20: PUT32(0x20200000) = 0x9249249
+TRACE:21: GET32(0x20200004) = 0x643c9869
+TRACE:22: PUT32(0x20200004) = 0x643c9869
+TRACE:23: GET32(0x20200004) = 0x643c9869
+TRACE:24: PUT32(0x20200004) = 0x643c9849
+TRACE:25: GET32(0x20200004) = 0x643c9849
+TRACE:26: PUT32(0x20200004) = 0x643c9849
+TRACE:27: GET32(0x20200004) = 0x643c9849
+TRACE:28: PUT32(0x20200004) = 0x643c9249
+TRACE:29: GET32(0x20200004) = 0x643c9249
+TRACE:30: PUT32(0x20200004) = 0x643c9249
+TRACE:31: GET32(0x20200004) = 0x643c9249
+TRACE:32: PUT32(0x20200004) = 0x643c9249
+TRACE:33: GET32(0x20200004) = 0x643c9249
+TRACE:34: PUT32(0x20200004) = 0x64249249
+TRACE:35: GET32(0x20200004) = 0x64249249
+TRACE:36: PUT32(0x20200004) = 0x64249249
+TRACE:37: GET32(0x20200004) = 0x64249249
+TRACE:38: PUT32(0x20200004) = 0x61249249
+TRACE:39: GET32(0x20200004) = 0x61249249
+TRACE:40: PUT32(0x20200004) = 0x49249249
+TRACE:41: GET32(0x20200008) = 0x66334873
+TRACE:42: PUT32(0x20200008) = 0x66334871
+TRACE:43: GET32(0x20200008) = 0x66334871
+TRACE:44: PUT32(0x20200008) = 0x66334849
+TRACE:45: GET32(0x20200008) = 0x66334849
+TRACE:46: PUT32(0x20200008) = 0x66334849
+TRACE:47: GET32(0x20200008) = 0x66334849
+TRACE:48: PUT32(0x20200008) = 0x66334249
+TRACE:49: GET32(0x20200008) = 0x66334249
+TRACE:50: PUT32(0x20200008) = 0x66331249
+TRACE:51: GET32(0x20200008) = 0x66331249
+TRACE:52: PUT32(0x20200008) = 0x66309249
+TRACE:53: GET32(0x20200008) = 0x66309249
+TRACE:54: PUT32(0x20200008) = 0x66249249
+TRACE:55: GET32(0x20200008) = 0x66249249
+TRACE:56: PUT32(0x20200008) = 0x66249249
+TRACE:57: GET32(0x20200008) = 0x66249249
+TRACE:58: PUT32(0x20200008) = 0x61249249
+TRACE:59: GET32(0x20200008) = 0x61249249
+TRACE:60: PUT32(0x20200008) = 0x49249249
+TRACE:61: GET32(0x2020000c) = 0x74b0dc51
+TRACE:62: PUT32(0x2020000c) = 0x74b0dc51
+TRACE:63: GET32(0x2020000c) = 0x74b0dc51
+TRACE:64: PUT32(0x2020000c) = 0x74b0dc49
+TRACE: pi exited cleanly: 135 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./5-gpio-n-set-func.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+TRACE:1: GET32(0x20200008) = 0x66334873
+TRACE:2: PUT32(0x20200008) = 0x66334870
+TRACE:3: GET32(0x20200008) = 0x66334870
+TRACE:4: PUT32(0x20200008) = 0x66334871
+TRACE:5: GET32(0x20200008) = 0x66334871
+TRACE:6: PUT32(0x20200008) = 0x66334872
+TRACE:7: GET32(0x20200008) = 0x66334872
+TRACE:8: PUT32(0x20200008) = 0x66334873
+TRACE:9: GET32(0x20200008) = 0x66334873
+TRACE:10: PUT32(0x20200008) = 0x66334874
+TRACE:11: GET32(0x20200008) = 0x66334874
+TRACE:12: PUT32(0x20200008) = 0x66334875
+TRACE:13: GET32(0x20200008) = 0x66334875
+TRACE:14: PUT32(0x20200008) = 0x66334876
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./5-gpio-set-func.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+TRACE:1: GET32(0x20200008) = 0x66334873
+TRACE:2: PUT32(0x20200008) = 0x66334873
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./5-set-function-N.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+testing: <test_gpio_set_function>
+TRACE:1: GET32(0x20200000) = 0x327b23c6
+TRACE:2: PUT32(0x20200000) = 0x327b23c0
+TRACE:3: GET32(0x20200000) = 0x327b23c0
+TRACE:4: PUT32(0x20200000) = 0x327b23c1
+TRACE:5: GET32(0x20200000) = 0x327b23c1
+TRACE:6: PUT32(0x20200000) = 0x327b23c2
+TRACE:7: GET32(0x20200000) = 0x327b23c2
+TRACE:8: PUT32(0x20200000) = 0x327b23c3
+TRACE:9: GET32(0x20200000) = 0x327b23c3
+TRACE:10: PUT32(0x20200000) = 0x327b23c4
+TRACE:11: GET32(0x20200000) = 0x327b23c4
+TRACE:12: PUT32(0x20200000) = 0x327b23c5
+TRACE:13: GET32(0x20200000) = 0x327b23c5
+TRACE:14: PUT32(0x20200000) = 0x327b23c6
+TRACE:15: GET32(0x20200000) = 0x327b23c6
+TRACE:16: PUT32(0x20200000) = 0x327b23c7
+TRACE:17: GET32(0x20200000) = 0x327b23c7
+TRACE:18: PUT32(0x20200000) = 0x327b23c7
+TRACE:19: GET32(0x20200000) = 0x327b23c7
+TRACE:20: PUT32(0x20200000) = 0x327b23cf
+TRACE:21: GET32(0x20200000) = 0x327b23cf
+TRACE:22: PUT32(0x20200000) = 0x327b23d7
+TRACE:23: GET32(0x20200000) = 0x327b23d7
+TRACE:24: PUT32(0x20200000) = 0x327b23df
+TRACE:25: GET32(0x20200000) = 0x327b23df
+TRACE:26: PUT32(0x20200000) = 0x327b23e7
+TRACE:27: GET32(0x20200000) = 0x327b23e7
+TRACE:28: PUT32(0x20200000) = 0x327b23ef
+TRACE:29: GET32(0x20200000) = 0x327b23ef
+TRACE:30: PUT32(0x20200000) = 0x327b23f7
+TRACE:31: GET32(0x20200000) = 0x327b23f7
+TRACE:32: PUT32(0x20200000) = 0x327b23ff
+TRACE:33: GET32(0x20200000) = 0x327b23ff
+TRACE:34: PUT32(0x20200000) = 0x327b223f
+TRACE:35: GET32(0x20200000) = 0x327b223f
+TRACE:36: PUT32(0x20200000) = 0x327b227f
+TRACE:37: GET32(0x20200000) = 0x327b227f
+TRACE:38: PUT32(0x20200000) = 0x327b22bf
+TRACE:39: GET32(0x20200000) = 0x327b22bf
+TRACE:40: PUT32(0x20200000) = 0x327b22ff
+TRACE:41: GET32(0x20200000) = 0x327b22ff
+TRACE:42: PUT32(0x20200000) = 0x327b233f
+TRACE:43: GET32(0x20200000) = 0x327b233f
+TRACE:44: PUT32(0x20200000) = 0x327b237f
+TRACE:45: GET32(0x20200000) = 0x327b237f
+TRACE:46: PUT32(0x20200000) = 0x327b23bf
+TRACE:47: GET32(0x20200000) = 0x327b23bf
+TRACE:48: PUT32(0x20200000) = 0x327b23ff
+TRACE:49: GET32(0x20200000) = 0x327b23ff
+TRACE:50: PUT32(0x20200000) = 0x327b21ff
+TRACE:51: GET32(0x20200000) = 0x327b21ff
+TRACE:52: PUT32(0x20200000) = 0x327b23ff
+TRACE:53: GET32(0x20200000) = 0x327b23ff
+TRACE:54: PUT32(0x20200000) = 0x327b25ff
+TRACE:55: GET32(0x20200000) = 0x327b25ff
+TRACE:56: PUT32(0x20200000) = 0x327b27ff
+TRACE:57: GET32(0x20200000) = 0x327b27ff
+TRACE:58: PUT32(0x20200000) = 0x327b29ff
+TRACE:59: GET32(0x20200000) = 0x327b29ff
+TRACE:60: PUT32(0x20200000) = 0x327b2bff
+TRACE:61: GET32(0x20200000) = 0x327b2bff
+TRACE:62: PUT32(0x20200000) = 0x327b2dff
+TRACE:63: GET32(0x20200000) = 0x327b2dff
+TRACE:64: PUT32(0x20200000) = 0x327b2fff
+TRACE:65: GET32(0x20200000) = 0x327b2fff
+TRACE:66: PUT32(0x20200000) = 0x327b0fff
+TRACE:67: GET32(0x20200000) = 0x327b0fff
+TRACE:68: PUT32(0x20200000) = 0x327b1fff
+TRACE:69: GET32(0x20200000) = 0x327b1fff
+TRACE:70: PUT32(0x20200000) = 0x327b2fff
+TRACE:71: GET32(0x20200000) = 0x327b2fff
+TRACE:72: PUT32(0x20200000) = 0x327b3fff
+TRACE:73: GET32(0x20200000) = 0x327b3fff
+TRACE:74: PUT32(0x20200000) = 0x327b4fff
+TRACE:75: GET32(0x20200000) = 0x327b4fff
+TRACE:76: PUT32(0x20200000) = 0x327b5fff
+TRACE:77: GET32(0x20200000) = 0x327b5fff
+TRACE:78: PUT32(0x20200000) = 0x327b6fff
+TRACE:79: GET32(0x20200000) = 0x327b6fff
+TRACE:80: PUT32(0x20200000) = 0x327b7fff
+TRACE:81: GET32(0x20200000) = 0x327b7fff
+TRACE:82: PUT32(0x20200000) = 0x32787fff
+TRACE:83: GET32(0x20200000) = 0x32787fff
+TRACE:84: PUT32(0x20200000) = 0x3278ffff
+TRACE:85: GET32(0x20200000) = 0x3278ffff
+TRACE:86: PUT32(0x20200000) = 0x32797fff
+TRACE:87: GET32(0x20200000) = 0x32797fff
+TRACE:88: PUT32(0x20200000) = 0x3279ffff
+TRACE:89: GET32(0x20200000) = 0x3279ffff
+TRACE:90: PUT32(0x20200000) = 0x327a7fff
+TRACE:91: GET32(0x20200000) = 0x327a7fff
+TRACE:92: PUT32(0x20200000) = 0x327affff
+TRACE:93: GET32(0x20200000) = 0x327affff
+TRACE:94: PUT32(0x20200000) = 0x327b7fff
+TRACE:95: GET32(0x20200000) = 0x327b7fff
+TRACE:96: PUT32(0x20200000) = 0x327bffff
+TRACE:97: GET32(0x20200000) = 0x327bffff
+TRACE:98: PUT32(0x20200000) = 0x3263ffff
+TRACE:99: GET32(0x20200000) = 0x3263ffff
+TRACE:100: PUT32(0x20200000) = 0x3267ffff
+TRACE:101: GET32(0x20200000) = 0x3267ffff
+TRACE:102: PUT32(0x20200000) = 0x326bffff
+TRACE:103: GET32(0x20200000) = 0x326bffff
+TRACE:104: PUT32(0x20200000) = 0x326fffff
+TRACE:105: GET32(0x20200000) = 0x326fffff
+TRACE:106: PUT32(0x20200000) = 0x3273ffff
+TRACE:107: GET32(0x20200000) = 0x3273ffff
+TRACE:108: PUT32(0x20200000) = 0x3277ffff
+TRACE:109: GET32(0x20200000) = 0x3277ffff
+TRACE:110: PUT32(0x20200000) = 0x327bffff
+TRACE:111: GET32(0x20200000) = 0x327bffff
+TRACE:112: PUT32(0x20200000) = 0x327fffff
+TRACE:113: GET32(0x20200000) = 0x327fffff
+TRACE:114: PUT32(0x20200000) = 0x321fffff
+TRACE:115: GET32(0x20200000) = 0x321fffff
+TRACE:116: PUT32(0x20200000) = 0x323fffff
+TRACE:117: GET32(0x20200000) = 0x323fffff
+TRACE:118: PUT32(0x20200000) = 0x325fffff
+TRACE:119: GET32(0x20200000) = 0x325fffff
+TRACE:120: PUT32(0x20200000) = 0x327fffff
+TRACE:121: GET32(0x20200000) = 0x327fffff
+TRACE:122: PUT32(0x20200000) = 0x329fffff
+TRACE:123: GET32(0x20200000) = 0x329fffff
+TRACE:124: PUT32(0x20200000) = 0x32bfffff
+TRACE:125: GET32(0x20200000) = 0x32bfffff
+TRACE:126: PUT32(0x20200000) = 0x32dfffff
+TRACE:127: GET32(0x20200000) = 0x32dfffff
+TRACE:128: PUT32(0x20200000) = 0x32ffffff
+TRACE: exiting after 129 trace statements
+TRACE: pi exited cleanly: 126 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./5-set-pin-func.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+TRACE:1: GET32(0x20200000) = 0x327b23c6
+TRACE:2: PUT32(0x20200000) = 0x327b23c0
+TRACE:3: GET32(0x20200000) = 0x327b23c0
+TRACE:4: PUT32(0x20200000) = 0x327b23c8
+TRACE:5: GET32(0x20200000) = 0x327b23c8
+TRACE:6: PUT32(0x20200000) = 0x327b2288
+TRACE:7: GET32(0x20200000) = 0x327b2288
+TRACE:8: PUT32(0x20200000) = 0x327b2688
+TRACE:9: GET32(0x20200000) = 0x327b2688
+TRACE:10: PUT32(0x20200000) = 0x327b4688
+TRACE:11: GET32(0x20200000) = 0x327b4688
+TRACE:12: PUT32(0x20200000) = 0x327ac688
+TRACE:13: GET32(0x20200000) = 0x327ac688
+TRACE:14: PUT32(0x20200000) = 0x327ac688
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./prog-1-blink.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+TRACE:1: GET32(0x20200008) = 0x66334873
+TRACE:2: PUT32(0x20200008) = 0x66334871
+TRACE:3: PUT32(0x2020001c) = 0x100000
+TRACE:4: delaying 3000000 cycles
+TRACE:5: PUT32(0x20200028) = 0x100000
+TRACE:6: delaying 3000000 cycles
+TRACE:7: PUT32(0x2020001c) = 0x100000
+TRACE:8: delaying 3000000 cycles
+TRACE:9: PUT32(0x20200028) = 0x100000
+TRACE:10: delaying 3000000 cycles
+TRACE:11: PUT32(0x2020001c) = 0x100000
+TRACE:12: delaying 3000000 cycles
+TRACE:13: PUT32(0x20200028) = 0x100000
+TRACE:14: delaying 3000000 cycles
+TRACE:15: PUT32(0x2020001c) = 0x100000
+TRACE:16: delaying 3000000 cycles
+TRACE:17: PUT32(0x20200028) = 0x100000
+TRACE:18: delaying 3000000 cycles
+TRACE:19: PUT32(0x2020001c) = 0x100000
+TRACE:20: delaying 3000000 cycles
+TRACE:21: PUT32(0x20200028) = 0x100000
+TRACE:22: delaying 3000000 cycles
+TRACE:23: PUT32(0x2020001c) = 0x100000
+TRACE:24: delaying 3000000 cycles
+TRACE:25: PUT32(0x20200028) = 0x100000
+TRACE:26: delaying 3000000 cycles
+TRACE:27: PUT32(0x2020001c) = 0x100000
+TRACE:28: delaying 3000000 cycles
+TRACE:29: PUT32(0x20200028) = 0x100000
+TRACE:30: delaying 3000000 cycles
+TRACE:31: PUT32(0x2020001c) = 0x100000
+TRACE:32: delaying 3000000 cycles
+TRACE:33: PUT32(0x20200028) = 0x100000
+TRACE:34: delaying 3000000 cycles
+TRACE:35: PUT32(0x2020001c) = 0x100000
+TRACE:36: delaying 3000000 cycles
+TRACE:37: PUT32(0x20200028) = 0x100000
+TRACE:38: delaying 3000000 cycles
+TRACE:39: PUT32(0x2020001c) = 0x100000
+TRACE:40: delaying 3000000 cycles
+TRACE:41: PUT32(0x20200028) = 0x100000
+TRACE:42: delaying 3000000 cycles
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./prog-2-blink.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+TRACE:1: GET32(0x20200008) = 0x66334873
+TRACE:2: PUT32(0x20200008) = 0x66334871
+TRACE:3: GET32(0x20200008) = 0x66334871
+TRACE:4: PUT32(0x20200008) = 0x66334849
+TRACE:5: PUT32(0x2020001c) = 0x100000
+TRACE:6: PUT32(0x20200028) = 0x200000
+TRACE:7: delaying 3000000 cycles
+TRACE:8: PUT32(0x20200028) = 0x100000
+TRACE:9: PUT32(0x2020001c) = 0x200000
+TRACE:10: delaying 3000000 cycles
+TRACE:11: PUT32(0x2020001c) = 0x100000
+TRACE:12: PUT32(0x20200028) = 0x200000
+TRACE:13: delaying 3000000 cycles
+TRACE:14: PUT32(0x20200028) = 0x100000
+TRACE:15: PUT32(0x2020001c) = 0x200000
+TRACE:16: delaying 3000000 cycles
+TRACE:17: PUT32(0x2020001c) = 0x100000
+TRACE:18: PUT32(0x20200028) = 0x200000
+TRACE:19: delaying 3000000 cycles
+TRACE:20: PUT32(0x20200028) = 0x100000
+TRACE:21: PUT32(0x2020001c) = 0x200000
+TRACE:22: delaying 3000000 cycles
+TRACE:23: PUT32(0x2020001c) = 0x100000
+TRACE:24: PUT32(0x20200028) = 0x200000
+TRACE:25: delaying 3000000 cycles
+TRACE:26: PUT32(0x20200028) = 0x100000
+TRACE:27: PUT32(0x2020001c) = 0x200000
+TRACE:28: delaying 3000000 cycles
+TRACE:29: PUT32(0x2020001c) = 0x100000
+TRACE:30: PUT32(0x20200028) = 0x200000
+TRACE:31: delaying 3000000 cycles
+TRACE:32: PUT32(0x20200028) = 0x100000
+TRACE:33: PUT32(0x2020001c) = 0x200000
+TRACE:34: delaying 3000000 cycles
+TRACE:35: PUT32(0x2020001c) = 0x100000
+TRACE:36: PUT32(0x20200028) = 0x200000
+TRACE:37: delaying 3000000 cycles
+TRACE:38: PUT32(0x20200028) = 0x100000
+TRACE:39: PUT32(0x2020001c) = 0x200000
+TRACE:40: delaying 3000000 cycles
+TRACE:41: PUT32(0x2020001c) = 0x100000
+TRACE:42: PUT32(0x20200028) = 0x200000
+TRACE:43: delaying 3000000 cycles
+TRACE:44: PUT32(0x20200028) = 0x100000
+TRACE:45: PUT32(0x2020001c) = 0x200000
+TRACE:46: delaying 3000000 cycles
+TRACE:47: PUT32(0x2020001c) = 0x100000
+TRACE:48: PUT32(0x20200028) = 0x200000
+TRACE:49: delaying 3000000 cycles
+TRACE:50: PUT32(0x20200028) = 0x100000
+TRACE:51: PUT32(0x2020001c) = 0x200000
+TRACE:52: delaying 3000000 cycles
+TRACE:53: PUT32(0x2020001c) = 0x100000
+TRACE:54: PUT32(0x20200028) = 0x200000
+TRACE:55: delaying 3000000 cycles
+TRACE:56: PUT32(0x20200028) = 0x100000
+TRACE:57: PUT32(0x2020001c) = 0x200000
+TRACE:58: delaying 3000000 cycles
+TRACE:59: PUT32(0x2020001c) = 0x100000
+TRACE:60: PUT32(0x20200028) = 0x200000
+TRACE:61: delaying 3000000 cycles
+TRACE:62: PUT32(0x20200028) = 0x100000
+TRACE:63: PUT32(0x2020001c) = 0x200000
+TRACE:64: delaying 3000000 cycles
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./prog-3-input.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+TRACE:1: GET32(0x20200008) = 0x66334873
+TRACE:2: PUT32(0x20200008) = 0x66334871
+TRACE:3: GET32(0x20200008) = 0x66334871
+TRACE:4: PUT32(0x20200008) = 0x66334841
+TRACE:5: GET32(0x20200034) = 0x625558ec
+TRACE:6: DEV_VAL32=0x0
+TRACE:7: PUT32(0x20200028) = 0x100000
+TRACE:8: GET32(0x20200034) = 0x238e1f29
+TRACE:9: DEV_VAL32=0x0
+TRACE:10: PUT32(0x20200028) = 0x100000
+TRACE:11: GET32(0x20200034) = 0x46e87ccd
+TRACE:12: DEV_VAL32=0x1
+TRACE:13: PUT32(0x2020001c) = 0x100000
+TRACE:14: GET32(0x20200034) = 0x3d1b58ba
+TRACE:15: DEV_VAL32=0x0
+TRACE:16: PUT32(0x20200028) = 0x100000
+TRACE:17: GET32(0x20200034) = 0x507ed7ab
+TRACE:18: DEV_VAL32=0x1
+TRACE:19: PUT32(0x2020001c) = 0x100000
+TRACE:20: GET32(0x20200034) = 0x2eb141f2
+TRACE:21: DEV_VAL32=0x1
+TRACE:22: PUT32(0x2020001c) = 0x100000
+TRACE:23: GET32(0x20200034) = 0x41b71efb
+TRACE:24: DEV_VAL32=0x1
+TRACE:25: PUT32(0x2020001c) = 0x100000
+TRACE:26: GET32(0x20200034) = 0x79e2a9e3
+TRACE:27: DEV_VAL32=0x1
+TRACE:28: PUT32(0x2020001c) = 0x100000
+TRACE:29: GET32(0x20200034) = 0x7545e146
+TRACE:30: DEV_VAL32=0x0
+TRACE:31: PUT32(0x20200028) = 0x100000
+TRACE:32: GET32(0x20200034) = 0x515f007c
+TRACE:33: DEV_VAL32=0x0
+TRACE:34: PUT32(0x20200028) = 0x100000
+TRACE:35: GET32(0x20200034) = 0x5bd062c2
+TRACE:36: DEV_VAL32=0x0
+TRACE:37: PUT32(0x20200028) = 0x100000
+TRACE:38: GET32(0x20200034) = 0x12200854
+TRACE:39: DEV_VAL32=0x1
+TRACE:40: PUT32(0x2020001c) = 0x100000
+TRACE:41: GET32(0x20200034) = 0x4db127f8
+TRACE:42: DEV_VAL32=0x1
+TRACE:43: PUT32(0x2020001c) = 0x100000
+TRACE:44: GET32(0x20200034) = 0x216231b
+TRACE:45: DEV_VAL32=0x0
+TRACE:46: PUT32(0x20200028) = 0x100000
+TRACE:47: GET32(0x20200034) = 0x1f16e9e8
+TRACE:48: DEV_VAL32=0x0
+TRACE:49: PUT32(0x20200028) = 0x100000
+TRACE:50: GET32(0x20200034) = 0x1190cde7
+TRACE:51: DEV_VAL32=0x0
+TRACE:52: PUT32(0x20200028) = 0x100000
+TRACE:53: GET32(0x20200034) = 0x66ef438d
+TRACE:54: DEV_VAL32=0x1
+TRACE:55: PUT32(0x2020001c) = 0x100000
+TRACE:56: GET32(0x20200034) = 0x140e0f76
+TRACE:57: DEV_VAL32=0x0
+TRACE:58: PUT32(0x20200028) = 0x100000
+TRACE:59: GET32(0x20200034) = 0x3352255a
+TRACE:60: DEV_VAL32=0x0
+TRACE:61: PUT32(0x20200028) = 0x100000
+TRACE:62: GET32(0x20200034) = 0x109cf92e
+TRACE:63: DEV_VAL32=0x0
+TRACE:64: PUT32(0x20200028) = 0x100000
+TRACE:65: GET32(0x20200034) = 0xded7263
+TRACE:66: DEV_VAL32=0x1
+TRACE:67: PUT32(0x2020001c) = 0x100000
+TRACE:68: GET32(0x20200034) = 0x7fdcc233
+TRACE:69: DEV_VAL32=0x0
+TRACE:70: PUT32(0x20200028) = 0x100000
+TRACE:71: GET32(0x20200034) = 0x1befd79f
+TRACE:72: DEV_VAL32=0x1
+TRACE:73: PUT32(0x2020001c) = 0x100000
+TRACE:74: GET32(0x20200034) = 0x41a7c4c9
+TRACE:75: DEV_VAL32=0x1
+TRACE:76: PUT32(0x2020001c) = 0x100000
+TRACE:77: GET32(0x20200034) = 0x6b68079a
+TRACE:78: DEV_VAL32=0x1
+TRACE:79: PUT32(0x2020001c) = 0x100000
+TRACE:80: GET32(0x20200034) = 0x4e6afb66
+TRACE:81: DEV_VAL32=0x1
+TRACE:82: PUT32(0x2020001c) = 0x100000
+TRACE:83: GET32(0x20200034) = 0x25e45d32
+TRACE:84: DEV_VAL32=0x1
+TRACE:85: PUT32(0x2020001c) = 0x100000
+TRACE:86: GET32(0x20200034) = 0x519b500d
+TRACE:87: DEV_VAL32=0x0
+TRACE:88: PUT32(0x20200028) = 0x100000
+TRACE:89: GET32(0x20200034) = 0x431bd7b7
+TRACE:90: DEV_VAL32=0x0
+TRACE:91: PUT32(0x20200028) = 0x100000
+TRACE:92: GET32(0x20200034) = 0x3f2dba31
+TRACE:93: DEV_VAL32=0x1
+TRACE:94: PUT32(0x2020001c) = 0x100000
+TRACE:95: GET32(0x20200034) = 0x7c83e458
+TRACE:96: DEV_VAL32=0x0
+TRACE:97: PUT32(0x20200028) = 0x100000
+TRACE:98: GET32(0x20200034) = 0x257130a3
+TRACE:99: DEV_VAL32=0x1
+TRACE:100: PUT32(0x2020001c) = 0x100000
+TRACE:101: GET32(0x20200034) = 0x62bbd95a
+TRACE:102: DEV_VAL32=0x1
+TRACE:103: PUT32(0x2020001c) = 0x100000
+TRACE:104: GET32(0x20200034) = 0x436c6125
+TRACE:105: DEV_VAL32=0x1
+TRACE:106: PUT32(0x2020001c) = 0x100000
+TRACE:107: GET32(0x20200034) = 0x628c895d
+TRACE:108: DEV_VAL32=0x0
+TRACE:109: PUT32(0x20200028) = 0x100000
+TRACE:110: GET32(0x20200034) = 0x333ab105
+TRACE:111: DEV_VAL32=0x1
+TRACE:112: PUT32(0x2020001c) = 0x100000
+TRACE:113: GET32(0x20200034) = 0x721da317
+TRACE:114: DEV_VAL32=0x0
+TRACE:115: PUT32(0x20200028) = 0x100000
+TRACE:116: GET32(0x20200034) = 0x2443a858
+TRACE:117: DEV_VAL32=0x0
+TRACE:118: PUT32(0x20200028) = 0x100000
+TRACE:119: GET32(0x20200034) = 0x2d1d5ae9
+TRACE:120: DEV_VAL32=0x0
+TRACE:121: PUT32(0x20200028) = 0x100000
+TRACE:122: GET32(0x20200034) = 0x6763845e
+TRACE:123: DEV_VAL32=0x1
+TRACE:124: PUT32(0x2020001c) = 0x100000
+TRACE:125: GET32(0x20200034) = 0x75a2a8d4
+TRACE:126: DEV_VAL32=0x1
+TRACE:127: PUT32(0x2020001c) = 0x100000
+TRACE:128: GET32(0x20200034) = 0x8edbdab
+TRACE: exiting after 129 trace statements
+TRACE: pi exited cleanly: 49 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./act-set-output.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to set act as output
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+
+-------------------<start>---------------------------------------
+./act-write.fake 
+fake-pi: initializing PUT32(0x20200000) = 0x327b23c6
+fake-pi: initializing PUT32(0x20200004) = 0x643c9869
+fake-pi: initializing PUT32(0x20200008) = 0x66334873
+fake-pi: initializing PUT32(0x2020000c) = 0x74b0dc51
+fake-pi: initializing PUT32(0x2020001c) = 0x19495cff
+fake-pi: initializing PUT32(0x20200028) = 0x2ae8944a
+TRACE:0: calling pi code
+about to write 1 to act
+about to write 0 to act
+TRACE: pi exited cleanly: 7 calls to random
+-------------------<end>---------------------------------------
+rm -rf ./objs/ libtrace.a *~ tags *.bin *.elf *.list *.img Makefile.bak     ./objs/trace-notmain.d ./objs/trace-simple.d      
+mkdir -p ./objs
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  trace-simple.c -MM -MT objs/trace-simple.o >objs/trace-simple.d
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  trace-notmain.c -MM -MT objs/trace-notmain.o >objs/trace-notmain.d
+make -C /Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -MT objs/staff-start.o -MMD -MP -MF ./objs/staff-start.d -c staff-start.S -o objs/staff-start.o
+cp ./objs/staff-start.o .
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/crc.o -MMD -MP -MF ./objs/crc.d -c ./libc/crc.c -o objs/crc.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memcmp.o -MMD -MP -MF ./objs/memcmp.d -c ./libc/memcmp.c -o objs/memcmp.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memcpy.o -MMD -MP -MF ./objs/memcpy.d -c ./libc/memcpy.c -o objs/memcpy.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memiszero.o -MMD -MP -MF ./objs/memiszero.d -c ./libc/memiszero.c -o objs/memiszero.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memmove.o -MMD -MP -MF ./objs/memmove.d -c ./libc/memmove.c -o objs/memmove.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memset.o -MMD -MP -MF ./objs/memset.d -c ./libc/memset.c -o objs/memset.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/pi-random.o -MMD -MP -MF ./objs/pi-random.d -c ./libc/pi-random.c -o objs/pi-random.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/printk.o -MMD -MP -MF ./objs/printk.d -c ./libc/printk.c -o objs/printk.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/putchar.o -MMD -MP -MF ./objs/putchar.d -c ./libc/putchar.c -o objs/putchar.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/putk.o -MMD -MP -MF ./objs/putk.d -c ./libc/putk.c -o objs/putk.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/random.o -MMD -MP -MF ./objs/random.d -c ./libc/random.c -o objs/random.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/sprintk.o -MMD -MP -MF ./objs/sprintk.d -c ./libc/sprintk.c -o objs/sprintk.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strcat.o -MMD -MP -MF ./objs/strcat.d -c ./libc/strcat.c -o objs/strcat.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strchr.o -MMD -MP -MF ./objs/strchr.d -c ./libc/strchr.c -o objs/strchr.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strcmp.o -MMD -MP -MF ./objs/strcmp.d -c ./libc/strcmp.c -o objs/strcmp.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strcpy.o -MMD -MP -MF ./objs/strcpy.d -c ./libc/strcpy.c -o objs/strcpy.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strlen.o -MMD -MP -MF ./objs/strlen.d -c ./libc/strlen.c -o objs/strlen.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strncmp.o -MMD -MP -MF ./objs/strncmp.d -c ./libc/strncmp.c -o objs/strncmp.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/uart-hex.o -MMD -MP -MF ./objs/uart-hex.d -c ./libc/uart-hex.c -o objs/uart-hex.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/asm-helpers.o -MMD -MP -MF ./objs/asm-helpers.d -c ./staff-src/asm-helpers.c -o objs/asm-helpers.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -MT objs/cache-support.o -MMD -MP -MF ./objs/cache-support.d -c ./staff-src/cache-support.S -o objs/cache-support.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/cache.o -MMD -MP -MF ./objs/cache.d -c ./staff-src/cache.c -o objs/cache.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/clean-reboot.o -MMD -MP -MF ./objs/clean-reboot.d -c ./staff-src/clean-reboot.c -o objs/clean-reboot.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/cstart.o -MMD -MP -MF ./objs/cstart.d -c ./staff-src/cstart.c -o objs/cstart.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/custom-loader.o -MMD -MP -MF ./objs/custom-loader.d -c ./staff-src/custom-loader.c -o objs/custom-loader.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-data-abort.o -MMD -MP -MF ./objs/default-handler-data-abort.d -c ./staff-src/default-handler-data-abort.c -o objs/default-handler-data-abort.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-fast.o -MMD -MP -MF ./objs/default-handler-fast.d -c ./staff-src/default-handler-fast.c -o objs/default-handler-fast.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-int.o -MMD -MP -MF ./objs/default-handler-int.d -c ./staff-src/default-handler-int.c -o objs/default-handler-int.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-interrupt.o -MMD -MP -MF ./objs/default-handler-interrupt.d -c ./staff-src/default-handler-interrupt.c -o objs/default-handler-interrupt.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-prefetch.o -MMD -MP -MF ./objs/default-handler-prefetch.d -c ./staff-src/default-handler-prefetch.c -o objs/default-handler-prefetch.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-reset.o -MMD -MP -MF ./objs/default-handler-reset.d -c ./staff-src/default-handler-reset.c -o objs/default-handler-reset.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-swi.o -MMD -MP -MF ./objs/default-handler-swi.d -c ./staff-src/default-handler-swi.c -o objs/default-handler-swi.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-undefined-inst.o -MMD -MP -MF ./objs/default-handler-undefined-inst.d -c ./staff-src/default-handler-undefined-inst.c -o objs/default-handler-undefined-inst.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-reboot-callout.o -MMD -MP -MF ./objs/default-reboot-callout.d -c ./staff-src/default-reboot-callout.c -o objs/default-reboot-callout.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-reboot-handler.o -MMD -MP -MF ./objs/default-reboot-handler.d -c ./staff-src/default-reboot-handler.c -o objs/default-reboot-handler.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/delay-ncycles.o -MMD -MP -MF ./objs/delay-ncycles.d -c ./staff-src/delay-ncycles.c -o objs/delay-ncycles.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/interrupts-c.o -MMD -MP -MF ./objs/interrupts-c.d -c ./staff-src/interrupts-c.c -o objs/interrupts-c.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -MT objs/mem-barrier.o -MMD -MP -MF ./objs/mem-barrier.d -c ./staff-src/mem-barrier.S -o objs/mem-barrier.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -MT objs/put-get.o -MMD -MP -MF ./objs/put-get.d -c ./staff-src/put-get.S -o objs/put-get.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/reboot.o -MMD -MP -MF ./objs/reboot.d -c ./staff-src/reboot.c -o objs/reboot.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/rpi-wait.o -MMD -MP -MF ./objs/rpi-wait.d -c ./staff-src/rpi-wait.c -o objs/rpi-wait.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/timer-interrupt.o -MMD -MP -MF ./objs/timer-interrupt.d -c ./staff-src/timer-interrupt.c -o objs/timer-interrupt.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/timer.o -MMD -MP -MF ./objs/timer.d -c ./staff-src/timer.c -o objs/timer.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -MT objs/unhandled-exception.o -MMD -MP -MF ./objs/unhandled-exception.d -c ./staff-src/unhandled-exception.S -o objs/unhandled-exception.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/watchdog.o -MMD -MP -MF ./objs/watchdog.d -c ./staff-src/watchdog.c -o objs/watchdog.o
+arm-none-eabi-ar crf libpi.a  ./objs/sw-i2c.o  ./objs/crc.o  ./objs/memcmp.o  ./objs/memcpy.o  ./objs/memiszero.o  ./objs/memmove.o  ./objs/memset.o  ./objs/pi-random.o  ./objs/printk.o  ./objs/putchar.o  ./objs/putk.o  ./objs/random.o  ./objs/sprintk.o  ./objs/strcat.o  ./objs/strchr.o  ./objs/strcmp.o  ./objs/strcpy.o  ./objs/strlen.o  ./objs/strncmp.o  ./objs/uart-hex.o  ./objs/asm-helpers.o  ./objs/cache-support.o  ./objs/cache.o  ./objs/clean-reboot.o  ./objs/cstart.o  ./objs/custom-loader.o  ./objs/default-handler-data-abort.o  ./objs/default-handler-fast.o  ./objs/default-handler-int.o  ./objs/default-handler-interrupt.o  ./objs/default-handler-prefetch.o  ./objs/default-handler-reset.o  ./objs/default-handler-swi.o  ./objs/default-handler-undefined-inst.o  ./objs/default-reboot-callout.o  ./objs/default-reboot-handler.o  ./objs/delay-ncycles.o  ./objs/interrupts-c.o  ./objs/mem-barrier.o  ./objs/put-get.o  ./objs/reboot.o  ./objs/rpi-wait.o  ./objs/timer-interrupt.o  ./objs/timer.o  ./objs/unhandled-exception.o  ./objs/watchdog.o  ./objs/staff-start.o ./staff-objs/gpio.o ./staff-objs/uart.o ./staff-objs/gpio-pud.o ./staff-objs/gpio-int.o  ./staff-objs/kmalloc.o   ./staff-objs/gpio.o ./staff-objs/uart.o ./staff-objs/gpio-pud.o ./staff-objs/gpio-int.o  ./staff-objs/kmalloc.o  
+rm -rf  *~ tags *.o *.bin *.elf *.list *.img Makefile.bak  *.d
+make -C ..
+make -C /Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi
+arm-none-eabi-ar crf libpi.a  ./objs/sw-i2c.o  ./objs/crc.o  ./objs/memcmp.o  ./objs/memcpy.o  ./objs/memiszero.o  ./objs/memmove.o  ./objs/memset.o  ./objs/pi-random.o  ./objs/printk.o  ./objs/putchar.o  ./objs/putk.o  ./objs/random.o  ./objs/sprintk.o  ./objs/strcat.o  ./objs/strchr.o  ./objs/strcmp.o  ./objs/strcpy.o  ./objs/strlen.o  ./objs/strncmp.o  ./objs/uart-hex.o  ./objs/asm-helpers.o  ./objs/cache-support.o  ./objs/cache.o  ./objs/clean-reboot.o  ./objs/cstart.o  ./objs/custom-loader.o  ./objs/default-handler-data-abort.o  ./objs/default-handler-fast.o  ./objs/default-handler-int.o  ./objs/default-handler-interrupt.o  ./objs/default-handler-prefetch.o  ./objs/default-handler-reset.o  ./objs/default-handler-swi.o  ./objs/default-handler-undefined-inst.o  ./objs/default-reboot-callout.o  ./objs/default-reboot-handler.o  ./objs/delay-ncycles.o  ./objs/interrupts-c.o  ./objs/mem-barrier.o  ./objs/put-get.o  ./objs/reboot.o  ./objs/rpi-wait.o  ./objs/timer-interrupt.o  ./objs/timer.o  ./objs/unhandled-exception.o  ./objs/watchdog.o  ./objs/staff-start.o ./staff-objs/gpio.o ./staff-objs/uart.o ./staff-objs/gpio-pud.o ./staff-objs/gpio-int.o  ./staff-objs/kmalloc.o   ./staff-objs/gpio.o ./staff-objs/uart.o ./staff-objs/gpio-pud.o ./staff-objs/gpio-int.o  ./staff-objs/kmalloc.o  
+===================================================
+PLEASE MAKE SURE THAT YOUR libpi/Makefile is using your gpio, not staff. We will manually check this
+The checkoff sheet will be updated by EOD Friday, but if you followed the README correctly and it worked on your local machine and the output looks reasonable here, you should be good
+===================================================
+arm-none-eabi-ar: ./objs/sw-i2c.o: No such file or directory
+make[1]: *** [libpi.a] Error 1
+make: *** [libs] Error 2
+arm-none-eabi-ar: ./objs/sw-i2c.o: No such file or directory
+make[2]: *** [libpi.a] Error 1
+make[1]: *** [libs] Error 2
+make: *** [libtrace] Error 2
+make: *** No rule to make target `/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libpi.a', needed by `run'.  Stop.
+
+Return code: 0
