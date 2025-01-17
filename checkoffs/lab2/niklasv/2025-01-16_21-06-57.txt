@@ -1,0 +1,31 @@
+/Users/josephtan/140e-dumb-autograder/repos/niklasv
+rm -f *.bin *.list *.elf *.o Makefile.bak *~
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   -c 1-blink.c -o 1-blink.o
+arm-none-eabi-as -c --warn --fatal-warnings -mcpu=arm1176jzf-s -march=armv6zk start.S -o start.o
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   -c gpio.c -o gpio.o
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   -c delay.c -o delay.o
+arm-none-eabi-as -c --warn --fatal-warnings -mcpu=arm1176jzf-s -march=armv6zk mem-barrier.S -o mem-barrier.o
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   start.o gpio.o delay.o  mem-barrier.o 1-blink.o -T ./memmap -o 1-blink.elf 
+arm-none-eabi-objdump -D  1-blink.elf > 1-blink.list
+arm-none-eabi-objcopy 1-blink.elf -O binary 1-blink.bin
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   -c 2-blink.c -o 2-blink.o
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   start.o gpio.o delay.o  mem-barrier.o 2-blink.o -T ./memmap -o 2-blink.elf 
+arm-none-eabi-objdump -D  2-blink.elf > 2-blink.list
+arm-none-eabi-objcopy 2-blink.elf -O binary 2-blink.bin
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   -c 3-loopback.c -o 3-loopback.o
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   start.o gpio.o delay.o  mem-barrier.o 3-loopback.o -T ./memmap -o 3-loopback.elf 
+arm-none-eabi-objdump -D  3-loopback.elf > 3-loopback.list
+arm-none-eabi-objcopy 3-loopback.elf -O binary 3-loopback.bin
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   -c 4-act-blink.c -o 4-act-blink.o
+arm-none-eabi-gcc -O -Wall -Wno-unused-variable -Werror -nostdlib -nostartfiles -ffreestanding  -march=armv6 -std=gnu99   start.o gpio.o delay.o  mem-barrier.o 4-act-blink.o -T ./memmap -o 4-act-blink.elf 
+arm-none-eabi-objdump -D  4-act-blink.elf > 4-act-blink.list
+arm-none-eabi-objcopy 4-act-blink.elf -O binary 4-act-blink.bin
+./4-loopback.c
+running loopback
+opened tty port </dev/cu.usbserial-140>.
+/Users/josephtan/bin/pi-install: tty-usb=</dev/cu.usbserial-140> program=<3-loopback.bin> about to boot
+TRACE:simple_boot: sending 248 bytes, crc32=b0cd427a
+waiting for a start
+my-install: tty-USB read() returned 0 bytes.  r/pi not responding [reboot it?]
+
+Return code: 1
