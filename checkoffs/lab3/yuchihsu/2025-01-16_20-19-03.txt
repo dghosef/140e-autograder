@@ -1,0 +1,28 @@
+CDing to lab
+running 1-fake-pi tests
+===================================================
+PLEASE MAKE SURE THAT YOUR libpi/Makefile is using your gpio, not staff. We will manually check this
+The checkoff sheet will be updated by EOD Friday, but if you followed the README correctly and it worked on your local machine and the output looks reasonable here, you should be good
+===================================================
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 1: cd: ./libpi: No such file or directory
+make: *** No rule to make target `clean'.  Stop.
+make: *** No targets specified and no makefile found.  Stop.
+make: *** No rule to make target `clean'.  Stop.
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 7: cd: ./labs/3-cross-checking: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 9: cd: 1-fake-pi: No such file or directory
+make: *** No targets specified and no makefile found.  Stop.
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 11: cd: tests: No such file or directory
+make: *** No rule to make target `clean'.  Stop.
+make: *** No rule to make target `emit'.  Stop.
+cat: *.out: No such file or directory
+make: *** No rule to make target `checkoff'.  Stop.
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 17: cd: 2-trace: No such file or directory
+make: *** No rule to make target `clean'.  Stop.
+make: *** No targets specified and no makefile found.  Stop.
+/Users/josephtan/140e-dumb-autograder/commands/lab3: line 20: cd: tests: No such file or directory
+make: *** No rule to make target `clean'.  Stop.
+make: *** No targets specified and no makefile found.  Stop.
+make: *** No rule to make target `emit'.  Stop.
+make: *** No rule to make target `cksum'.  Stop.
+
+Return code: 0
