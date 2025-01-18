@@ -1,0 +1,25 @@
+/Users/josephtan/140e-dumb-autograder/repos/dghosef
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libunix clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libpi clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C labs clean
+"Setting <START> to ./objs/staff-start.o"
+"Setting <START> to ./objs/staff-start.o"
+rm -f *~ *.bak
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libunix check
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libunix clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libpi clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C labs clean
+"Setting <START> to ./objs/staff-start.o"
+"Setting <START> to ./objs/staff-start.o"
+rm -f *~ *.bak
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libunix check
+running check.sh
+/Users/josephtan/140e-dumb-autograder/commands/lab1:cd:3: no such file or directory: ./labs/1-trusting-trust/code/step1
+make[1]: *** No rule to make target `check'.  Stop.
+make: *** [libunix] Error 2
+/Users/josephtan/140e-dumb-autograder/commands/lab1:cd:7: no such file or directory: ../step3
+make[1]: *** No rule to make target `check'.  Stop.
+make: *** [libunix] Error 2
+zsh: can't open input file: check.sh
+
+Return code: 127
