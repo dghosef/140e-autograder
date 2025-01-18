@@ -18,7 +18,7 @@ PORT = 8000
 # Autograder configuration
 REPO_DIR = "repos"
 CHECKOFFS_DIR = "checkoffs"
-COMMAND_TIMEOUT = 10  # seconds
+COMMAND_TIMEOUT = 60  # seconds
 VALID_COMMANDS = ['lab' + str(i) for i in range(30)]
 COMMANDS_DIR = "commands"
 def print_red(text):
@@ -112,6 +112,10 @@ def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
     return output_file, returncode
 # --- Processor Function ---
 def run(message):
+    print_red(f"Current queue: ")
+    qlist = list(message_queue.queue)
+    for i in range(len(qlist)):
+        print_red(f"{i}: {qlist[i]}")
     cwd = os.getcwd()
     sunet, repo, command = message.strip().split()
     if command not in VALID_COMMANDS:
@@ -121,9 +125,9 @@ def run(message):
     repo_name = clone_repo(repo, sunet)
     repo_path = os.path.join(cwd, REPO_DIR, repo_name)
     # set CS140E_2025_PATH to the repo path
-    os.environ["CS140E_2025_PATH"] = repo_path  
+    os.environ["CS140E_2025_PATH"] = repo_path + '/'
     # Also 2024 for Joe's testing
-    os.environ["CS140E_2024_PATH"] = repo_path  
+    os.environ["CS140E_2024_PATH"] = repo_path + '/'
     run_command_in_repo(repo_path, os.path.join(cwd, COMMANDS_DIR, command), sunet, command, cwd)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
     
