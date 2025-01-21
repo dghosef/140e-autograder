@@ -10,12 +10,21 @@ def check_lab1(autograder_output):
     if 'successful login' in autograder_output:
         return True
 
+def check_lab3(autograder_output):
+    cksums = [525118589, 2831894783, 3159539606, 3179942673, 610433833, 3754849163, 2100720877, 4083157797, 3731391281, 486978757, 3957154857]
+    for cksum in cksums:
+        if str(cksum) not in autograder_output:
+            return False
+    return True
+
 checker_fns = {
-    "lab1": check_lab1
+    "lab1": check_lab1,
+    "lab3": check_lab3
 }
 
 csv_headers = {
-    "lab1": "Lab 1 Trust"
+    "lab1": "Lab 1 Trust",
+    "lab3": "Lab 3 Cross-checking"
 }
 
 for lab in checker_fns:

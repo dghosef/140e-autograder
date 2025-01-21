@@ -1,3 +1,6 @@
+import multiprocessing
+import serial
+import glob
 import os
 import socket
 import threading
@@ -110,9 +113,53 @@ def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
     
 
     return output_file, returncode
+
+def pi_is_alive():
+    try:
+        # Check if a raspberry pi is connected to tty and its bootloader is running
+        # check that there is exactly one /dev/tty.usbserial* device
+        pis = glob.glob("/dev/tty.usbserial*")
+        if len(pis) == 0:
+            print("Raspberry Pi not connected to tty")
+            return False
+        if len(pis) > 1:
+            print(f"Multiple raspberry pis connected to tty: {pis}")
+            return False
+        print("Raspberry Pi connected to tty. Checking that it is running the bootloader...")
+
+        # check that the bootloader is running by making sure the pi is continually sending 0x11112222
+        pi = serial.Serial(pis[0], 115200, timeout=0.5)
+        data = pi.read(2)
+        pi.close()
+        # make sure every byte is 0x11 or 0x22
+        if len(data) != 2:
+            print("Raspberry Pi is not running the bootloader")
+            print("Expected 10 bytes, got:", len(data))
+            return False
+        for byte in data:
+            if byte != 0x11 and byte != 0x22:
+                print("Raspberry Pi is not running the bootloader")
+                print("Expected 0x11 or 0x22, got:", hex(byte))
+                return False
+        print("Raspberry Pi is running the bootloader")
+        return True
+    except Exception as e:
+        print(f"Error checking if pi is alive: {e}")
+        return False
+
+
 # --- Processor Function ---
 def run(message):
     print_red(f"Current queue: ")
+    print("checking that a raspberry pi is connected to tty and its bootloader is running")
+    if not pi_is_alive():
+        
+        command = ["afplay", "./music.mp3"]
+        process = subprocess.Popen(command)
+        while not pi_is_alive():
+            time.sleep(1)
+        process.terminate()
+
     qlist = list(message_queue.queue)
     for i in range(len(qlist)):
         print_red(f"{i}: {qlist[i]}")
@@ -126,8 +173,9 @@ def run(message):
     repo_path = os.path.join(cwd, REPO_DIR, repo_name)
     # set CS140E_2025_PATH to the repo path
     os.environ["CS140E_2025_PATH"] = repo_path + '/'
-    # Also 2024 for Joe's testing
+    # Also 2024 and 2022 for Joe's testing
     os.environ["CS140E_2024_PATH"] = repo_path + '/'
+    os.environ["CS140E_2022_PATH"] = repo_path + '/'
     run_command_in_repo(repo_path, os.path.join(cwd, COMMANDS_DIR, command), sunet, command, cwd)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
     
@@ -149,7 +197,14 @@ def listener():
             try:
                 message = conn.recv(1024).decode()
                 if message and "github" in message:
-                    message_queue.put(message)  # Add message to the queue
+                    sunet, repo, command = message.strip().split()
+                    skip = False
+                    for message in message_queue.queue:
+                        if sunet == message.split()[0]:
+                            print(f"[Listener] Ignoring message from {sunet} because it is already in the queue")
+                            skip = True
+                    if not skip:
+                        message_queue.put(message)  # Add message to the queue
                 if message and "github" not in message:
                     print("Bad message! Ask Joe if it was yours")
             except Exception as e:
@@ -170,7 +225,10 @@ def processor():
     print("[Processor] Processor started, waiting for messages...")
     while True:
         message = message_queue.get()  # Block until a message is available
-        run(message)
+        try:
+            run(message)
+        except Exception as e:
+            print(f"[Processor] Error processing message: {e}")
         message_queue.task_done()
 
 # --- Main Program ---
