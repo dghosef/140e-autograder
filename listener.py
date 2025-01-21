@@ -92,7 +92,9 @@ def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
     with open(output_file, "w") as f:
         returncode, stdout, stderr = run_command(command, cwd=repo_dir, timeout=COMMAND_TIMEOUT, wifi=False)
         f.write(stdout)
-        f.write(stderr)
+        if stderr != "":
+            f.write("\n==== STDERR: ====")
+            f.write(stderr)
         if returncode == -1:
             f.write("\nERROR: Command timed out.\n")
         else:
@@ -176,7 +178,8 @@ def run(message):
     # Also 2024 and 2022 for Joe's testing
     os.environ["CS140E_2024_PATH"] = repo_path + '/'
     os.environ["CS140E_2022_PATH"] = repo_path + '/'
-    run_command_in_repo(repo_path, os.path.join(cwd, COMMANDS_DIR, command), sunet, command, cwd)
+    # Note: The 2>&1 is to redirect stderr to stdout
+    run_command_in_repo(repo_path, os.path.join(cwd, COMMANDS_DIR, command) + " 2>&1", sunet, command, cwd)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
     
 
