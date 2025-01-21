@@ -1,0 +1,19 @@
+running gprof
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 0-kmalloc clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C timer-int clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 1-syscall clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 2-gprof clean
+rm -f *~ *.bak
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 0-kmalloc all
+running syscall tests
+rm -f *~ *.bak
+make: Nothing to be done for `all'.
+make: Nothing to be done for `check'.
+/Users/josephtan/140e-dumb-autograder/commands/lab4: line 2: cd: 1-gprof: No such file or directory
+make[2]: *** No rule to make target `/Users/dghosef/stanford/cs140e-22win/libpi/include/rpi.h', needed by `objs/gpio-int.o'.  Stop.
+make[1]: *** [libs] Error 2
+make: *** [0-kmalloc] Error 2
+make: *** No rule to make target `run'.  Stop.
+/Users/josephtan/140e-dumb-autograder/commands/lab4: line 9: cd: 2-syscall: No such file or directory
+
+Return code: 0
