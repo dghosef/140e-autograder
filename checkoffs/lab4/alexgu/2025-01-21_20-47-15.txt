@@ -1,0 +1,197 @@
+/Users/josephtan/140e-dumb-autograder/commands/lab4: line 2: cd: 1-gprof: No such file or directory
+running gprof
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 0-measure clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 0-timer-int clean
+rm -f *~ *.bak
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 0-measure all
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./measure.bin> about to boot
+TRACE:simple_boot: sending 3768 bytes, crc32=650258b2
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+
+measuring cost of different operations (pi A+ = 700 cyc / usec)
+without caching:
+	call to PUT32=101 cycles
+	call to GET=101 cycles
+	null pointer write =63 cycles
+	aligned null pointer write =22 cycles
+	read/write barrier: 146 cycles <dev_barrier()>
+	read barrier: 176 cycles <dmb()>
+	safe timer: 766 cycles <timer_get_usec()>
+	unsafe timer: 338 cycles <timer_get_usec_raw()>
+	<cycle_cnt_read()>: 50
+
+
+measuring a weird feature:
+	empty cycle count = measurement: 8 cycles
+	empty cycle count = measurement: 41 cycles
+-----------------------------------------
+with icache on first run
+	call to PUT32=27 cycles
+	call to GET=55 cycles
+	null pointer write =24 cycles
+	aligned null pointer write =22 cycles
+	read/write barrier: 88 cycles <dev_barrier()>
+	read barrier: 56 cycles <dmb()>
+	safe timer: 471 cycles <timer_get_usec()>
+	unsafe timer: 207 cycles <timer_get_usec_raw()>
+	<cycle_cnt_read()>: 16
+
+
+measuring a weird feature:
+	empty cycle count = measurement: 8 cycles
+	empty cycle count = measurement: 8 cycles
+-----------------------------------------
+with icache on second run
+	call to PUT32=24 cycles
+	call to GET=51 cycles
+	null pointer write =24 cycles
+	aligned null pointer write =22 cycles
+	read/write barrier: 17 cycles <dev_barrier()>
+	read barrier: 17 cycles <dmb()>
+	safe timer: 336 cycles <timer_get_usec()>
+	unsafe timer: 204 cycles <timer_get_usec_raw()>
+	<cycle_cnt_read()>: 16
+
+
+measuring a weird feature:
+	empty cycle count = measurement: 8 cycles
+	empty cycle count = measurement: 8 cycles
+-----------------------------------------
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./cycles-per-sec.bin> about to boot
+TRACE:simple_boot: sending 2744 bytes, crc32=bb74fc26
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+cycles per sec = 699998912
+expected - measured = 1088 cycles of error
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./mode.bin> about to boot
+TRACE:simple_boot: sending 3000 bytes, crc32=280a7c36
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+starting at mode <SUPER MODE>
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 0-timer-int all
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./timer.bin> about to boot
+TRACE:simple_boot: sending 4736 bytes, crc32=f57a1c22
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+about to install interrupt handlers
+setting up timer interrupts
+gonna enable ints globally!
+enabled!
+iter=0: cnt = 0, time between interrupts = 0 usec (0x0)
+iter=1: cnt = 1, time between interrupts = 0 usec (0x0)
+iter=2: cnt = 3, time between interrupts = 4112 usec (0x1010)
+iter=3: cnt = 4, time between interrupts = 4112 usec (0x1010)
+iter=4: cnt = 5, time between interrupts = 4112 usec (0x1010)
+iter=5: cnt = 7, time between interrupts = 4112 usec (0x1010)
+iter=6: cnt = 8, time between interrupts = 4112 usec (0x1010)
+iter=7: cnt = 9, time between interrupts = 4112 usec (0x1010)
+iter=8: cnt = 11, time between interrupts = 4112 usec (0x1010)
+iter=9: cnt = 12, time between interrupts = 4112 usec (0x1010)
+iter=10: cnt = 13, time between interrupts = 4112 usec (0x1010)
+iter=11: cnt = 15, time between interrupts = 4112 usec (0x1010)
+iter=12: cnt = 16, time between interrupts = 4112 usec (0x1010)
+iter=13: cnt = 17, time between interrupts = 4112 usec (0x1010)
+iter=14: cnt = 19, time between interrupts = 4112 usec (0x1010)
+-----------------------------------------
+summary:
+	15: total iterations
+	20: tot interrupts
+	0: iterations / interrupt
+	4761: average period
+
+total execution time: 0sec.81ms.659usec
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+running syscall tests
+/Users/josephtan/140e-dumb-autograder/commands/lab4: line 8: cd: 2-syscall: No such file or directory
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 0-pi-setup clean RUN=0
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 1-trusting-trust clean RUN=0
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 2-gpio clean RUN=0
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 3-cross-checking clean RUN=0
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 4-interrupts clean RUN=0
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 5-threads clean RUN=0
+rm -f *~ *.bak
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 0-pi-setup all RUN=0
+compile was successful: about to run <hello.bin>
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<hello.bin> about to boot
+TRACE:simple_boot: sending 1404 bytes, crc32=a555db78
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+hello world from the pi
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 1-trusting-trust all RUN=0
+------------------------------------------
+Check that compiler compiles login
+user: passwd: successful login: <guest>
+success: compiler compiled login correctly!
+------------------------------------------
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 2-gpio all RUN=0
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 3-cross-checking all RUN=0
+------------------------------------------------------ 
+       running our fake pi program: <hello.fake>         
+hello world
+DONE!!!
+------------------------------------------------------ 
+       running our fake pi program: <null-ptr.fake>         
+make[3]: *** [null-ptr.run] Segmentation fault: 11
+make[2]: *** [fake-pi] Error 2
+make[1]: *** [03-fake-pi] Error 2
+make: *** [3-cross-checking] Error 2
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C 0-pi-setup check RUN=0
+make[2]: *** No rule to make target `check'.  Stop.
+make[1]: *** [0-hello] Error 2
+make: *** [0-pi-setup] Error 2
+========================= 
+To verify everything worked, make sure the make check command didn't lead to any errors and the gprof output table is correct.
+gprof should show a lot of time in PUT32, GET32, and UART routines
+=========================
+
+Return code: 0
