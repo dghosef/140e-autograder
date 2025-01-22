@@ -1,0 +1,428 @@
+running gprof
+rm -rf ./objs gprof.bin gprof.list gprof.elf
+rm -f *~ tags  ./objs/interrupts-asm.o Makefile.bak *.d  *.raw *.test  
+rm -f     
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-private -MMD -c /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-start.S -o /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-start.o
+arm-none-eabi-gcc  -I./ -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MMD -c gprof.c -o gprof.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-private -MMD -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-start.o  gprof.o  ./objs/interrupts-asm.o staff-kmalloc.o  -T /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/memmap -o gprof.elf  /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libpi.a  
+arm-none-eabi-objdump -d   gprof.elf > gprof.list
+arm-none-eabi-objcopy gprof.elf -O binary gprof.bin
+pi-install  ./gprof.bin
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./gprof.bin> about to boot
+TRACE:simple_boot: sending 6524 bytes, crc32=2d162be7
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+about to install interrupt handlers
+setting up timer interrupts
+gonna enable ints globally!
+iter=0: cnt = 0, period = 0usec, 0x0
+iter=1: cnt = 1, period = 0usec, 0x0
+iter=2: cnt = 2, period = 4112usec, 0x1010
+iter=3: cnt = 3, period = 4112usec, 0x1010
+iter=4: cnt = 4, period = 4112usec, 0x1010
+iter=5: cnt = 4, period = 4112usec, 0x1010
+iter=6: cnt = 5, period = 4112usec, 0x1010
+iter=7: cnt = 6, period = 4112usec, 0x1010
+iter=8: cnt = 7, period = 4112usec, 0x1010
+iter=9: cnt = 8, period = 4112usec, 0x1010
+Instruction: 0x9080 Count: 4
+Instruction: 0x92a4 Count: 3
+iter=10: cnt = 10, period = 7228usec, 0x1c3c
+iter=11: cnt = 11, period = 996usec, 0x3e4
+iter=12: cnt = 12, period = 4112usec, 0x1010
+iter=13: cnt = 13, period = 4112usec, 0x1010
+iter=14: cnt = 14, period = 4112usec, 0x1010
+iter=15: cnt = 15, period = 4112usec, 0x1010
+iter=16: cnt = 16, period = 4112usec, 0x1010
+iter=17: cnt = 17, period = 4112usec, 0x1010
+iter=18: cnt = 18, period = 4112usec, 0x1010
+iter=19: cnt = 19, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 3
+Instruction: 0x9080 Count: 5
+Instruction: 0x92a4 Count: 4
+iter=20: cnt = 21, period = 8971usec, 0x230b
+iter=21: cnt = 22, period = 3365usec, 0xd25
+iter=22: cnt = 23, period = 4112usec, 0x1010
+iter=23: cnt = 24, period = 4112usec, 0x1010
+iter=24: cnt = 25, period = 4112usec, 0x1010
+iter=25: cnt = 25, period = 4112usec, 0x1010
+iter=26: cnt = 26, period = 4112usec, 0x1010
+iter=27: cnt = 27, period = 4112usec, 0x1010
+iter=28: cnt = 28, period = 4112usec, 0x1010
+iter=29: cnt = 29, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 4
+Instruction: 0x9010 Count: 6
+Instruction: 0x9078 Count: 4
+Instruction: 0x9080 Count: 5
+Instruction: 0x92a4 Count: 5
+iter=30: cnt = 31, period = 15895usec, 0x3e17
+iter=31: cnt = 32, period = 553usec, 0x229
+iter=32: cnt = 33, period = 4112usec, 0x1010
+iter=33: cnt = 34, period = 4112usec, 0x1010
+iter=34: cnt = 35, period = 4112usec, 0x1010
+iter=35: cnt = 36, period = 4112usec, 0x1010
+iter=36: cnt = 37, period = 4112usec, 0x1010
+iter=37: cnt = 38, period = 4112usec, 0x1010
+iter=38: cnt = 39, period = 4112usec, 0x1010
+iter=39: cnt = 40, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 4
+Instruction: 0x8e0c Count: 3
+Instruction: 0x9010 Count: 8
+Instruction: 0x9078 Count: 4
+Instruction: 0x9080 Count: 10
+Instruction: 0x92a4 Count: 5
+iter=40: cnt = 42, period = 17229usec, 0x434d
+iter=41: cnt = 43, period = 3331usec, 0xd03
+iter=42: cnt = 44, period = 4112usec, 0x1010
+iter=43: cnt = 45, period = 4112usec, 0x1010
+iter=44: cnt = 46, period = 4112usec, 0x1010
+iter=45: cnt = 46, period = 4112usec, 0x1010
+iter=46: cnt = 47, period = 4112usec, 0x1010
+iter=47: cnt = 48, period = 4112usec, 0x1010
+iter=48: cnt = 49, period = 4112usec, 0x1010
+iter=49: cnt = 50, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 5
+Instruction: 0x8e0c Count: 4
+Instruction: 0x9010 Count: 10
+Instruction: 0x9078 Count: 5
+Instruction: 0x907c Count: 3
+Instruction: 0x9080 Count: 13
+Instruction: 0x92a4 Count: 6
+iter=50: cnt = 52, period = 21285usec, 0x5325
+iter=51: cnt = 53, period = 3387usec, 0xd3b
+iter=52: cnt = 54, period = 4112usec, 0x1010
+iter=53: cnt = 55, period = 4112usec, 0x1010
+iter=54: cnt = 56, period = 4112usec, 0x1010
+iter=55: cnt = 56, period = 4112usec, 0x1010
+iter=56: cnt = 57, period = 4112usec, 0x1010
+iter=57: cnt = 58, period = 4112usec, 0x1010
+iter=58: cnt = 59, period = 4112usec, 0x1010
+iter=59: cnt = 60, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 6
+Instruction: 0x8e0c Count: 5
+Instruction: 0x9004 Count: 4
+Instruction: 0x9010 Count: 14
+Instruction: 0x9078 Count: 5
+Instruction: 0x907c Count: 4
+Instruction: 0x9080 Count: 14
+Instruction: 0x92a4 Count: 6
+iter=60: cnt = 62, period = 23775usec, 0x5cdf
+iter=61: cnt = 63, period = 897usec, 0x381
+iter=62: cnt = 64, period = 4112usec, 0x1010
+iter=63: cnt = 65, period = 4112usec, 0x1010
+iter=64: cnt = 66, period = 4112usec, 0x1010
+iter=65: cnt = 67, period = 4112usec, 0x1010
+iter=66: cnt = 68, period = 4112usec, 0x1010
+iter=67: cnt = 69, period = 4112usec, 0x1010
+iter=68: cnt = 70, period = 4112usec, 0x1010
+iter=69: cnt = 71, period = 4113usec, 0x1011
+Instruction: 0x802c Count: 7
+Instruction: 0x8e0c Count: 6
+Instruction: 0x9004 Count: 6
+Instruction: 0x9010 Count: 17
+Instruction: 0x9078 Count: 7
+Instruction: 0x907c Count: 5
+Instruction: 0x9080 Count: 14
+Instruction: 0x92a4 Count: 7
+iter=70: cnt = 73, period = 22065usec, 0x5631
+iter=71: cnt = 74, period = 2607usec, 0xa2f
+iter=72: cnt = 75, period = 4112usec, 0x1010
+iter=73: cnt = 76, period = 4113usec, 0x1011
+iter=74: cnt = 77, period = 4111usec, 0x100f
+iter=75: cnt = 78, period = 4113usec, 0x1011
+iter=76: cnt = 79, period = 4112usec, 0x1010
+iter=77: cnt = 80, period = 4112usec, 0x1010
+iter=78: cnt = 81, period = 4112usec, 0x1010
+iter=79: cnt = 82, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 9
+Instruction: 0x8e0c Count: 7
+Instruction: 0x9004 Count: 6
+Instruction: 0x9010 Count: 20
+Instruction: 0x9078 Count: 9
+Instruction: 0x907c Count: 6
+Instruction: 0x9080 Count: 15
+Instruction: 0x92a4 Count: 7
+iter=80: cnt = 83, period = 24554usec, 0x5fea
+iter=81: cnt = 84, period = 118usec, 0x76
+iter=82: cnt = 85, period = 4112usec, 0x1010
+iter=83: cnt = 86, period = 4112usec, 0x1010
+iter=84: cnt = 87, period = 4112usec, 0x1010
+iter=85: cnt = 88, period = 4112usec, 0x1010
+iter=86: cnt = 89, period = 4112usec, 0x1010
+iter=87: cnt = 90, period = 4112usec, 0x1010
+iter=88: cnt = 91, period = 4112usec, 0x1010
+iter=89: cnt = 92, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 11
+Instruction: 0x8e0c Count: 8
+Instruction: 0x9004 Count: 7
+Instruction: 0x9010 Count: 20
+Instruction: 0x9078 Count: 10
+Instruction: 0x907c Count: 7
+Instruction: 0x9080 Count: 16
+Instruction: 0x92a4 Count: 8
+iter=90: cnt = 94, period = 22932usec, 0x5994
+iter=91: cnt = 95, period = 1740usec, 0x6cc
+iter=92: cnt = 96, period = 4112usec, 0x1010
+iter=93: cnt = 97, period = 4112usec, 0x1010
+iter=94: cnt = 98, period = 4112usec, 0x1010
+iter=95: cnt = 99, period = 4112usec, 0x1010
+iter=96: cnt = 100, period = 4112usec, 0x1010
+iter=97: cnt = 101, period = 4112usec, 0x1010
+iter=98: cnt = 102, period = 4112usec, 0x1010
+iter=99: cnt = 103, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 12
+Instruction: 0x8e0c Count: 9
+Instruction: 0x9004 Count: 8
+Instruction: 0x9010 Count: 23
+Instruction: 0x9078 Count: 11
+Instruction: 0x907c Count: 8
+Instruction: 0x9080 Count: 18
+Instruction: 0x92a4 Count: 9
+iter=100: cnt = 105, period = 21837usec, 0x554d
+iter=101: cnt = 106, period = 2835usec, 0xb13
+iter=102: cnt = 107, period = 4112usec, 0x1010
+iter=103: cnt = 108, period = 4112usec, 0x1010
+iter=104: cnt = 109, period = 4112usec, 0x1010
+iter=105: cnt = 110, period = 4112usec, 0x1010
+iter=106: cnt = 111, period = 4112usec, 0x1010
+iter=107: cnt = 112, period = 4112usec, 0x1010
+iter=108: cnt = 113, period = 4112usec, 0x1010
+iter=109: cnt = 114, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 14
+Instruction: 0x8e0c Count: 10
+Instruction: 0x9004 Count: 9
+Instruction: 0x9010 Count: 24
+Instruction: 0x9078 Count: 14
+Instruction: 0x907c Count: 10
+Instruction: 0x9080 Count: 19
+Instruction: 0x92a4 Count: 9
+iter=110: cnt = 116, period = 22322usec, 0x5732
+iter=111: cnt = 117, period = 2350usec, 0x92e
+iter=112: cnt = 118, period = 4112usec, 0x1010
+iter=113: cnt = 119, period = 4112usec, 0x1010
+iter=114: cnt = 120, period = 4112usec, 0x1010
+iter=115: cnt = 121, period = 4112usec, 0x1010
+iter=116: cnt = 122, period = 4112usec, 0x1010
+iter=117: cnt = 123, period = 4112usec, 0x1010
+iter=118: cnt = 124, period = 4112usec, 0x1010
+iter=119: cnt = 125, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 16
+Instruction: 0x8e0c Count: 11
+Instruction: 0x9004 Count: 9
+Instruction: 0x9010 Count: 26
+Instruction: 0x9078 Count: 15
+Instruction: 0x907c Count: 11
+Instruction: 0x9080 Count: 20
+Instruction: 0x92a4 Count: 12
+iter=120: cnt = 127, period = 22896usec, 0x5970
+iter=121: cnt = 128, period = 1776usec, 0x6f0
+iter=122: cnt = 129, period = 4112usec, 0x1010
+iter=123: cnt = 130, period = 4112usec, 0x1010
+iter=124: cnt = 131, period = 4112usec, 0x1010
+iter=125: cnt = 132, period = 4112usec, 0x1010
+iter=126: cnt = 133, period = 4112usec, 0x1010
+iter=127: cnt = 134, period = 4112usec, 0x1010
+iter=128: cnt = 135, period = 4112usec, 0x1010
+iter=129: cnt = 136, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 20
+Instruction: 0x8e0c Count: 12
+Instruction: 0x9004 Count: 10
+Instruction: 0x9010 Count: 27
+Instruction: 0x9078 Count: 16
+Instruction: 0x907c Count: 12
+Instruction: 0x9080 Count: 22
+Instruction: 0x92a4 Count: 12
+iter=130: cnt = 138, period = 23557usec, 0x5c05
+iter=131: cnt = 139, period = 1115usec, 0x45b
+iter=132: cnt = 140, period = 4112usec, 0x1010
+iter=133: cnt = 141, period = 4112usec, 0x1010
+iter=134: cnt = 142, period = 4112usec, 0x1010
+iter=135: cnt = 143, period = 4112usec, 0x1010
+iter=136: cnt = 144, period = 4112usec, 0x1010
+iter=137: cnt = 145, period = 4113usec, 0x1011
+iter=138: cnt = 146, period = 4112usec, 0x1010
+iter=139: cnt = 147, period = 4111usec, 0x100f
+Instruction: 0x802c Count: 21
+Instruction: 0x8e0c Count: 13
+Instruction: 0x9004 Count: 11
+Instruction: 0x9010 Count: 29
+Instruction: 0x9078 Count: 16
+Instruction: 0x907c Count: 13
+Instruction: 0x9080 Count: 25
+Instruction: 0x92a4 Count: 14
+iter=140: cnt = 149, period = 24217usec, 0x5e99
+iter=141: cnt = 150, period = 455usec, 0x1c7
+iter=142: cnt = 151, period = 4112usec, 0x1010
+iter=143: cnt = 152, period = 4112usec, 0x1010
+iter=144: cnt = 153, period = 4112usec, 0x1010
+iter=145: cnt = 154, period = 4112usec, 0x1010
+iter=146: cnt = 155, period = 4112usec, 0x1010
+iter=147: cnt = 156, period = 4112usec, 0x1010
+iter=148: cnt = 157, period = 4112usec, 0x1010
+iter=149: cnt = 158, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 23
+Instruction: 0x8e0c Count: 14
+Instruction: 0x9004 Count: 12
+Instruction: 0x9010 Count: 29
+Instruction: 0x9078 Count: 16
+Instruction: 0x907c Count: 14
+Instruction: 0x9080 Count: 30
+Instruction: 0x92a4 Count: 14
+iter=150: cnt = 160, period = 24790usec, 0x60d6
+iter=151: cnt = 161, period = 3994usec, 0xf9a
+iter=152: cnt = 162, period = 4112usec, 0x1010
+iter=153: cnt = 163, period = 4112usec, 0x1010
+iter=154: cnt = 164, period = 4112usec, 0x1010
+iter=155: cnt = 165, period = 4112usec, 0x1010
+iter=156: cnt = 166, period = 4112usec, 0x1010
+iter=157: cnt = 167, period = 4112usec, 0x1010
+iter=158: cnt = 168, period = 4112usec, 0x1010
+iter=159: cnt = 169, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 26
+Instruction: 0x8e0c Count: 15
+Instruction: 0x9004 Count: 12
+Instruction: 0x9010 Count: 32
+Instruction: 0x9078 Count: 17
+Instruction: 0x907c Count: 15
+Instruction: 0x9080 Count: 31
+Instruction: 0x92a4 Count: 15
+iter=160: cnt = 171, period = 21339usec, 0x535b
+iter=161: cnt = 172, period = 3333usec, 0xd05
+iter=162: cnt = 173, period = 4112usec, 0x1010
+iter=163: cnt = 174, period = 4112usec, 0x1010
+iter=164: cnt = 175, period = 4112usec, 0x1010
+iter=165: cnt = 176, period = 4112usec, 0x1010
+iter=166: cnt = 177, period = 4112usec, 0x1010
+iter=167: cnt = 178, period = 4112usec, 0x1010
+iter=168: cnt = 179, period = 4112usec, 0x1010
+iter=169: cnt = 180, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 29
+Instruction: 0x8e0c Count: 16
+Instruction: 0x9004 Count: 12
+Instruction: 0x9010 Count: 35
+Instruction: 0x9078 Count: 21
+Instruction: 0x907c Count: 15
+Instruction: 0x9080 Count: 31
+Instruction: 0x92a4 Count: 15
+iter=170: cnt = 182, period = 22000usec, 0x55f0
+iter=171: cnt = 183, period = 2672usec, 0xa70
+iter=172: cnt = 184, period = 4112usec, 0x1010
+iter=173: cnt = 185, period = 4112usec, 0x1010
+iter=174: cnt = 186, period = 4112usec, 0x1010
+iter=175: cnt = 187, period = 4112usec, 0x1010
+iter=176: cnt = 188, period = 4112usec, 0x1010
+iter=177: cnt = 189, period = 4112usec, 0x1010
+iter=178: cnt = 190, period = 4112usec, 0x1010
+iter=179: cnt = 191, period = 4112usec, 0x1010
+Instruction: 0x802c Count: 30
+Instruction: 0x8e0c Count: 17
+Instruction: 0x9004 Count: 13
+Instruction: 0x9010 Count: 36
+Instruction: 0x9078 Count: 25
+Instruction: 0x907c Count: 16
+Instruction: 0x9080 Count: 33
+Instruction: 0x92a4 Count: 15
+iter=180: cnt = 193, period = 22661usec, 0x5885
+iter=181: cnt = 194, period = 2011usec, 0x7db
+iter=182: cnt = 195, period = 4112usec, 0x1010
+iter=183: cnt = 196, period = 4112usec, 0x1010
+iter=184: cnt = 197, period = 4112usec, 0x1010
+iter=185: cnt = 198, period = 4112usec, 0x1010
+iter=186: cnt = 199, period = 4112usec, 0x1010
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+rm gprof.o
+running syscall tests
+rm -rf ./objs 0-syscall.bin 1-syscall.bin 0-syscall.list 1-syscall.list
+rm -f *~ tags Makefile.bak  *.test
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 0-syscall.c -o objs/0-syscall.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-private -MMD -MP -c syscall-asm.S -o objs/syscall-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-private -MMD -MP -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-start.o  objs/0-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/memmap -o objs/0-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/0-syscall.elf > 0-syscall.list
+arm-none-eabi-objcopy ./objs/0-syscall.elf -O binary 0-syscall.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 1-syscall.c -o objs/1-syscall.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/staff-start.o  objs/1-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/memmap -o objs/1-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/naomicyb//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/1-syscall.elf > 1-syscall.list
+arm-none-eabi-objcopy ./objs/1-syscall.elf -O binary 1-syscall.bin
+pi-install  ./0-syscall.bin
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./0-syscall.bin> about to boot
+TRACE:simple_boot: sending 5136 bytes, crc32=59808836
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+current stackptr = 0x7ffffe0
+TRACE:notmain:about to install handlers
+about to install interrupt handlers
+TRACE:notmain:about to run syscall hello
+TRACE:syscall_vector:inst=11101111000000000000000000000001, sys_num=1
+TRACE:syscall_vector:syscall: <hello world>
+TRACE:notmain:result of calling system call 1=0
+TRACE:notmain:about to call illegal system call: should die
+TRACE:syscall_vector:inst=11101111000000000000000000000010, sys_num=2
+TRACE:syscall_vector:illegal system call = 2!
+TRACE:notmain:result of illegal system call =-1
+TRACE:notmain:SUCCESS!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+pi-install  ./1-syscall.bin
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./1-syscall.bin> about to boot
+TRACE:simple_boot: sending 5568 bytes, crc32=7bf2ad7c
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+about to install interrupt handlers
+calling user_fn with stack=0x895c0
+TRACE:user_fn:checking that stack got switched
+TRACE:user_fn:cpsr is at user level
+TRACE:user_fn:about to call hello
+TRACE:syscall_vector:success: spsr is at user level: mode=10000
+TRACE:syscall_vector:syscall: hello world
+TRACE:user_fn:about to call exit
+TRACE:syscall_vector:success: spsr is at user level: mode=10000
+TRACE:syscall_vector:exiting!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+-------------------------------------------------
+checking <0-syscall>: 
+  about to emit new <0-syscall.test>:
+     pi-install  ./0-syscall.bin  > 0-syscall.test
+  about to compare contents:
+     diff 0-syscall.out 0-syscall.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <1-syscall>: 
+  about to emit new <1-syscall.test>:
+     pi-install  ./1-syscall.bin  > 1-syscall.test
+  about to compare contents:
+     diff 1-syscall.out 1-syscall.test
+  SUCCESS!   Test output and reference match.
+========================= 
+To verify everything worked, make sure the make check command didn't lead to any errors and the gprof output table is correct.
+gprof should show a lot of time in PUT32, GET32, and UART routines
+=========================
+
+Return code: 0
