@@ -1,0 +1,16 @@
+/Users/josephtan/140e-dumb-autograder/commands/lab4: line 1: cd: ./labs/4-interrupts: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab4: line 2: cd: 1-gprof: No such file or directory
+running gprof
+rm -f *~ *.bak
+make: Nothing to be done for `all'.
+running syscall tests
+/Users/josephtan/140e-dumb-autograder/commands/lab4: line 8: cd: 2-syscall: No such file or directory
+make: *** No rule to make target `clean'.  Stop.
+make: *** No targets specified and no makefile found.  Stop.
+make: *** No rule to make target `check'.  Stop.
+========================= 
+To verify everything worked, make sure the make check command didn't lead to any errors and the gprof output table is correct.
+gprof should show a lot of time in PUT32, GET32, and UART routines
+=========================
+
+Return code: 0
