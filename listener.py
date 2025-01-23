@@ -115,11 +115,11 @@ def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir, 
 
     return output_file, returncode
 
-def pi_is_alive():
+def pi_is_alive(pis_glob):
     try:
         # Check if a raspberry pi is connected to tty and its bootloader is running
-        # check that there is exactly one /dev/tty.usbserial* device
-        pis = glob.glob("/dev/tty.usbserial*")
+        # check that there is exactly one device
+        pis = glob.glob(pis_glob)
         if len(pis) == 0:
             print("Raspberry Pi not connected to tty")
             return False
@@ -150,13 +150,13 @@ def pi_is_alive():
 
 
 # --- Processor Function ---
-def run(message, push_results=True):
+def run(message, pis_glob, push_results=True):
     print_red(f"Current queue: ")
     print("checking that a raspberry pi is connected to tty and its bootloader is running")
-    if not pi_is_alive():
+    if not pi_is_alive(pis_glob):
         command = ["afplay", "./music.mp3"]
         process = subprocess.Popen(command)
-        while not pi_is_alive():
+        while not pi_is_alive(pis_glob):
             time.sleep(1)
         process.terminate()
 
@@ -235,7 +235,7 @@ def listener():
         server_socket.close()
 
 # --- Processor Thread ---
-def processor(push_results=True):
+def processor(pis_glob, push_results=True):
     """
     Processes messages from the queue.
     """
@@ -243,7 +243,7 @@ def processor(push_results=True):
     while True:
         message = message_queue.get()  # Block until a message is available
         try:
-            run(message, push_results=push_results)
+            run(message, pis_glob, push_results=push_results)
         except Exception as e:
             print(f"[Processor] Error processing message: {e}")
         message_queue.task_done()
@@ -263,6 +263,7 @@ def main_server(args):
     # Start Processor Thread
     processor_thread = threading.Thread(
         target=processor,
+        args=(args.pis_glob,),
         kwargs={"push_results": args.push_results},
         daemon=True)
     processor_thread.start()
@@ -286,6 +287,7 @@ def main_cli(args):
     # Start Processor Thread
     processor_thread = threading.Thread(
         target=processor,
+        args=(args.pis_glob,),
         kwargs={"push_results": args.push_results},
         daemon=True)
     processor_thread.start()
@@ -302,6 +304,11 @@ if __name__ == "__main__":
         action=argparse.BooleanOptionalAction,
         help="Whether to push the output files to the staff repo",
         default=True)
+    parser.add_argument(
+        "pis_glob",
+        type=str,
+        metavar="PIS_GLOB",
+        help="Glob pattern to find the Raspberry Pi - must match one device")
     subparsers = parser.add_subparsers(
         title="Modes",
         description="How to ingest the commands to run",
