@@ -21,7 +21,7 @@ PORT = 8000
 REPO_DIR = "repos"
 CHECKOFFS_DIR = "checkoffs"
 COMMAND_TIMEOUT = 60  # seconds
-VALID_COMMANDS = ['lab' + str(i) for i in range(30)]
+VALID_COMMANDS = ['test-x'] + ['lab' + str(i) for i in range(30)]
 COMMANDS_DIR = "commands"
 def print_red(text):
     print(f"\033[91m{text}\033[00m")
@@ -74,8 +74,11 @@ def clone_repo(repo_url, username):
     run_command_and_print(f"git clone {repo_url} {repo_dir}")
     return username
 
-def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
-    """Run command in the given repository, save output with a formatted filename, commit, and push."""
+def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir, push_results=True):
+    """
+    Run command in the given repository, save output with a formatted filename,
+    commit, and (optionally) push.
+    """
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     # Create <repo_dir>/<CHECKOFFS_DIR>/<command>/<sunet> directory if it doesn't exist
     # make sure to create parent directories if they don't exist
@@ -99,18 +102,16 @@ def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
         else:
             f.write(f"\nReturn code: {returncode}\n")
 
-    # Commit and push the output file
-    # print("Committing and pushing the output file to student...")
-    # run_command_and_print(f"git add {os.path.join(CHECKOFFS_DIR, output_file)}", cwd=repo_dir)
-    # run_command_and_print(f'git commit -m "Add output file {output_file}"', cwd=repo_dir)
-    # run_command_and_print("git push", cwd=repo_dir)
+    # Commit and push the output file. Only push if the push flag is set to
+    # True.
     print("Copying the output file to staff repo...")
     staff_output_file = os.path.join(staff_repo_dir, CHECKOFFS_DIR, command_name, sunet, f"{timestamp}.txt")
     shutil.copy(output_file, staff_output_file)
-    print("Committing and pushing the output file to staff...")
-    run_command_and_print(f"git add {staff_output_file}", cwd=staff_repo_dir)
-    run_command_and_print(f'git commit -m "Add output file {staff_output_file}"', cwd=staff_repo_dir)
-    run_command_and_print("git push", cwd=staff_repo_dir)
+    if push_results:
+        print("Committing and pushing the output file to staff...")
+        run_command_and_print(f"git add {staff_output_file}", cwd=staff_repo_dir)
+        run_command_and_print(f'git commit -m "Add output file {staff_output_file}"', cwd=staff_repo_dir)
+        run_command_and_print("git push", cwd=staff_repo_dir)
 
     return output_file, returncode
 
@@ -149,7 +150,7 @@ def pi_is_alive():
 
 
 # --- Processor Function ---
-def run(message):
+def run(message, push_results=True):
     print_red(f"Current queue: ")
     print("checking that a raspberry pi is connected to tty and its bootloader is running")
     if not pi_is_alive():
@@ -176,7 +177,13 @@ def run(message):
     os.environ["CS140E_2024_PATH"] = repo_path + '/'
     os.environ["CS140E_2022_PATH"] = repo_path + '/'
     # Note: The 2>&1 is to redirect stderr to stdout
-    run_command_in_repo(repo_path, os.path.join(cwd, COMMANDS_DIR, command) + " 2>&1", sunet, command, cwd)
+    run_command_in_repo(
+        repo_path,
+        os.path.join(cwd, COMMANDS_DIR, command) + " 2>&1",
+        sunet,
+        command,
+        cwd,
+        push_results=push_results)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
 
 # --- Listener Thread ---
@@ -228,7 +235,7 @@ def listener():
         server_socket.close()
 
 # --- Processor Thread ---
-def processor():
+def processor(push_results=True):
     """
     Processes messages from the queue.
     """
@@ -236,7 +243,7 @@ def processor():
     while True:
         message = message_queue.get()  # Block until a message is available
         try:
-            run(message)
+            run(message, push_results=push_results)
         except Exception as e:
             print(f"[Processor] Error processing message: {e}")
         message_queue.task_done()
@@ -254,7 +261,10 @@ def main_server(args):
     listener_thread.start()
 
     # Start Processor Thread
-    processor_thread = threading.Thread(target=processor, daemon=True)
+    processor_thread = threading.Thread(
+        target=processor,
+        kwargs={"push_results": args.push_results},
+        daemon=True)
     processor_thread.start()
 
     # Keep the main thread alive
@@ -274,7 +284,10 @@ def main_cli(args):
         return
 
     # Start Processor Thread
-    processor_thread = threading.Thread(target=processor, daemon=True)
+    processor_thread = threading.Thread(
+        target=processor,
+        kwargs={"push_results": args.push_results},
+        daemon=True)
     processor_thread.start()
 
     # Chuck the message into the queue, then wait for the processor to finish.
@@ -284,6 +297,11 @@ def main_cli(args):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Listener for checkoff server")
+    parser.add_argument(
+        "--push-results",
+        action=argparse.BooleanOptionalAction,
+        help="Whether to push the output files to the staff repo",
+        default=True)
     subparsers = parser.add_subparsers(
         title="Modes",
         description="How to ingest the commands to run",
