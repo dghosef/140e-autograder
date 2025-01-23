@@ -1,3 +1,4 @@
+import argparse
 import multiprocessing
 import serial
 import glob
@@ -179,6 +180,17 @@ def run(message):
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
 
 # --- Listener Thread ---
+
+def validate_message(message):
+    """Utility function to validate incoming messages."""
+    # Just check that the message contains "github", and that it is not "" or
+    # None.
+    #
+    # TODO: Add more validation. This currently factors out the validation in
+    # `listener`, but we do more checks in `run`. We could also check the format
+    # more thoroughly.
+    return message and "github" in message
+
 def listener():
     """
     Listens for incoming messages and adds them to the queue.
@@ -194,7 +206,7 @@ def listener():
             print(f"[Listener] Connection established with {addr}")
             try:
                 message = conn.recv(1024).decode()
-                if message and "github" in message:
+                if validate_message(message):
                     sunet, repo, command = message.strip().split()
                     skip = False
                     for message in message_queue.queue:
@@ -230,7 +242,13 @@ def processor():
         message_queue.task_done()
 
 # --- Main Program ---
-if __name__ == "__main__":
+
+def main_server(args):
+    """
+    The "main method" where we run the server, after argument parsing. It
+    listens for incoming messages and processes them.
+    """
+
     # Start Listener Thread
     listener_thread = threading.Thread(target=listener, daemon=True)
     listener_thread.start()
@@ -245,3 +263,38 @@ if __name__ == "__main__":
             time.sleep(1)
     except KeyboardInterrupt:
         print("\n[Main] Shutting down server...")
+
+def main_cli(args):
+    """
+    The "main method" when running from the CLI. It takes a single command to
+    run, and injects it into the processing queue.
+    """
+    if not validate_message(args.message):
+        print("Bad message! Ask Joe if it was yours")
+        return
+
+    # Start Processor Thread
+    processor_thread = threading.Thread(target=processor, daemon=True)
+    processor_thread.start()
+
+    # Chuck the message into the queue, then wait for the processor to finish.
+    message_queue.put(args.message)
+    message_queue.join()
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description="Listener for checkoff server")
+    subparsers = parser.add_subparsers(
+        title="Modes",
+        description="How to ingest the commands to run",
+        required=True)
+
+    server_parser = subparsers.add_parser("server", help="Run the TCP server")
+    server_parser.set_defaults(func=main_server)
+
+    cli_parser = subparsers.add_parser("cli", help="Take the command to run from the CLI")
+    cli_parser.set_defaults(func=main_cli)
+    cli_parser.add_argument("message", help="The message to process")
+
+    args = parser.parse_args()
+    args.func(args)
