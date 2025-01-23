@@ -1,0 +1,15 @@
+/Users/josephtan/140e-dumb-autograder/commands/lab5: line 1: cd: ./labs/5-threads: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab5: line 2: cd: code-threads: No such file or directory
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libunix clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libpi clean
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C labs clean
+"Setting <START> to ./objs/staff-start.o"
+"Setting <START> to ./objs/staff-start.o"
+rm -f *~ *.bak
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libunix all
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -s -C libpi all
+/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/mk/Makefile.template-fixed:239: *** "ERROR: PREBUILT_OBJ <staff-kmalloc.o> does not exist!".  Stop.
+make: *** [libpi] Error 2
+make: *** No rule to make target `checkoff'.  Stop.
+
+Return code: 2
