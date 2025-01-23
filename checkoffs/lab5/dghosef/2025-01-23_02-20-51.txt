@@ -1,0 +1,10 @@
+rm -rf ./objs ./4-test-one-fork.bin ./5-test-exit.bin ./5-test-restart.bin ./5-test-thread.bin ./5-test-yield-fail.bin ./5-test-yield.bin ./6-test-implicit-exit-run-N.bin ./6-test-implicit-exit-run-one.bin ./6-test-implicit-exit.bin ./7-test-ping-pong.bin ./7-test-realtime-yield.bin ./7-test-thread.bin ./4-test-one-fork.list ./5-test-exit.list ./5-test-restart.list ./5-test-thread.list ./5-test-yield-fail.list ./5-test-yield.list ./6-test-implicit-exit-run-N.list ./6-test-implicit-exit-run-one.list ./6-test-implicit-exit.list ./7-test-ping-pong.list ./7-test-realtime-yield.list ./7-test-thread.list   .list
+rm -f *~ tags Makefile.bak  *.test
+make -C /Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/staff-private -MT objs/staff-start.o -MMD -MP -MF ./objs/staff-start.d -c staff-start.S -o objs/staff-start.o
+cp ./objs/staff-start.o .
+/Users/josephtan/140e-dumb-autograder/repos/dghosef//libpi/mk/Makefile.template-fixed:239: *** "ERROR: PREBUILT_OBJ <staff-kmalloc.o> does not exist!".  Stop.
+rm objs/staff-start.d
+make: *** [libs] Error 2
+
+Return code: 2
