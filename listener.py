@@ -9,8 +9,6 @@ import time
 from datetime import datetime
 import subprocess
 import shutil
-# assert we are on Joe's computer
-assert os.path.exists("/Users/josephtan/")
 
 # Thread-safe queue for messages
 message_queue = queue.Queue()
@@ -112,7 +110,6 @@ def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
     run_command_and_print(f"git add {staff_output_file}", cwd=staff_repo_dir)
     run_command_and_print(f'git commit -m "Add output file {staff_output_file}"', cwd=staff_repo_dir)
     run_command_and_print("git push", cwd=staff_repo_dir)
-    
 
     return output_file, returncode
 
@@ -155,7 +152,6 @@ def run(message):
     print_red(f"Current queue: ")
     print("checking that a raspberry pi is connected to tty and its bootloader is running")
     if not pi_is_alive():
-        
         command = ["afplay", "./music.mp3"]
         process = subprocess.Popen(command)
         while not pi_is_alive():
@@ -181,7 +177,6 @@ def run(message):
     # Note: The 2>&1 is to redirect stderr to stdout
     run_command_in_repo(repo_path, os.path.join(cwd, COMMANDS_DIR, command) + " 2>&1", sunet, command, cwd)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
-    
 
 # --- Listener Thread ---
 def listener():
