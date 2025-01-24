@@ -1,0 +1,10 @@
+PLEASE RUN GIT PULL ON YOUR LOCAL MACHINE RIGHT NOW
+/Users/josephtan/140e-dumb-autograder/commands/lab5: line 2: cd: ./libpi: No such file or directory
+make: *** No rule to make target `clean'.  Stop.
+make: *** No targets specified and no makefile found.  Stop.
+/Users/josephtan/140e-dumb-autograder/commands/lab5: line 6: cd: ./labs/5-threads: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab5: line 7: cd: code-threads: No such file or directory
+make: *** No rule to make target `clean'.  Stop.
+PLEASE RUN GIT PULL ON YOUR LOCAL MACHINE RIGHT NOW
+
+Return code: 0
