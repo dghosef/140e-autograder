@@ -1,0 +1,459 @@
+running gprof
+rm -rf ./objs gprof.bin gprof.list gprof.elf
+rm -f *~ tags  ./objs/interrupts-asm.o Makefile.bak *.d  *.raw *.test  
+rm -f     
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-private -MMD -c /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-start.S -o /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-start.o
+arm-none-eabi-gcc  -I./ -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MMD -c gprof.c -o gprof.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-private -MMD -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-start.o  gprof.o  ./objs/interrupts-asm.o staff-kmalloc.o  -T /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/memmap -o gprof.elf  /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libpi.a  
+arm-none-eabi-objdump -d   gprof.elf > gprof.list
+arm-none-eabi-objcopy gprof.elf -O binary gprof.bin
+pi-install  ./gprof.bin
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./gprof.bin> about to boot
+TRACE:simple_boot: sending 6836 bytes, crc32=74fa3fea
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+about to install interrupt handlers
+setting up timer interrupts
+gonna enable ints globally!
+iter=0: cnt = 0, period = 0usec, 0x0
+iter=1: cnt = 1, period = 0usec, 0x0
+iter=2: cnt = 2, period = 4112usec, 0x1010
+iter=3: cnt = 3, period = 4112usec, 0x1010
+iter=4: cnt = 4, period = 4112usec, 0x1010
+iter=5: cnt = 4, period = 4112usec, 0x1010
+iter=6: cnt = 5, period = 4112usec, 0x1010
+iter=7: cnt = 6, period = 4112usec, 0x1010
+iter=8: cnt = 7, period = 4112usec, 0x1010
+iter=9: cnt = 8, period = 4112usec, 0x1010
+pc value 0x9108, count 4 
+iter=10: cnt = 10, period = 4474usec, 0x117a
+iter=11: cnt = 11, period = 3750usec, 0xea6
+iter=12: cnt = 11, period = 3750usec, 0xea6
+iter=13: cnt = 12, period = 4112usec, 0x1010
+iter=14: cnt = 13, period = 4112usec, 0x1010
+iter=15: cnt = 14, period = 4112usec, 0x1010
+iter=16: cnt = 15, period = 4112usec, 0x1010
+iter=17: cnt = 16, period = 4112usec, 0x1010
+iter=18: cnt = 17, period = 4112usec, 0x1010
+iter=19: cnt = 18, period = 4112usec, 0x1010
+pc value 0x9104, count 3 
+pc value 0x9108, count 8 
+iter=20: cnt = 20, period = 7254usec, 0x1c56
+iter=21: cnt = 21, period = 970usec, 0x3ca
+iter=22: cnt = 22, period = 4112usec, 0x1010
+iter=23: cnt = 23, period = 4112usec, 0x1010
+iter=24: cnt = 24, period = 4112usec, 0x1010
+iter=25: cnt = 25, period = 4112usec, 0x1010
+iter=26: cnt = 26, period = 4112usec, 0x1010
+iter=27: cnt = 27, period = 4112usec, 0x1010
+iter=28: cnt = 28, period = 4112usec, 0x1010
+iter=29: cnt = 29, period = 4112usec, 0x1010
+pc value 0x802c, count 3 
+pc value 0x908c, count 3 
+pc value 0x9104, count 5 
+pc value 0x9108, count 9 
+pc value 0x9324, count 3 
+iter=30: cnt = 31, period = 12719usec, 0x31af
+iter=31: cnt = 32, period = 3729usec, 0xe91
+iter=32: cnt = 33, period = 4112usec, 0x1010
+iter=33: cnt = 33, period = 4112usec, 0x1010
+iter=34: cnt = 34, period = 4112usec, 0x1010
+iter=35: cnt = 35, period = 4112usec, 0x1010
+iter=36: cnt = 36, period = 4112usec, 0x1010
+iter=37: cnt = 37, period = 4112usec, 0x1010
+iter=38: cnt = 38, period = 4112usec, 0x1010
+iter=39: cnt = 39, period = 4112usec, 0x1010
+pc value 0x802c, count 4 
+pc value 0x8e94, count 3 
+pc value 0x908c, count 4 
+pc value 0x9098, count 3 
+pc value 0x9100, count 5 
+pc value 0x9104, count 5 
+pc value 0x9108, count 10 
+pc value 0x9324, count 3 
+iter=40: cnt = 41, period = 21238usec, 0x52f6
+iter=41: cnt = 42, period = 3434usec, 0xd6a
+iter=42: cnt = 43, period = 4112usec, 0x1010
+iter=43: cnt = 44, period = 4112usec, 0x1010
+iter=44: cnt = 45, period = 4112usec, 0x1010
+iter=45: cnt = 45, period = 4112usec, 0x1010
+iter=46: cnt = 46, period = 4112usec, 0x1010
+iter=47: cnt = 47, period = 4112usec, 0x1010
+iter=48: cnt = 48, period = 4112usec, 0x1010
+iter=49: cnt = 49, period = 4112usec, 0x1010
+pc value 0x802c, count 4 
+pc value 0x8e94, count 4 
+pc value 0x908c, count 4 
+pc value 0x9098, count 5 
+pc value 0x90a0, count 3 
+pc value 0x9100, count 7 
+pc value 0x9104, count 6 
+pc value 0x9108, count 13 
+pc value 0x9324, count 3 
+iter=50: cnt = 51, period = 23817usec, 0x5d09
+iter=51: cnt = 52, period = 855usec, 0x357
+iter=52: cnt = 53, period = 4112usec, 0x1010
+iter=53: cnt = 54, period = 4112usec, 0x1010
+iter=54: cnt = 55, period = 4112usec, 0x1010
+iter=55: cnt = 56, period = 4113usec, 0x1011
+iter=56: cnt = 57, period = 4111usec, 0x100f
+iter=57: cnt = 58, period = 4113usec, 0x1011
+iter=58: cnt = 59, period = 4112usec, 0x1010
+iter=59: cnt = 60, period = 4112usec, 0x1010
+pc value 0x802c, count 7 
+pc value 0x8e94, count 5 
+pc value 0x908c, count 4 
+pc value 0x9098, count 8 
+pc value 0x90a0, count 3 
+pc value 0x9100, count 7 
+pc value 0x9104, count 6 
+pc value 0x9108, count 16 
+pc value 0x9324, count 4 
+iter=60: cnt = 62, period = 22194usec, 0x56b2
+iter=61: cnt = 63, period = 2478usec, 0x9ae
+iter=62: cnt = 64, period = 4112usec, 0x1010
+iter=63: cnt = 65, period = 4112usec, 0x1010
+iter=64: cnt = 66, period = 4112usec, 0x1010
+iter=65: cnt = 67, period = 4112usec, 0x1010
+iter=66: cnt = 68, period = 4112usec, 0x1010
+iter=67: cnt = 69, period = 4112usec, 0x1010
+iter=68: cnt = 70, period = 4112usec, 0x1010
+iter=69: cnt = 71, period = 4112usec, 0x1010
+pc value 0x802c, count 7 
+pc value 0x8e94, count 6 
+pc value 0x908c, count 5 
+pc value 0x9098, count 11 
+pc value 0x90a0, count 4 
+pc value 0x9100, count 7 
+pc value 0x9104, count 7 
+pc value 0x9108, count 20 
+pc value 0x9324, count 4 
+iter=70: cnt = 73, period = 20747usec, 0x510b
+iter=71: cnt = 74, period = 3925usec, 0xf55
+iter=72: cnt = 74, period = 3925usec, 0xf55
+iter=73: cnt = 75, period = 4112usec, 0x1010
+iter=74: cnt = 76, period = 4112usec, 0x1010
+iter=75: cnt = 77, period = 4112usec, 0x1010
+iter=76: cnt = 78, period = 4112usec, 0x1010
+iter=77: cnt = 79, period = 4112usec, 0x1010
+iter=78: cnt = 80, period = 4112usec, 0x1010
+iter=79: cnt = 81, period = 4112usec, 0x1010
+pc value 0x802c, count 7 
+pc value 0x8e94, count 7 
+pc value 0x908c, count 6 
+pc value 0x9098, count 11 
+pc value 0x90a0, count 4 
+pc value 0x9100, count 8 
+pc value 0x9104, count 9 
+pc value 0x9108, count 22 
+pc value 0x9324, count 7 
+iter=80: cnt = 83, period = 23325usec, 0x5b1d
+iter=81: cnt = 84, period = 1347usec, 0x543
+iter=82: cnt = 85, period = 4112usec, 0x1010
+iter=83: cnt = 86, period = 4112usec, 0x1010
+iter=84: cnt = 87, period = 4112usec, 0x1010
+iter=85: cnt = 88, period = 4112usec, 0x1010
+iter=86: cnt = 89, period = 4112usec, 0x1010
+iter=87: cnt = 90, period = 4112usec, 0x1010
+iter=88: cnt = 91, period = 4112usec, 0x1010
+iter=89: cnt = 92, period = 4112usec, 0x1010
+pc value 0x802c, count 8 
+pc value 0x8e94, count 8 
+pc value 0x908c, count 8 
+pc value 0x9098, count 11 
+pc value 0x90a0, count 5 
+pc value 0x9100, count 9 
+pc value 0x9104, count 10 
+pc value 0x9108, count 24 
+pc value 0x9324, count 8 
+iter=90: cnt = 94, period = 21967usec, 0x55cf
+iter=91: cnt = 95, period = 2705usec, 0xa91
+iter=92: cnt = 96, period = 4112usec, 0x1010
+iter=93: cnt = 97, period = 4112usec, 0x1010
+iter=94: cnt = 98, period = 4112usec, 0x1010
+iter=95: cnt = 99, period = 4112usec, 0x1010
+iter=96: cnt = 100, period = 4112usec, 0x1010
+iter=97: cnt = 101, period = 4112usec, 0x1010
+iter=98: cnt = 102, period = 4112usec, 0x1010
+iter=99: cnt = 103, period = 4112usec, 0x1010
+pc value 0x802c, count 9 
+pc value 0x8e94, count 9 
+pc value 0x908c, count 9 
+pc value 0x9098, count 12 
+pc value 0x90a0, count 6 
+pc value 0x9100, count 10 
+pc value 0x9104, count 12 
+pc value 0x9108, count 26 
+pc value 0x9324, count 9 
+iter=100: cnt = 105, period = 21047usec, 0x5237
+iter=101: cnt = 106, period = 3625usec, 0xe29
+iter=102: cnt = 107, period = 4112usec, 0x1010
+iter=103: cnt = 108, period = 4112usec, 0x1010
+iter=104: cnt = 109, period = 4112usec, 0x1010
+iter=105: cnt = 110, period = 4112usec, 0x1010
+iter=106: cnt = 111, period = 4112usec, 0x1010
+iter=107: cnt = 112, period = 4112usec, 0x1010
+iter=108: cnt = 113, period = 4112usec, 0x1010
+iter=109: cnt = 114, period = 4112usec, 0x1010
+pc value 0x802c, count 10 
+pc value 0x8e94, count 10 
+pc value 0x908c, count 9 
+pc value 0x9098, count 13 
+pc value 0x90a0, count 8 
+pc value 0x9100, count 11 
+pc value 0x9104, count 13 
+pc value 0x9108, count 28 
+pc value 0x9324, count 11 
+iter=110: cnt = 116, period = 21796usec, 0x5524
+iter=111: cnt = 117, period = 2876usec, 0xb3c
+iter=112: cnt = 118, period = 4112usec, 0x1010
+iter=113: cnt = 119, period = 4112usec, 0x1010
+iter=114: cnt = 120, period = 4112usec, 0x1010
+iter=115: cnt = 121, period = 4112usec, 0x1010
+iter=116: cnt = 122, period = 4113usec, 0x1011
+iter=117: cnt = 123, period = 4112usec, 0x1010
+iter=118: cnt = 124, period = 4112usec, 0x1010
+iter=119: cnt = 125, period = 4111usec, 0x100f
+pc value 0x802c, count 11 
+pc value 0x8e94, count 11 
+pc value 0x908c, count 9 
+pc value 0x9098, count 14 
+pc value 0x90a0, count 9 
+pc value 0x9100, count 11 
+pc value 0x9104, count 16 
+pc value 0x9108, count 30 
+pc value 0x9324, count 13 
+iter=120: cnt = 127, period = 22545usec, 0x5811
+iter=121: cnt = 128, period = 2127usec, 0x84f
+iter=122: cnt = 129, period = 4113usec, 0x1011
+iter=123: cnt = 130, period = 4112usec, 0x1010
+iter=124: cnt = 131, period = 4112usec, 0x1010
+iter=125: cnt = 132, period = 4112usec, 0x1010
+iter=126: cnt = 133, period = 4112usec, 0x1010
+iter=127: cnt = 134, period = 4112usec, 0x1010
+iter=128: cnt = 135, period = 4112usec, 0x1010
+iter=129: cnt = 136, period = 4112usec, 0x1010
+pc value 0x802c, count 13 
+pc value 0x8e94, count 12 
+pc value 0x908c, count 10 
+pc value 0x9098, count 14 
+pc value 0x90a0, count 10 
+pc value 0x9100, count 11 
+pc value 0x9104, count 18 
+pc value 0x9108, count 33 
+pc value 0x9324, count 14 
+iter=130: cnt = 138, period = 23468usec, 0x5bac
+iter=131: cnt = 139, period = 1204usec, 0x4b4
+iter=132: cnt = 140, period = 4112usec, 0x1010
+iter=133: cnt = 141, period = 4112usec, 0x1010
+iter=134: cnt = 142, period = 4112usec, 0x1010
+iter=135: cnt = 143, period = 4112usec, 0x1010
+iter=136: cnt = 144, period = 4112usec, 0x1010
+iter=137: cnt = 145, period = 4112usec, 0x1010
+iter=138: cnt = 146, period = 4112usec, 0x1010
+iter=139: cnt = 147, period = 4112usec, 0x1010
+pc value 0x802c, count 14 
+pc value 0x8e94, count 13 
+pc value 0x908c, count 12 
+pc value 0x9098, count 15 
+pc value 0x90a0, count 11 
+pc value 0x9100, count 12 
+pc value 0x9104, count 19 
+pc value 0x9108, count 34 
+pc value 0x9324, count 15 
+iter=140: cnt = 149, period = 24392usec, 0x5f48
+iter=141: cnt = 150, period = 280usec, 0x118
+iter=142: cnt = 151, period = 4112usec, 0x1010
+iter=143: cnt = 152, period = 4112usec, 0x1010
+iter=144: cnt = 153, period = 4112usec, 0x1010
+iter=145: cnt = 154, period = 4112usec, 0x1010
+iter=146: cnt = 155, period = 4112usec, 0x1010
+iter=147: cnt = 156, period = 4112usec, 0x1010
+iter=148: cnt = 157, period = 4112usec, 0x1010
+iter=149: cnt = 158, period = 4112usec, 0x1010
+pc value 0x802c, count 15 
+pc value 0x8e94, count 14 
+pc value 0x908c, count 13 
+pc value 0x9098, count 19 
+pc value 0x90a0, count 11 
+pc value 0x9100, count 13 
+pc value 0x9104, count 19 
+pc value 0x9108, count 37 
+pc value 0x9324, count 15 
+iter=150: cnt = 160, period = 25229usec, 0x628d
+iter=151: cnt = 161, period = 3555usec, 0xde3
+iter=152: cnt = 162, period = 4112usec, 0x1010
+iter=153: cnt = 163, period = 4112usec, 0x1010
+iter=154: cnt = 164, period = 4112usec, 0x1010
+iter=155: cnt = 165, period = 4112usec, 0x1010
+iter=156: cnt = 166, period = 4112usec, 0x1010
+iter=157: cnt = 167, period = 4112usec, 0x1010
+iter=158: cnt = 168, period = 4112usec, 0x1010
+iter=159: cnt = 169, period = 4112usec, 0x1010
+pc value 0x802c, count 17 
+pc value 0x8e94, count 15 
+pc value 0x908c, count 15 
+pc value 0x9098, count 21 
+pc value 0x90a0, count 12 
+pc value 0x9100, count 14 
+pc value 0x9104, count 20 
+pc value 0x9108, count 38 
+pc value 0x9324, count 15 
+iter=160: cnt = 171, period = 22041usec, 0x5619
+iter=161: cnt = 172, period = 2631usec, 0xa47
+iter=162: cnt = 173, period = 4112usec, 0x1010
+iter=163: cnt = 174, period = 4112usec, 0x1010
+iter=164: cnt = 175, period = 4112usec, 0x1010
+iter=165: cnt = 176, period = 4112usec, 0x1010
+iter=166: cnt = 177, period = 4112usec, 0x1010
+iter=167: cnt = 178, period = 4112usec, 0x1010
+iter=168: cnt = 179, period = 4112usec, 0x1010
+iter=169: cnt = 180, period = 4112usec, 0x1010
+pc value 0x802c, count 21 
+pc value 0x8e94, count 16 
+pc value 0x908c, count 16 
+pc value 0x9098, count 22 
+pc value 0x90a0, count 12 
+pc value 0x9100, count 15 
+pc value 0x9104, count 20 
+pc value 0x9108, count 39 
+pc value 0x9324, count 15 
+iter=170: cnt = 182, period = 22966usec, 0x59b6
+iter=171: cnt = 183, period = 1706usec, 0x6aa
+iter=172: cnt = 184, period = 4112usec, 0x1010
+iter=173: cnt = 185, period = 4112usec, 0x1010
+iter=174: cnt = 186, period = 4112usec, 0x1010
+iter=175: cnt = 187, period = 4112usec, 0x1010
+iter=176: cnt = 188, period = 4112usec, 0x1010
+iter=177: cnt = 189, period = 4112usec, 0x1010
+iter=178: cnt = 190, period = 4112usec, 0x1010
+iter=179: cnt = 191, period = 4112usec, 0x1010
+pc value 0x802c, count 23 
+pc value 0x8e94, count 17 
+pc value 0x908c, count 16 
+pc value 0x9098, count 23 
+pc value 0x90a0, count 12 
+pc value 0x9100, count 17 
+pc value 0x9104, count 21 
+pc value 0x9108, count 43 
+pc value 0x9324, count 15 
+iter=180: cnt = 193, period = 23889usec, 0x5d51
+iter=181: cnt = 194, period = 782usec, 0x30e
+iter=182: cnt = 195, period = 4112usec, 0x1010
+iter=183: cnt = 196, period = 4113usec, 0x1011
+iter=184: cnt = 197, period = 4112usec, 0x1010
+iter=185: cnt = 198, period = 4112usec, 0x1010
+iter=186: cnt = 199, period = 4112usec, 0x1010
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+rm gprof.o
+running syscall tests
+rm -rf ./objs 0-syscall.bin 1-syscall.bin 0-syscall.list 1-syscall.list
+rm -f *~ tags Makefile.bak  *.test
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 0-syscall.c -o objs/0-syscall.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-private -MMD -MP -c syscall-asm.S -o objs/syscall-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-private -MMD -MP -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-start.o  objs/0-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/memmap -o objs/0-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/0-syscall.elf > 0-syscall.list
+arm-none-eabi-objcopy ./objs/0-syscall.elf -O binary 0-syscall.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 1-syscall.c -o objs/1-syscall.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/staff-start.o  objs/1-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/memmap -o objs/1-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/aditijb//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/1-syscall.elf > 1-syscall.list
+arm-none-eabi-objcopy ./objs/1-syscall.elf -O binary 1-syscall.bin
+pi-install  ./0-syscall.bin
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./0-syscall.bin> about to boot
+TRACE:simple_boot: sending 5628 bytes, crc32=a40b38ba
+waiting for a start
+expected initial GET_PROG_INFO, got <494e4150>: discarding.
+expected initial GET_PROG_INFO, got <6950203a>: discarding.
+expected initial GET_PROG_INFO, got <6867696d>: discarding.
+expected initial GET_PROG_INFO, got <76616820>: discarding.
+expected initial GET_PROG_INFO, got <6d697420>: discarding.
+expected initial GET_PROG_INFO, got <756f2064>: discarding.
+expected initial GET_PROG_INFO, got <4f440a2e>: discarding.
+expected initial GET_PROG_INFO, got <21212145>: discarding.
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+current stackptr = 0x7ffffd0
+TRACE:notmain:about to install handlers
+about to install interrupt handlers
+TRACE:notmain:about to run syscall hello
+TRACE:syscall_vector:inst=11101111000000000000000000000001, sys_num=1
+TRACE:syscall_vector:syscall: <hello world>
+TRACE:notmain:result of calling system call 1=0
+TRACE:notmain:about to call illegal system call: should die
+TRACE:syscall_vector:inst=11101111000000000000000000000010, sys_num=2
+TRACE:syscall_vector:illegal system call = 2!
+TRACE:notmain:result of illegal system call =-1
+TRACE:notmain:SUCCESS!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+pi-install  ./1-syscall.bin
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./1-syscall.bin> about to boot
+TRACE:simple_boot: sending 6060 bytes, crc32=bf1a739b
+waiting for a start
+expected initial GET_PROG_INFO, got <494e4150>: discarding.
+expected initial GET_PROG_INFO, got <6950203a>: discarding.
+expected initial GET_PROG_INFO, got <6867696d>: discarding.
+expected initial GET_PROG_INFO, got <76616820>: discarding.
+expected initial GET_PROG_INFO, got <6d697420>: discarding.
+expected initial GET_PROG_INFO, got <756f2064>: discarding.
+expected initial GET_PROG_INFO, got <4f440a2e>: discarding.
+expected initial GET_PROG_INFO, got <21212145>: discarding.
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+about to install interrupt handlers
+calling user_fn with stack=0x897b0
+TRACE:user_fn:checking that stack got switched
+TRACE:user_fn:cpsr is at user level
+TRACE:user_fn:about to call hello
+TRACE:syscall_vector:success: spsr is at user level: mode=10000
+TRACE:syscall_vector:syscall: hello world
+TRACE:user_fn:about to call exit
+TRACE:syscall_vector:success: spsr is at user level: mode=10000
+TRACE:syscall_vector:exiting!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+-------------------------------------------------
+checking <0-syscall>: 
+  about to emit new <0-syscall.test>:
+     pi-install  ./0-syscall.bin  > 0-syscall.test
+  about to compare contents:
+     diff 0-syscall.out 0-syscall.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <1-syscall>: 
+  about to emit new <1-syscall.test>:
+     pi-install  ./1-syscall.bin  > 1-syscall.test
+  about to compare contents:
+     diff 1-syscall.out 1-syscall.test
+  SUCCESS!   Test output and reference match.
+========================= 
+To verify everything worked, make sure the make check command didn't lead to any errors and the gprof output table is correct.
+gprof should show a lot of time in PUT32, GET32, and UART routines
+=========================
+
+Return code: 0
