@@ -1,0 +1,484 @@
+running gprof
+rm -rf ./objs gprof.bin gprof.list gprof.elf
+rm -f *~ tags  ./objs/interrupts-asm.o Makefile.bak *.d  *.raw *.test  
+rm -f     
+arm-none-eabi-gcc  -I./ -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MMD -c gprof.c -o gprof.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -MMD -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -MMD -c /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.S -o /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.o  gprof.o  ./objs/interrupts-asm.o staff-kmalloc.o  -T /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/memmap -o gprof.elf  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libpi.a  
+arm-none-eabi-objdump -d   gprof.elf > gprof.list
+arm-none-eabi-objcopy gprof.elf -O binary gprof.bin
+pi-install  ./gprof.bin
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./gprof.bin> about to boot
+TRACE:simple_boot: sending 6964 bytes, crc32=b9bdd7b5
+waiting for a start
+expected initial GET_PROG_INFO, got <22221111>: discarding.
+expected initial GET_PROG_INFO, got <11222211>: discarding.
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+about to install interrupt handlers
+setting up timer interrupts
+gonna enable ints globally!
+iter=0: cnt = 0, period = 0usec, 0x0
+iter=1: cnt = 1, period = 0usec, 0x0
+iter=2: cnt = 2, period = 4112usec, 0x1010
+iter=3: cnt = 3, period = 4112usec, 0x1010
+iter=4: cnt = 4, period = 4112usec, 0x1010
+iter=5: cnt = 4, period = 4112usec, 0x1010
+iter=6: cnt = 5, period = 4112usec, 0x1010
+iter=7: cnt = 6, period = 4112usec, 0x1010
+iter=8: cnt = 7, period = 4112usec, 0x1010
+iter=9: cnt = 8, period = 4112usec, 0x1010
+pc=0x90a0 was visited 3 times!
+iter=10: cnt = 10, period = 4936usec, 0x1348
+iter=11: cnt = 11, period = 3288usec, 0xcd8
+iter=12: cnt = 12, period = 4112usec, 0x1010
+iter=13: cnt = 13, period = 4112usec, 0x1010
+iter=14: cnt = 14, period = 4112usec, 0x1010
+iter=15: cnt = 14, period = 4112usec, 0x1010
+iter=16: cnt = 15, period = 4112usec, 0x1010
+iter=17: cnt = 16, period = 4112usec, 0x1010
+iter=18: cnt = 17, period = 4112usec, 0x1010
+iter=19: cnt = 18, period = 4112usec, 0x1010
+pc=0x9094 was visited 4 times!
+pc=0x90a0 was visited 6 times!
+pc=0x9398 was visited 4 times!
+iter=20: cnt = 20, period = 11328usec, 0x2c40
+iter=21: cnt = 21, period = 1008usec, 0x3f0
+iter=22: cnt = 22, period = 4112usec, 0x1010
+iter=23: cnt = 23, period = 4112usec, 0x1010
+iter=24: cnt = 24, period = 4112usec, 0x1010
+iter=25: cnt = 25, period = 4112usec, 0x1010
+iter=26: cnt = 26, period = 4112usec, 0x1010
+iter=27: cnt = 27, period = 4112usec, 0x1010
+iter=28: cnt = 28, period = 4112usec, 0x1010
+iter=29: cnt = 29, period = 4112usec, 0x1010
+pc=0x9094 was visited 5 times!
+pc=0x90a0 was visited 6 times!
+pc=0x9108 was visited 3 times!
+pc=0x910c was visited 4 times!
+pc=0x9110 was visited 3 times!
+pc=0x9398 was visited 4 times!
+iter=30: cnt = 31, period = 17828usec, 0x45a4
+iter=31: cnt = 32, period = 2732usec, 0xaac
+iter=32: cnt = 33, period = 4112usec, 0x1010
+iter=33: cnt = 34, period = 4112usec, 0x1010
+iter=34: cnt = 35, period = 4112usec, 0x1010
+iter=35: cnt = 36, period = 4113usec, 0x1011
+iter=36: cnt = 37, period = 4111usec, 0x100f
+iter=37: cnt = 38, period = 4112usec, 0x1010
+iter=38: cnt = 39, period = 4112usec, 0x1010
+iter=39: cnt = 39, period = 4112usec, 0x1010
+pc=0x802c was visited 4 times!
+pc=0x8e9c was visited 3 times!
+pc=0x9094 was visited 5 times!
+pc=0x90a0 was visited 8 times!
+pc=0x9108 was visited 6 times!
+pc=0x910c was visited 4 times!
+pc=0x9110 was visited 4 times!
+pc=0x9398 was visited 5 times!
+iter=40: cnt = 41, period = 25659usec, 0x643b
+iter=41: cnt = 42, period = 3126usec, 0xc36
+iter=42: cnt = 43, period = 4112usec, 0x1010
+iter=43: cnt = 44, period = 4112usec, 0x1010
+iter=44: cnt = 45, period = 4111usec, 0x100f
+iter=45: cnt = 46, period = 4112usec, 0x1010
+iter=46: cnt = 47, period = 4113usec, 0x1011
+iter=47: cnt = 47, period = 4113usec, 0x1011
+iter=48: cnt = 48, period = 4112usec, 0x1010
+iter=49: cnt = 49, period = 4112usec, 0x1010
+pc=0x802c was visited 5 times!
+pc=0x8e9c was visited 4 times!
+pc=0x9094 was visited 5 times!
+pc=0x90a0 was visited 11 times!
+pc=0x9108 was visited 8 times!
+pc=0x910c was visited 5 times!
+pc=0x9110 was visited 6 times!
+pc=0x9398 was visited 5 times!
+iter=50: cnt = 51, period = 25353usec, 0x6309
+iter=51: cnt = 52, period = 3431usec, 0xd67
+iter=52: cnt = 53, period = 4112usec, 0x1010
+iter=53: cnt = 54, period = 4112usec, 0x1010
+iter=54: cnt = 55, period = 4112usec, 0x1010
+iter=55: cnt = 55, period = 4112usec, 0x1010
+iter=56: cnt = 56, period = 4112usec, 0x1010
+iter=57: cnt = 57, period = 4112usec, 0x1010
+iter=58: cnt = 58, period = 4112usec, 0x1010
+iter=59: cnt = 59, period = 4112usec, 0x1010
+pc=0x802c was visited 7 times!
+pc=0x8e9c was visited 5 times!
+pc=0x9094 was visited 5 times!
+pc=0x90a0 was visited 12 times!
+pc=0x9108 was visited 9 times!
+pc=0x910c was visited 6 times!
+pc=0x9110 was visited 10 times!
+pc=0x9398 was visited 5 times!
+iter=60: cnt = 61, period = 25137usec, 0x6231
+iter=61: cnt = 62, period = 3647usec, 0xe3f
+iter=62: cnt = 63, period = 4112usec, 0x1010
+iter=63: cnt = 63, period = 4112usec, 0x1010
+iter=64: cnt = 64, period = 4112usec, 0x1010
+iter=65: cnt = 65, period = 4112usec, 0x1010
+iter=66: cnt = 66, period = 4112usec, 0x1010
+iter=67: cnt = 67, period = 4112usec, 0x1010
+iter=68: cnt = 68, period = 4112usec, 0x1010
+iter=69: cnt = 69, period = 4112usec, 0x1010
+pc=0x802c was visited 9 times!
+pc=0x8e9c was visited 6 times!
+pc=0x9094 was visited 5 times!
+pc=0x90a0 was visited 13 times!
+pc=0x9108 was visited 9 times!
+pc=0x910c was visited 8 times!
+pc=0x9110 was visited 12 times!
+pc=0x9398 was visited 7 times!
+iter=70: cnt = 71, period = 24920usec, 0x6158
+iter=71: cnt = 72, period = 3864usec, 0xf18
+iter=72: cnt = 72, period = 3864usec, 0xf18
+iter=73: cnt = 73, period = 4112usec, 0x1010
+iter=74: cnt = 74, period = 4112usec, 0x1010
+iter=75: cnt = 75, period = 4112usec, 0x1010
+iter=76: cnt = 76, period = 4112usec, 0x1010
+iter=77: cnt = 77, period = 4112usec, 0x1010
+iter=78: cnt = 78, period = 4112usec, 0x1010
+iter=79: cnt = 79, period = 4112usec, 0x1010
+pc=0x802c was visited 9 times!
+pc=0x8e9c was visited 7 times!
+pc=0x9094 was visited 6 times!
+pc=0x90a0 was visited 14 times!
+pc=0x9108 was visited 11 times!
+pc=0x910c was visited 10 times!
+pc=0x9110 was visited 14 times!
+pc=0x9398 was visited 8 times!
+iter=80: cnt = 81, period = 24790usec, 0x60d6
+iter=81: cnt = 82, period = 3994usec, 0xf9a
+iter=82: cnt = 82, period = 3994usec, 0xf9a
+iter=83: cnt = 83, period = 4112usec, 0x1010
+iter=84: cnt = 84, period = 4112usec, 0x1010
+iter=85: cnt = 85, period = 4112usec, 0x1010
+iter=86: cnt = 86, period = 4112usec, 0x1010
+iter=87: cnt = 87, period = 4112usec, 0x1010
+iter=88: cnt = 88, period = 4112usec, 0x1010
+iter=89: cnt = 89, period = 4112usec, 0x1010
+pc=0x802c was visited 11 times!
+pc=0x8e9c was visited 8 times!
+pc=0x9094 was visited 6 times!
+pc=0x90a0 was visited 14 times!
+pc=0x9108 was visited 12 times!
+pc=0x910c was visited 10 times!
+pc=0x9110 was visited 17 times!
+pc=0x9398 was visited 10 times!
+iter=90: cnt = 91, period = 24837usec, 0x6105
+iter=91: cnt = 92, period = 3947usec, 0xf6b
+iter=92: cnt = 92, period = 3947usec, 0xf6b
+iter=93: cnt = 93, period = 4112usec, 0x1010
+iter=94: cnt = 94, period = 4112usec, 0x1010
+iter=95: cnt = 95, period = 4112usec, 0x1010
+iter=96: cnt = 96, period = 4112usec, 0x1010
+iter=97: cnt = 97, period = 4112usec, 0x1010
+iter=98: cnt = 98, period = 4112usec, 0x1010
+iter=99: cnt = 99, period = 4112usec, 0x1010
+pc=0x802c was visited 11 times!
+pc=0x8e9c was visited 9 times!
+pc=0x9094 was visited 8 times!
+pc=0x90a0 was visited 16 times!
+pc=0x9108 was visited 14 times!
+pc=0x910c was visited 10 times!
+pc=0x9110 was visited 20 times!
+pc=0x9398 was visited 10 times!
+iter=100: cnt = 101, period = 24883usec, 0x6133
+iter=101: cnt = 102, period = 3902usec, 0xf3e
+iter=102: cnt = 103, period = 4112usec, 0x1010
+iter=103: cnt = 104, period = 4111usec, 0x100f
+iter=104: cnt = 105, period = 4112usec, 0x1010
+iter=105: cnt = 106, period = 4112usec, 0x1010
+iter=106: cnt = 107, period = 4112usec, 0x1010
+iter=107: cnt = 108, period = 4113usec, 0x1011
+iter=108: cnt = 109, period = 4111usec, 0x100f
+iter=109: cnt = 110, period = 4112usec, 0x1010
+pc=0x802c was visited 13 times!
+pc=0x8e9c was visited 10 times!
+pc=0x9094 was visited 8 times!
+pc=0x90a0 was visited 18 times!
+pc=0x9108 was visited 16 times!
+pc=0x910c was visited 12 times!
+pc=0x9110 was visited 22 times!
+pc=0x9398 was visited 10 times!
+iter=110: cnt = 112, period = 22748usec, 0x58dc
+iter=111: cnt = 113, period = 1924usec, 0x784
+iter=112: cnt = 114, period = 4112usec, 0x1010
+iter=113: cnt = 115, period = 4112usec, 0x1010
+iter=114: cnt = 116, period = 4112usec, 0x1010
+iter=115: cnt = 117, period = 4112usec, 0x1010
+iter=116: cnt = 118, period = 4112usec, 0x1010
+iter=117: cnt = 119, period = 4112usec, 0x1010
+iter=118: cnt = 120, period = 4112usec, 0x1010
+iter=119: cnt = 121, period = 4112usec, 0x1010
+pc=0x802c was visited 14 times!
+pc=0x8e9c was visited 11 times!
+pc=0x9094 was visited 9 times!
+pc=0x90a0 was visited 19 times!
+pc=0x9108 was visited 18 times!
+pc=0x910c was visited 13 times!
+pc=0x9110 was visited 25 times!
+pc=0x9398 was visited 11 times!
+iter=120: cnt = 123, period = 24726usec, 0x6096
+iter=121: cnt = 124, period = 4058usec, 0xfda
+iter=122: cnt = 125, period = 4112usec, 0x1010
+iter=123: cnt = 126, period = 4112usec, 0x1010
+iter=124: cnt = 127, period = 4112usec, 0x1010
+iter=125: cnt = 128, period = 4112usec, 0x1010
+iter=126: cnt = 129, period = 4112usec, 0x1010
+iter=127: cnt = 130, period = 4112usec, 0x1010
+iter=128: cnt = 131, period = 4112usec, 0x1010
+iter=129: cnt = 132, period = 4112usec, 0x1010
+pc=0x802c was visited 16 times!
+pc=0x8e9c was visited 12 times!
+pc=0x9094 was visited 9 times!
+pc=0x90a0 was visited 20 times!
+pc=0x9108 was visited 19 times!
+pc=0x910c was visited 14 times!
+pc=0x9110 was visited 28 times!
+pc=0x9398 was visited 12 times!
+iter=130: cnt = 134, period = 22592usec, 0x5840
+iter=131: cnt = 135, period = 2080usec, 0x820
+iter=132: cnt = 136, period = 4112usec, 0x1010
+iter=133: cnt = 137, period = 4112usec, 0x1010
+iter=134: cnt = 138, period = 4112usec, 0x1010
+iter=135: cnt = 139, period = 4112usec, 0x1010
+iter=136: cnt = 140, period = 4112usec, 0x1010
+iter=137: cnt = 141, period = 4112usec, 0x1010
+iter=138: cnt = 142, period = 4112usec, 0x1010
+iter=139: cnt = 143, period = 4112usec, 0x1010
+pc=0x802c was visited 16 times!
+pc=0x8e9c was visited 13 times!
+pc=0x9094 was visited 12 times!
+pc=0x90a0 was visited 21 times!
+pc=0x9108 was visited 20 times!
+pc=0x910c was visited 14 times!
+pc=0x9110 was visited 31 times!
+pc=0x9398 was visited 14 times!
+iter=140: cnt = 145, period = 24658usec, 0x6052
+iter=141: cnt = 147, period = 4112usec, 0x1010
+iter=142: cnt = 148, period = 4112usec, 0x1010
+iter=143: cnt = 149, period = 4112usec, 0x1010
+iter=144: cnt = 150, period = 4112usec, 0x1010
+iter=145: cnt = 151, period = 4112usec, 0x1010
+iter=146: cnt = 152, period = 4112usec, 0x1010
+iter=147: cnt = 153, period = 4112usec, 0x1010
+iter=148: cnt = 154, period = 4112usec, 0x1010
+iter=149: cnt = 155, period = 4112usec, 0x1010
+pc=0x802c was visited 17 times!
+pc=0x8e9c was visited 14 times!
+pc=0x9094 was visited 13 times!
+pc=0x90a0 was visited 23 times!
+pc=0x9108 was visited 21 times!
+pc=0x910c was visited 14 times!
+pc=0x9110 was visited 35 times!
+pc=0x9398 was visited 15 times!
+iter=150: cnt = 157, period = 22699usec, 0x58ab
+iter=151: cnt = 158, period = 1973usec, 0x7b5
+iter=152: cnt = 159, period = 4112usec, 0x1010
+iter=153: cnt = 160, period = 4112usec, 0x1010
+iter=154: cnt = 161, period = 4112usec, 0x1010
+iter=155: cnt = 162, period = 4112usec, 0x1010
+iter=156: cnt = 163, period = 4112usec, 0x1010
+iter=157: cnt = 164, period = 4112usec, 0x1010
+iter=158: cnt = 165, period = 4112usec, 0x1010
+iter=159: cnt = 166, period = 4112usec, 0x1010
+pc=0x802c was visited 19 times!
+pc=0x8e9c was visited 15 times!
+pc=0x9094 was visited 13 times!
+pc=0x90a0 was visited 24 times!
+pc=0x9108 was visited 23 times!
+pc=0x910c was visited 15 times!
+pc=0x9110 was visited 37 times!
+pc=0x9398 was visited 17 times!
+iter=160: cnt = 168, period = 24766usec, 0x60be
+iter=161: cnt = 169, period = 4018usec, 0xfb2
+iter=162: cnt = 170, period = 4112usec, 0x1010
+iter=163: cnt = 171, period = 4112usec, 0x1010
+iter=164: cnt = 172, period = 4112usec, 0x1010
+iter=165: cnt = 173, period = 4112usec, 0x1010
+iter=166: cnt = 174, period = 4113usec, 0x1011
+iter=167: cnt = 175, period = 4112usec, 0x1010
+iter=168: cnt = 176, period = 4112usec, 0x1010
+iter=169: cnt = 177, period = 4112usec, 0x1010
+pc=0x802c was visited 21 times!
+pc=0x8e9c was visited 16 times!
+pc=0x9094 was visited 13 times!
+pc=0x90a0 was visited 24 times!
+pc=0x9108 was visited 23 times!
+pc=0x910c was visited 19 times!
+pc=0x9110 was visited 40 times!
+pc=0x9398 was visited 18 times!
+iter=170: cnt = 179, period = 22718usec, 0x58be
+iter=171: cnt = 180, period = 1954usec, 0x7a2
+iter=172: cnt = 181, period = 4112usec, 0x1010
+iter=173: cnt = 182, period = 4112usec, 0x1010
+iter=174: cnt = 183, period = 4112usec, 0x1010
+iter=175: cnt = 184, period = 4112usec, 0x1010
+iter=176: cnt = 185, period = 4112usec, 0x1010
+iter=177: cnt = 186, period = 4112usec, 0x1010
+iter=178: cnt = 187, period = 4112usec, 0x1010
+iter=179: cnt = 188, period = 4112usec, 0x1010
+pc=0x802c was visited 22 times!
+pc=0x8e9c was visited 17 times!
+pc=0x9094 was visited 13 times!
+pc=0x90a0 was visited 26 times!
+pc=0x9108 was visited 23 times!
+pc=0x910c was visited 22 times!
+pc=0x9110 was visited 41 times!
+pc=0x9398 was visited 21 times!
+iter=180: cnt = 190, period = 24784usec, 0x60d0
+iter=181: cnt = 191, period = 4000usec, 0xfa0
+iter=182: cnt = 192, period = 4112usec, 0x1010
+iter=183: cnt = 193, period = 4112usec, 0x1010
+iter=184: cnt = 194, period = 4112usec, 0x1010
+iter=185: cnt = 195, period = 4112usec, 0x1010
+iter=186: cnt = 196, period = 4112usec, 0x1010
+iter=187: cnt = 197, period = 4112usec, 0x1010
+iter=188: cnt = 198, period = 4112usec, 0x1010
+iter=189: cnt = 199, period = 4112usec, 0x1010
+pc=0x802c was visited 25 times!
+pc=0x8e9c was visited 18 times!
+pc=0x9094 was visited 13 times!
+pc=0x90a0 was visited 26 times!
+pc=0x9108 was visited 24 times!
+pc=0x910c was visited 23 times!
+pc=0x9110 was visited 44 times!
+pc=0x9398 was visited 23 times!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+rm gprof.o /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.o
+running syscall tests
+rm -rf ./objs 0-syscall.bin 1-syscall.bin 0-syscall.list 1-syscall.list
+rm -f *~ tags Makefile.bak  *.test
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 0-syscall.c -o objs/0-syscall.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -MMD -MP -c syscall-asm.S -o objs/syscall-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -MMD -MP -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.o  objs/0-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/memmap -o objs/0-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/0-syscall.elf > 0-syscall.list
+arm-none-eabi-objcopy ./objs/0-syscall.elf -O binary 0-syscall.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 1-syscall.c -o objs/1-syscall.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.o  objs/1-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/memmap -o objs/1-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/1-syscall.elf > 1-syscall.list
+arm-none-eabi-objcopy ./objs/1-syscall.elf -O binary 1-syscall.bin
+pi-install  ./0-syscall.bin
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./0-syscall.bin> about to boot
+TRACE:simple_boot: sending 5796 bytes, crc32=ebca0eaf
+waiting for a start
+expected initial GET_PROG_INFO, got <494e4150>: discarding.
+expected initial GET_PROG_INFO, got <6950203a>: discarding.
+expected initial GET_PROG_INFO, got <6867696d>: discarding.
+expected initial GET_PROG_INFO, got <76616820>: discarding.
+expected initial GET_PROG_INFO, got <6d697420>: discarding.
+expected initial GET_PROG_INFO, got <756f2064>: discarding.
+expected initial GET_PROG_INFO, got <4f440a2e>: discarding.
+expected initial GET_PROG_INFO, got <21212145>: discarding.
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+current stackptr = 0x7ffffd0
+TRACE:notmain:about to install handlers
+about to install interrupt handlers
+TRACE:notmain:about to run syscall hello
+TRACE:syscall_vector:inst=11100100100111011110000000000100, sys_num=10346500
+TRACE:syscall_vector:illegal system call = 10346500!
+PANIC:./staff-src/default-handler-undefined-inst.c:undefined_instruction_vector:3:unhandled undefined inst exception: pc=0xcc2dfb5c
+
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+pi-install  ./1-syscall.bin
+opened tty port </dev/cu.usbserial-1130>.
+pi-install: tty-usb=</dev/cu.usbserial-1130> program=<./1-syscall.bin> about to boot
+TRACE:simple_boot: sending 6228 bytes, crc32=728583b6
+waiting for a start
+expected initial GET_PROG_INFO, got <494e4150>: discarding.
+expected initial GET_PROG_INFO, got <6950203a>: discarding.
+expected initial GET_PROG_INFO, got <6867696d>: discarding.
+expected initial GET_PROG_INFO, got <76616820>: discarding.
+expected initial GET_PROG_INFO, got <6d697420>: discarding.
+expected initial GET_PROG_INFO, got <756f2064>: discarding.
+expected initial GET_PROG_INFO, got <4f440a2e>: discarding.
+expected initial GET_PROG_INFO, got <21212145>: discarding.
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1130>
+about to install interrupt handlers
+calling user_fn with stack=0x89850
+TRACE:user_fn:checking that stack got switched
+TRACE:user_fn:cpsr is at user level
+TRACE:user_fn:about to call hello
+TRACE:syscall_vector:success: spsr is at user level: mode=10000
+TRACE:syscall_vector:syscall: hello world
+TRACE:user_fn:about to call exit
+TRACE:syscall_vector:success: spsr is at user level: mode=10000
+TRACE:syscall_vector:exiting!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+rm /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 0-syscall.c -o objs/0-syscall.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -MMD -MP -c syscall-asm.S -o objs/syscall-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -MMD -MP -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.o  objs/0-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/memmap -o objs/0-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/0-syscall.elf > 0-syscall.list
+arm-none-eabi-objcopy ./objs/0-syscall.elf -O binary 0-syscall.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 1-syscall.c -o objs/1-syscall.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.o  objs/1-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/memmap -o objs/1-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/1-syscall.elf > 1-syscall.list
+arm-none-eabi-objcopy ./objs/1-syscall.elf -O binary 1-syscall.bin
+-------------------------------------------------
+checking <0-syscall>: 
+  about to emit new <0-syscall.test>:
+     pi-install  ./0-syscall.bin  > 0-syscall.test
+  about to compare contents:
+     diff 0-syscall.out 0-syscall.test
+3,10c3,5
+< TRACE:syscall_vector:inst=11101111000000000000000000000001, sys_num=1
+< TRACE:syscall_vector:syscall: <hello world>
+< TRACE:notmain:result of calling system call 1=0
+< TRACE:notmain:about to call illegal system call: should die
+< TRACE:syscall_vector:inst=11101111000000000000000000000010, sys_num=2
+< TRACE:syscall_vector:illegal system call = 2!
+< TRACE:notmain:result of illegal system call =-1
+< TRACE:notmain:SUCCESS!
+---
+> TRACE:syscall_vector:inst=11100100100111011110000000000100, sys_num=10346500
+> TRACE:syscall_vector:illegal system call = 10346500!
+> PANIC:./staff-src/default-handler-undefined-inst.c:undefined_instruction_vector:3:unhandled undefined inst exception: pc=0x2c5f0c68
+
+	^
+	|
+	|
+   ERROR: files don't match!  Compare them to see why:
+	0-syscall.out  =       10  lines # correct ref output
+	0-syscall.test =        5 lines # incorrect test output
+   or just run the command by hand:
+	pi-install  ./0-syscall.bin 
+make[1]: *** [0-syscall.check] Error 1
+make: *** [check] Error 2
+rm /Users/josephtan/140e-dumb-autograder/repos/jitongz//libpi/staff-start.o
+========================= 
+To verify everything worked, make sure the make check command didn't lead to any errors and the gprof output table is correct.
+gprof should show a lot of time in PUT32, GET32, and UART routines
+=========================
+
+Return code: 0
