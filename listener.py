@@ -1,3 +1,4 @@
+import argparse
 import multiprocessing
 import serial
 import glob
@@ -9,8 +10,6 @@ import time
 from datetime import datetime
 import subprocess
 import shutil
-# assert we are on Joe's computer
-assert os.path.exists("/Users/josephtan/")
 
 # Thread-safe queue for messages
 message_queue = queue.Queue()
@@ -22,7 +21,7 @@ PORT = 8000
 REPO_DIR = "repos"
 CHECKOFFS_DIR = "checkoffs"
 COMMAND_TIMEOUT = 60  # seconds
-VALID_COMMANDS = ['lab' + str(i) for i in range(30)]
+VALID_COMMANDS = ['test-x'] + ['lab' + str(i) for i in range(30)]
 COMMANDS_DIR = "commands"
 def print_red(text):
     print(f"\033[91m{text}\033[00m")
@@ -75,8 +74,11 @@ def clone_repo(repo_url, username):
     run_command_and_print(f"git clone {repo_url} {repo_dir}")
     return username
 
-def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
-    """Run command in the given repository, save output with a formatted filename, commit, and push."""
+def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir, push_results=True):
+    """
+    Run command in the given repository, save output with a formatted filename,
+    commit, and (optionally) push.
+    """
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     # Create <repo_dir>/<CHECKOFFS_DIR>/<command>/<sunet> directory if it doesn't exist
     # make sure to create parent directories if they don't exist
@@ -100,27 +102,24 @@ def run_command_in_repo(repo_dir, command, sunet, command_name, staff_repo_dir):
         else:
             f.write(f"\nReturn code: {returncode}\n")
 
-    # Commit and push the output file
-    # print("Committing and pushing the output file to student...")
-    # run_command_and_print(f"git add {os.path.join(CHECKOFFS_DIR, output_file)}", cwd=repo_dir)
-    # run_command_and_print(f'git commit -m "Add output file {output_file}"', cwd=repo_dir)
-    # run_command_and_print("git push", cwd=repo_dir)
+    # Commit and push the output file. Only push if the push flag is set to
+    # True.
     print("Copying the output file to staff repo...")
     staff_output_file = os.path.join(staff_repo_dir, CHECKOFFS_DIR, command_name, sunet, f"{timestamp}.txt")
     shutil.copy(output_file, staff_output_file)
-    print("Committing and pushing the output file to staff...")
-    run_command_and_print(f"git add {staff_output_file}", cwd=staff_repo_dir)
-    run_command_and_print(f'git commit -m "Add output file {staff_output_file}"', cwd=staff_repo_dir)
-    run_command_and_print("git push", cwd=staff_repo_dir)
-    
+    if push_results:
+        print("Committing and pushing the output file to staff...")
+        run_command_and_print(f"git add {staff_output_file}", cwd=staff_repo_dir)
+        run_command_and_print(f'git commit -m "Add output file {staff_output_file}"', cwd=staff_repo_dir)
+        run_command_and_print("git push", cwd=staff_repo_dir)
 
     return output_file, returncode
 
-def pi_is_alive():
+def pi_is_alive(pis_glob):
     try:
         # Check if a raspberry pi is connected to tty and its bootloader is running
-        # check that there is exactly one /dev/tty.usbserial* device
-        pis = glob.glob("/dev/tty.usbserial*")
+        # check that there is exactly one device
+        pis = glob.glob(pis_glob)
         if len(pis) == 0:
             print("Raspberry Pi not connected to tty")
             return False
@@ -151,14 +150,13 @@ def pi_is_alive():
 
 
 # --- Processor Function ---
-def run(message):
+def run(message, pis_glob, push_results=True):
     print_red(f"Current queue: ")
     print("checking that a raspberry pi is connected to tty and its bootloader is running")
-    if not pi_is_alive():
-        
+    if not pi_is_alive(pis_glob):
         command = ["afplay", "./music.mp3"]
         process = subprocess.Popen(command)
-        while not pi_is_alive():
+        while not pi_is_alive(pis_glob):
             time.sleep(1)
         process.terminate()
 
@@ -179,11 +177,27 @@ def run(message):
     os.environ["CS140E_2024_PATH"] = repo_path + '/'
     os.environ["CS140E_2022_PATH"] = repo_path + '/'
     # Note: The 2>&1 is to redirect stderr to stdout
-    run_command_in_repo(repo_path, os.path.join(cwd, COMMANDS_DIR, command) + " 2>&1", sunet, command, cwd)
+    run_command_in_repo(
+        repo_path,
+        os.path.join(cwd, COMMANDS_DIR, command) + " 2>&1",
+        sunet,
+        command,
+        cwd,
+        push_results=push_results)
     print(f"[Processor] Finished processing message: {sunet} {repo} {command}")
-    
 
 # --- Listener Thread ---
+
+def validate_message(message):
+    """Utility function to validate incoming messages."""
+    # Just check that the message contains "github", and that it is not "" or
+    # None.
+    #
+    # TODO: Add more validation. This currently factors out the validation in
+    # `listener`, but we do more checks in `run`. We could also check the format
+    # more thoroughly.
+    return message and "github" in message
+
 def listener():
     """
     Listens for incoming messages and adds them to the queue.
@@ -199,7 +213,7 @@ def listener():
             print(f"[Listener] Connection established with {addr}")
             try:
                 message = conn.recv(1024).decode()
-                if message and "github" in message:
+                if validate_message(message):
                     sunet, repo, command = message.strip().split()
                     skip = False
                     for message in message_queue.queue:
@@ -221,7 +235,7 @@ def listener():
         server_socket.close()
 
 # --- Processor Thread ---
-def processor():
+def processor(pis_glob, push_results=True):
     """
     Processes messages from the queue.
     """
@@ -229,19 +243,29 @@ def processor():
     while True:
         message = message_queue.get()  # Block until a message is available
         try:
-            run(message)
+            run(message, pis_glob, push_results=push_results)
         except Exception as e:
             print(f"[Processor] Error processing message: {e}")
         message_queue.task_done()
 
 # --- Main Program ---
-if __name__ == "__main__":
+
+def main_server(args):
+    """
+    The "main method" where we run the server, after argument parsing. It
+    listens for incoming messages and processes them.
+    """
+
     # Start Listener Thread
     listener_thread = threading.Thread(target=listener, daemon=True)
     listener_thread.start()
 
     # Start Processor Thread
-    processor_thread = threading.Thread(target=processor, daemon=True)
+    processor_thread = threading.Thread(
+        target=processor,
+        args=(args.pis_glob,),
+        kwargs={"push_results": args.push_results},
+        daemon=True)
     processor_thread.start()
 
     # Keep the main thread alive
@@ -250,3 +274,52 @@ if __name__ == "__main__":
             time.sleep(1)
     except KeyboardInterrupt:
         print("\n[Main] Shutting down server...")
+
+def main_cli(args):
+    """
+    The "main method" when running from the CLI. It takes a single command to
+    run, and injects it into the processing queue.
+    """
+    if not validate_message(args.message):
+        print("Bad message! Ask Joe if it was yours")
+        return
+
+    # Start Processor Thread
+    processor_thread = threading.Thread(
+        target=processor,
+        args=(args.pis_glob,),
+        kwargs={"push_results": args.push_results},
+        daemon=True)
+    processor_thread.start()
+
+    # Chuck the message into the queue, then wait for the processor to finish.
+    message_queue.put(args.message)
+    message_queue.join()
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description="Listener for checkoff server")
+    parser.add_argument(
+        "--push-results",
+        action=argparse.BooleanOptionalAction,
+        help="Whether to push the output files to the staff repo",
+        default=True)
+    parser.add_argument(
+        "pis_glob",
+        type=str,
+        metavar="PIS_GLOB",
+        help="Glob pattern to find the Raspberry Pi - must match one device")
+    subparsers = parser.add_subparsers(
+        title="Modes",
+        description="How to ingest the commands to run",
+        required=True)
+
+    server_parser = subparsers.add_parser("server", help="Run the TCP server")
+    server_parser.set_defaults(func=main_server)
+
+    cli_parser = subparsers.add_parser("cli", help="Take the command to run from the CLI")
+    cli_parser.set_defaults(func=main_cli)
+    cli_parser.add_argument("message", help="The message to process")
+
+    args = parser.parse_args()
+    args.func(args)
