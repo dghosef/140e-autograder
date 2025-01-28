@@ -42,8 +42,8 @@ def run_command(command, cwd=None, timeout=None, wifi=True):
     try:
         result = subprocess.run(command, shell=True, text=True, capture_output=True, cwd=cwd, timeout=timeout)
         return result.returncode, result.stdout, result.stderr
-    except subprocess.TimeoutExpired:
-        return -1, "", "Command timed out"
+    except subprocess.TimeoutExpired as e:
+        return -1, "Command timed out. Here is the partial output: \n" + e.stdout.decode('utf-8'), str(e.stderr)
 
 def run_command_and_print(command, cwd=None, timeout=None):
     """Run a shell command and print the result."""
@@ -150,9 +150,15 @@ def pi_is_alive():
         return False
 
 
+def print_queue():
+    print_red(f"Current queue: ")
+    qlist = list(message_queue.queue)
+    for i in range(len(qlist)):
+        print_red(f"{i}: {qlist[i]}")
+
 # --- Processor Function ---
 def run(message):
-    print_red(f"Current queue: ")
+    print_queue()
     print("checking that a raspberry pi is connected to tty and its bootloader is running")
     if not pi_is_alive():
         
@@ -162,9 +168,6 @@ def run(message):
             time.sleep(1)
         process.terminate()
 
-    qlist = list(message_queue.queue)
-    for i in range(len(qlist)):
-        print_red(f"{i}: {qlist[i]}")
     cwd = os.getcwd()
     sunet, repo, command = message.strip().split()
     if command not in VALID_COMMANDS:
@@ -190,13 +193,14 @@ def listener():
     """
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((HOST, PORT))
-    server_socket.listen(5)  # Max 5 connections in the queue
+    server_socket.listen(50)  # Max 50 connections in the queue
     print("[Listener] Server is listening for incoming messages...")
 
     try:
         while True:
             conn, addr = server_socket.accept()
             print(f"[Listener] Connection established with {addr}")
+            print_queue()
             try:
                 message = conn.recv(1024).decode()
                 if message and "github" in message:
