@@ -1,0 +1,348 @@
+running gprof
+rm -rf ./objs gprof.bin gprof.list gprof.elf
+rm -f *~ tags  ./objs/interrupts-asm.o Makefile.bak *.d  *.raw *.test  
+rm -f     
+arm-none-eabi-gcc  -I./ -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MMD -c gprof.c -o gprof.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -MMD -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -MMD -c /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.S -o /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.o  gprof.o  ./objs/interrupts-asm.o staff-kmalloc.o  -T /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/memmap -o gprof.elf  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libpi.a  
+arm-none-eabi-objdump -d   gprof.elf > gprof.list
+arm-none-eabi-objcopy gprof.elf -O binary gprof.bin
+pi-install  ./gprof.bin
+opened tty port </dev/cu.usbserial-1140>.
+pi-install: tty-usb=</dev/cu.usbserial-1140> program=<./gprof.bin> about to boot
+TRACE:simple_boot: sending 7028 bytes, crc32=d60d75a0
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1140>
+about to install interrupt handlers
+setting up timer interrupts
+pc min 32768, pc max 37780 
+number of bytes allocated 1254 
+gonna enable ints globally!
+iter=0: cnt = 1, period = 0usec, 0x0
+iter=1: cnt = 2, period = 514usec, 0x202
+iter=2: cnt = 3, period = 4112usec, 0x1010
+iter=3: cnt = 4, period = 4112usec, 0x1010
+iter=4: cnt = 5, period = 4112usec, 0x1010
+iter=5: cnt = 6, period = 4112usec, 0x1010
+iter=6: cnt = 7, period = 4112usec, 0x1010
+iter=7: cnt = 8, period = 4112usec, 0x1010
+iter=8: cnt = 9, period = 4112usec, 0x1010
+iter=9: cnt = 9, period = 4112usec, 0x1010
+address 0x915c with value 4 is being called a lot! 
+iter=10: cnt = 12, period = 4112usec, 0x1010
+iter=11: cnt = 12, period = 4112usec, 0x1010
+iter=12: cnt = 13, period = 4112usec, 0x1010
+iter=13: cnt = 14, period = 4112usec, 0x1010
+iter=14: cnt = 15, period = 4112usec, 0x1010
+iter=15: cnt = 16, period = 4112usec, 0x1010
+iter=16: cnt = 17, period = 4112usec, 0x1010
+iter=17: cnt = 18, period = 4112usec, 0x1010
+iter=18: cnt = 19, period = 4112usec, 0x1010
+iter=19: cnt = 20, period = 4112usec, 0x1010
+address 0x915c with value 6 is being called a lot! 
+address 0x9390 with value 3 is being called a lot! 
+iter=20: cnt = 23, period = 4112usec, 0x1010
+iter=21: cnt = 24, period = 4112usec, 0x1010
+iter=22: cnt = 25, period = 4112usec, 0x1010
+iter=23: cnt = 26, period = 4112usec, 0x1010
+iter=24: cnt = 27, period = 4112usec, 0x1010
+iter=25: cnt = 28, period = 4112usec, 0x1010
+iter=26: cnt = 29, period = 4112usec, 0x1010
+iter=27: cnt = 30, period = 4112usec, 0x1010
+iter=28: cnt = 31, period = 4112usec, 0x1010
+iter=29: cnt = 32, period = 4112usec, 0x1010
+address 0x802c with value 4 is being called a lot! 
+address 0x90e0 with value 3 is being called a lot! 
+address 0x90ec with value 4 is being called a lot! 
+address 0x9154 with value 4 is being called a lot! 
+address 0x915c with value 10 is being called a lot! 
+address 0x9390 with value 3 is being called a lot! 
+iter=30: cnt = 40, period = 4112usec, 0x1010
+iter=31: cnt = 41, period = 4112usec, 0x1010
+iter=32: cnt = 42, period = 4112usec, 0x1010
+iter=33: cnt = 43, period = 4112usec, 0x1010
+iter=34: cnt = 43, period = 4112usec, 0x1010
+iter=35: cnt = 44, period = 4112usec, 0x1010
+iter=36: cnt = 45, period = 4112usec, 0x1010
+iter=37: cnt = 46, period = 4112usec, 0x1010
+iter=38: cnt = 47, period = 4113usec, 0x1011
+iter=39: cnt = 48, period = 4111usec, 0x100f
+address 0x802c with value 5 is being called a lot! 
+address 0x90e0 with value 7 is being called a lot! 
+address 0x90ec with value 5 is being called a lot! 
+address 0x9154 with value 8 is being called a lot! 
+address 0x915c with value 13 is being called a lot! 
+address 0x9160 with value 5 is being called a lot! 
+address 0x9390 with value 4 is being called a lot! 
+iter=40: cnt = 57, period = 4112usec, 0x1010
+iter=41: cnt = 58, period = 4112usec, 0x1010
+iter=42: cnt = 59, period = 4112usec, 0x1010
+iter=43: cnt = 60, period = 4112usec, 0x1010
+iter=44: cnt = 61, period = 4112usec, 0x1010
+iter=45: cnt = 62, period = 4112usec, 0x1010
+iter=46: cnt = 63, period = 4112usec, 0x1010
+iter=47: cnt = 64, period = 4112usec, 0x1010
+iter=48: cnt = 65, period = 4112usec, 0x1010
+iter=49: cnt = 66, period = 4112usec, 0x1010
+address 0x802c with value 6 is being called a lot! 
+address 0x90e0 with value 8 is being called a lot! 
+address 0x90ec with value 10 is being called a lot! 
+address 0x9154 with value 12 is being called a lot! 
+address 0x9158 with value 4 is being called a lot! 
+address 0x915c with value 15 is being called a lot! 
+address 0x9160 with value 6 is being called a lot! 
+address 0x9390 with value 4 is being called a lot! 
+iter=50: cnt = 76, period = 4112usec, 0x1010
+iter=51: cnt = 77, period = 4112usec, 0x1010
+iter=52: cnt = 77, period = 4112usec, 0x1010
+iter=53: cnt = 78, period = 4112usec, 0x1010
+iter=54: cnt = 79, period = 4112usec, 0x1010
+iter=55: cnt = 80, period = 4112usec, 0x1010
+iter=56: cnt = 81, period = 4112usec, 0x1010
+iter=57: cnt = 82, period = 4112usec, 0x1010
+iter=58: cnt = 83, period = 4112usec, 0x1010
+iter=59: cnt = 84, period = 4112usec, 0x1010
+address 0x802c with value 8 is being called a lot! 
+address 0x90e0 with value 11 is being called a lot! 
+address 0x90ec with value 12 is being called a lot! 
+address 0x9154 with value 13 is being called a lot! 
+address 0x9158 with value 5 is being called a lot! 
+address 0x915c with value 20 is being called a lot! 
+address 0x9160 with value 8 is being called a lot! 
+address 0x9390 with value 6 is being called a lot! 
+iter=60: cnt = 94, period = 4112usec, 0x1010
+iter=61: cnt = 95, period = 4112usec, 0x1010
+iter=62: cnt = 96, period = 4112usec, 0x1010
+iter=63: cnt = 97, period = 4112usec, 0x1010
+iter=64: cnt = 98, period = 4112usec, 0x1010
+iter=65: cnt = 99, period = 4112usec, 0x1010
+iter=66: cnt = 100, period = 4112usec, 0x1010
+iter=67: cnt = 101, period = 4112usec, 0x1010
+iter=68: cnt = 102, period = 4112usec, 0x1010
+iter=69: cnt = 103, period = 4112usec, 0x1010
+address 0x802c with value 12 is being called a lot! 
+address 0x90e0 with value 11 is being called a lot! 
+address 0x90ec with value 18 is being called a lot! 
+address 0x9154 with value 15 is being called a lot! 
+address 0x9158 with value 5 is being called a lot! 
+address 0x915c with value 23 is being called a lot! 
+address 0x9160 with value 11 is being called a lot! 
+address 0x9390 with value 8 is being called a lot! 
+iter=70: cnt = 113, period = 4112usec, 0x1010
+iter=71: cnt = 114, period = 4112usec, 0x1010
+iter=72: cnt = 115, period = 4112usec, 0x1010
+iter=73: cnt = 116, period = 4112usec, 0x1010
+iter=74: cnt = 117, period = 4112usec, 0x1010
+iter=75: cnt = 118, period = 4112usec, 0x1010
+iter=76: cnt = 119, period = 4112usec, 0x1010
+iter=77: cnt = 120, period = 4112usec, 0x1010
+iter=78: cnt = 121, period = 4112usec, 0x1010
+iter=79: cnt = 122, period = 4112usec, 0x1010
+address 0x802c with value 13 is being called a lot! 
+address 0x90e0 with value 13 is being called a lot! 
+address 0x90ec with value 22 is being called a lot! 
+address 0x9154 with value 16 is being called a lot! 
+address 0x9158 with value 6 is being called a lot! 
+address 0x915c with value 29 is being called a lot! 
+address 0x9160 with value 14 is being called a lot! 
+address 0x9390 with value 9 is being called a lot! 
+iter=80: cnt = 132, period = 4112usec, 0x1010
+iter=81: cnt = 133, period = 4112usec, 0x1010
+iter=82: cnt = 134, period = 4112usec, 0x1010
+iter=83: cnt = 135, period = 4112usec, 0x1010
+iter=84: cnt = 136, period = 4112usec, 0x1010
+iter=85: cnt = 137, period = 4112usec, 0x1010
+iter=86: cnt = 138, period = 4112usec, 0x1010
+iter=87: cnt = 139, period = 4112usec, 0x1010
+iter=88: cnt = 140, period = 4112usec, 0x1010
+iter=89: cnt = 141, period = 4112usec, 0x1010
+address 0x802c with value 14 is being called a lot! 
+address 0x90e0 with value 14 is being called a lot! 
+address 0x90ec with value 26 is being called a lot! 
+address 0x9154 with value 18 is being called a lot! 
+address 0x9158 with value 8 is being called a lot! 
+address 0x915c with value 33 is being called a lot! 
+address 0x9160 with value 15 is being called a lot! 
+address 0x9390 with value 10 is being called a lot! 
+iter=90: cnt = 151, period = 4112usec, 0x1010
+iter=91: cnt = 152, period = 4112usec, 0x1010
+iter=92: cnt = 153, period = 4113usec, 0x1011
+iter=93: cnt = 153, period = 4113usec, 0x1011
+iter=94: cnt = 154, period = 4111usec, 0x100f
+iter=95: cnt = 155, period = 4112usec, 0x1010
+iter=96: cnt = 156, period = 4112usec, 0x1010
+iter=97: cnt = 157, period = 4113usec, 0x1011
+iter=98: cnt = 158, period = 4112usec, 0x1010
+iter=99: cnt = 159, period = 4112usec, 0x1010
+address 0x802c with value 20 is being called a lot! 
+address 0x90e0 with value 15 is being called a lot! 
+address 0x90ec with value 26 is being called a lot! 
+address 0x9154 with value 19 is being called a lot! 
+address 0x9158 with value 10 is being called a lot! 
+address 0x915c with value 35 is being called a lot! 
+address 0x9160 with value 18 is being called a lot! 
+address 0x9390 with value 15 is being called a lot! 
+iter=100: cnt = 169, period = 4112usec, 0x1010
+iter=101: cnt = 170, period = 4112usec, 0x1010
+iter=102: cnt = 171, period = 4112usec, 0x1010
+iter=103: cnt = 172, period = 4112usec, 0x1010
+iter=104: cnt = 173, period = 4112usec, 0x1010
+iter=105: cnt = 174, period = 4112usec, 0x1010
+iter=106: cnt = 175, period = 4112usec, 0x1010
+iter=107: cnt = 176, period = 4112usec, 0x1010
+iter=108: cnt = 177, period = 4112usec, 0x1010
+iter=109: cnt = 178, period = 4112usec, 0x1010
+address 0x802c with value 23 is being called a lot! 
+address 0x90e0 with value 17 is being called a lot! 
+address 0x90ec with value 33 is being called a lot! 
+address 0x9154 with value 21 is being called a lot! 
+address 0x9158 with value 12 is being called a lot! 
+address 0x915c with value 39 is being called a lot! 
+address 0x9160 with value 19 is being called a lot! 
+address 0x9390 with value 15 is being called a lot! 
+iter=110: cnt = 189, period = 4112usec, 0x1010
+iter=111: cnt = 190, period = 4112usec, 0x1010
+iter=112: cnt = 191, period = 4112usec, 0x1010
+iter=113: cnt = 192, period = 4112usec, 0x1010
+iter=114: cnt = 193, period = 4112usec, 0x1010
+iter=115: cnt = 194, period = 4112usec, 0x1010
+iter=116: cnt = 195, period = 4112usec, 0x1010
+iter=117: cnt = 196, period = 4112usec, 0x1010
+iter=118: cnt = 197, period = 4112usec, 0x1010
+iter=119: cnt = 198, period = 4112usec, 0x1010
+address 0x802c with value 25 is being called a lot! 
+address 0x90e0 with value 18 is being called a lot! 
+address 0x90ec with value 37 is being called a lot! 
+address 0x9154 with value 24 is being called a lot! 
+address 0x9158 with value 14 is being called a lot! 
+address 0x915c with value 43 is being called a lot! 
+address 0x9160 with value 20 is being called a lot! 
+address 0x9390 with value 16 is being called a lot! 
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+rm /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.o gprof.o
+running syscall tests
+rm -rf ./objs 0-syscall.bin 1-syscall.bin 0-syscall.list 1-syscall.list
+rm -f *~ tags Makefile.bak  *.test
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 0-syscall.c -o objs/0-syscall.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -MMD -MP -c syscall-asm.S -o objs/syscall-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -MMD -MP -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.o  objs/0-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/memmap -o objs/0-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/0-syscall.elf > 0-syscall.list
+arm-none-eabi-objcopy ./objs/0-syscall.elf -O binary 0-syscall.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 1-syscall.c -o objs/1-syscall.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.o  objs/1-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/memmap -o objs/1-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/1-syscall.elf > 1-syscall.list
+arm-none-eabi-objcopy ./objs/1-syscall.elf -O binary 1-syscall.bin
+pi-install  ./0-syscall.bin
+opened tty port </dev/cu.usbserial-1140>.
+pi-install: tty-usb=</dev/cu.usbserial-1140> program=<./0-syscall.bin> about to boot
+TRACE:simple_boot: sending 5656 bytes, crc32=eb5bd2e6
+waiting for a start
+expected initial GET_PROG_INFO, got <494e4150>: discarding.
+expected initial GET_PROG_INFO, got <6950203a>: discarding.
+expected initial GET_PROG_INFO, got <6867696d>: discarding.
+expected initial GET_PROG_INFO, got <76616820>: discarding.
+expected initial GET_PROG_INFO, got <6d697420>: discarding.
+expected initial GET_PROG_INFO, got <756f2064>: discarding.
+expected initial GET_PROG_INFO, got <4f440a2e>: discarding.
+expected initial GET_PROG_INFO, got <21212145>: discarding.
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1140>
+current stackptr = 0x7ffffd0
+TRACE:notmain:about to install handlers
+about to install interrupt handlers
+TRACE:notmain:about to run syscall hello
+TRACE:syscall_vector:inst=11101111000000000000000000000001, sys_num=1
+TRACE:syscall_vector:syscall: <hello world>
+TRACE:notmain:result of calling system call 1=0
+TRACE:notmain:about to call illegal system call: should die
+TRACE:syscall_vector:inst=11101111000000000000000000000010, sys_num=2
+TRACE:syscall_vector:illegal system call = 2!
+TRACE:notmain:result of illegal system call =-1
+TRACE:notmain:SUCCESS!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+pi-install  ./1-syscall.bin
+opened tty port </dev/cu.usbserial-1140>.
+pi-install: tty-usb=</dev/cu.usbserial-1140> program=<./1-syscall.bin> about to boot
+TRACE:simple_boot: sending 6104 bytes, crc32=eee74663
+waiting for a start
+expected initial GET_PROG_INFO, got <494e4150>: discarding.
+expected initial GET_PROG_INFO, got <6950203a>: discarding.
+expected initial GET_PROG_INFO, got <6867696d>: discarding.
+expected initial GET_PROG_INFO, got <76616820>: discarding.
+expected initial GET_PROG_INFO, got <6d697420>: discarding.
+expected initial GET_PROG_INFO, got <756f2064>: discarding.
+expected initial GET_PROG_INFO, got <4f440a2e>: discarding.
+expected initial GET_PROG_INFO, got <21212145>: discarding.
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1140>
+about to install interrupt handlers
+calling user_fn with stack=0x897d0
+stack addreess is 0x897d0
+function address is 0x8038
+address of var is 0x897b8
+TRACE:user_fn:checking that stack got switched
+current stackptr = 0x897b0
+TRACE:user_fn:cpsr is at user level
+TRACE:user_fn:about to call hello
+TRACE:syscall_vector:success: spsr is at user level: mode=10000
+TRACE:syscall_vector:syscall: hello world
+TRACE:user_fn:about to call exit
+TRACE:syscall_vector:success: spsr is at user level: mode=10000
+TRACE:syscall_vector:exiting!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+rm /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 0-syscall.c -o objs/0-syscall.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -MMD -MP -c syscall-asm.S -o objs/syscall-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -MMD -MP -c interrupts-asm.S -o objs/interrupts-asm.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.o  objs/0-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/memmap -o objs/0-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/0-syscall.elf > 0-syscall.list
+arm-none-eabi-objcopy ./objs/0-syscall.elf -O binary 0-syscall.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft  -I./ -MMD -MP -c 1-syscall.c -o objs/1-syscall.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.o  objs/1-syscall.o  ./objs/syscall-asm.o  ./objs/interrupts-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/memmap -o objs/1-syscall.elf  /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/libpi.a  
+arm-none-eabi-objdump -d objs/1-syscall.elf > 1-syscall.list
+arm-none-eabi-objcopy ./objs/1-syscall.elf -O binary 1-syscall.bin
+-------------------------------------------------
+checking <0-syscall>: 
+  about to emit new <0-syscall.test>:
+     pi-install  ./0-syscall.bin  > 0-syscall.test
+  about to compare contents:
+     diff 0-syscall.out 0-syscall.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <1-syscall>: 
+  about to emit new <1-syscall.test>:
+     pi-install  ./1-syscall.bin  > 1-syscall.test
+  about to compare contents:
+     diff 1-syscall.out 1-syscall.test
+  SUCCESS!   Test output and reference match.
+rm /Users/josephtan/140e-dumb-autograder/repos/bala//libpi/staff-start.o
+========================= 
+To verify everything worked, make sure the make check command didn't lead to any errors and the gprof output table is correct.
+gprof should show a lot of time in PUT32, GET32, and UART routines
+=========================
+
+Return code: 0
