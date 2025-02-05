@@ -1,0 +1,474 @@
+rm -rf ./objs   libpi.a  libpi.a.list
+rm -f *~ tags Makefile.bak  *.test
+rm -f staff-start.o
+rm -f staff-start-fp.o
+make -C  libc clean
+make -C  staff-src clean
+rm -f *~ *.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -MT objs/staff-start.o -MMD -MP -MF ./objs/staff-start.d -c staff-start.S -o objs/staff-start.o
+cp ./objs/staff-start.o .
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/gpio.o -MMD -MP -MF ./objs/gpio.d -c src/gpio.c -o objs/gpio.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/uart.o -MMD -MP -MF ./objs/uart.d -c src/uart.c -o objs/uart.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/sw-uart.o -MMD -MP -MF ./objs/sw-uart.d -c src/sw-uart.c -o objs/sw-uart.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memcmp.o -MMD -MP -MF ./objs/memcmp.d -c ./libc/memcmp.c -o objs/memcmp.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memcpy.o -MMD -MP -MF ./objs/memcpy.d -c ./libc/memcpy.c -o objs/memcpy.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memiszero.o -MMD -MP -MF ./objs/memiszero.d -c ./libc/memiszero.c -o objs/memiszero.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memmove.o -MMD -MP -MF ./objs/memmove.d -c ./libc/memmove.c -o objs/memmove.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memset.o -MMD -MP -MF ./objs/memset.d -c ./libc/memset.c -o objs/memset.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/pi-random.o -MMD -MP -MF ./objs/pi-random.d -c ./libc/pi-random.c -o objs/pi-random.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/printk.o -MMD -MP -MF ./objs/printk.d -c ./libc/printk.c -o objs/printk.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/putchar.o -MMD -MP -MF ./objs/putchar.d -c ./libc/putchar.c -o objs/putchar.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/putk.o -MMD -MP -MF ./objs/putk.d -c ./libc/putk.c -o objs/putk.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/random.o -MMD -MP -MF ./objs/random.d -c ./libc/random.c -o objs/random.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/safe-strcpy.o -MMD -MP -MF ./objs/safe-strcpy.d -c ./libc/safe-strcpy.c -o objs/safe-strcpy.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/sprintk.o -MMD -MP -MF ./objs/sprintk.d -c ./libc/sprintk.c -o objs/sprintk.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strcat.o -MMD -MP -MF ./objs/strcat.d -c ./libc/strcat.c -o objs/strcat.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strchr.o -MMD -MP -MF ./objs/strchr.d -c ./libc/strchr.c -o objs/strchr.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strcmp.o -MMD -MP -MF ./objs/strcmp.d -c ./libc/strcmp.c -o objs/strcmp.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strcpy.o -MMD -MP -MF ./objs/strcpy.d -c ./libc/strcpy.c -o objs/strcpy.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strlen.o -MMD -MP -MF ./objs/strlen.d -c ./libc/strlen.c -o objs/strlen.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strncmp.o -MMD -MP -MF ./objs/strncmp.d -c ./libc/strncmp.c -o objs/strncmp.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/asm-helpers.o -MMD -MP -MF ./objs/asm-helpers.d -c ./staff-src/asm-helpers.c -o objs/asm-helpers.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/cache.o -MMD -MP -MF ./objs/cache.d -c ./staff-src/cache.c -o objs/cache.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/clean-reboot.o -MMD -MP -MF ./objs/clean-reboot.d -c ./staff-src/clean-reboot.c -o objs/clean-reboot.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/cstart.o -MMD -MP -MF ./objs/cstart.d -c ./staff-src/cstart.c -o objs/cstart.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-data-abort.o -MMD -MP -MF ./objs/default-handler-data-abort.d -c ./staff-src/default-handler-data-abort.c -o objs/default-handler-data-abort.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-fast.o -MMD -MP -MF ./objs/default-handler-fast.d -c ./staff-src/default-handler-fast.c -o objs/default-handler-fast.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-int.o -MMD -MP -MF ./objs/default-handler-int.d -c ./staff-src/default-handler-int.c -o objs/default-handler-int.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-interrupt.o -MMD -MP -MF ./objs/default-handler-interrupt.d -c ./staff-src/default-handler-interrupt.c -o objs/default-handler-interrupt.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-prefetch.o -MMD -MP -MF ./objs/default-handler-prefetch.d -c ./staff-src/default-handler-prefetch.c -o objs/default-handler-prefetch.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-reset.o -MMD -MP -MF ./objs/default-handler-reset.d -c ./staff-src/default-handler-reset.c -o objs/default-handler-reset.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-swi.o -MMD -MP -MF ./objs/default-handler-swi.d -c ./staff-src/default-handler-swi.c -o objs/default-handler-swi.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-undefined-inst.o -MMD -MP -MF ./objs/default-handler-undefined-inst.d -c ./staff-src/default-handler-undefined-inst.c -o objs/default-handler-undefined-inst.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/delay-ncycles.o -MMD -MP -MF ./objs/delay-ncycles.d -c ./staff-src/delay-ncycles.c -o objs/delay-ncycles.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -MT objs/enable-disable.o -MMD -MP -MF ./objs/enable-disable.d -c ./staff-src/enable-disable.S -o objs/enable-disable.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/hw-uart-disable.o -MMD -MP -MF ./objs/hw-uart-disable.d -c ./staff-src/hw-uart-disable.c -o objs/hw-uart-disable.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -MT objs/mem-barrier.o -MMD -MP -MF ./objs/mem-barrier.d -c ./staff-src/mem-barrier.S -o objs/mem-barrier.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -MT objs/put-get8.o -MMD -MP -MF ./objs/put-get8.d -c ./staff-src/put-get8.S -o objs/put-get8.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/reboot.o -MMD -MP -MF ./objs/reboot.d -c ./staff-src/reboot.c -o objs/reboot.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/rpi-wait.o -MMD -MP -MF ./objs/rpi-wait.d -c ./staff-src/rpi-wait.c -o objs/rpi-wait.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/timer.o -MMD -MP -MF ./objs/timer.d -c ./staff-src/timer.c -o objs/timer.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -MT objs/unhandled-exception.o -MMD -MP -MF ./objs/unhandled-exception.d -c ./staff-src/unhandled-exception.S -o objs/unhandled-exception.o
+arm-none-eabi-ar crf libpi.a  ./objs/gpio.o  ./objs/uart.o  ./objs/sw-uart.o  ./objs/memcmp.o  ./objs/memcpy.o  ./objs/memiszero.o  ./objs/memmove.o  ./objs/memset.o  ./objs/pi-random.o  ./objs/printk.o  ./objs/putchar.o  ./objs/putk.o  ./objs/random.o  ./objs/safe-strcpy.o  ./objs/sprintk.o  ./objs/strcat.o  ./objs/strchr.o  ./objs/strcmp.o  ./objs/strcpy.o  ./objs/strlen.o  ./objs/strncmp.o  ./objs/asm-helpers.o  ./objs/cache.o  ./objs/clean-reboot.o  ./objs/cstart.o  ./objs/default-handler-data-abort.o  ./objs/default-handler-fast.o  ./objs/default-handler-int.o  ./objs/default-handler-interrupt.o  ./objs/default-handler-prefetch.o  ./objs/default-handler-reset.o  ./objs/default-handler-swi.o  ./objs/default-handler-undefined-inst.o  ./objs/delay-ncycles.o  ./objs/enable-disable.o  ./objs/hw-uart-disable.o  ./objs/mem-barrier.o  ./objs/put-get8.o  ./objs/reboot.o  ./objs/rpi-wait.o  ./objs/timer.o  ./objs/unhandled-exception.o  ./objs/staff-start.o ./staff-objs/gpio-pud.o ./staff-objs/gpio-int.o    ./staff-objs/gpio-pud.o ./staff-objs/gpio-int.o   
+arm-none-eabi-objdump -D libpi.a > libpi.a.list
+1-vector-base test
+rm -rf ./objs 0-test-checks.bin 1-test-run.bin 0-test-checks.list 1-test-run.list   .list
+rm -f *~ tags Makefile.bak  *.test
+make -C /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi
+arm-none-eabi-gcc -D__RPI__ -O2 -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/0-test-checks.o -MMD -MP -MF ./objs/0-test-checks.d -c 0-test-checks.c -o objs/0-test-checks.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -MT objs/interrupt-asm.o -MMD -MP -MF ./objs/interrupt-asm.d -c interrupt-asm.S -o objs/interrupt-asm.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-start.o objs/0-test-checks.o  ./objs/interrupt-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/memmap -o objs/0-test-checks.elf  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libpi.a 
+arm-none-eabi-objdump -d objs/0-test-checks.elf > 0-test-checks.list
+arm-none-eabi-objcopy ./objs/0-test-checks.elf -O binary 0-test-checks.bin
+arm-none-eabi-gcc -D__RPI__ -O2 -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/1-test-run.o -MMD -MP -MF ./objs/1-test-run.d -c 1-test-run.c -o objs/1-test-run.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-start.o objs/1-test-run.o  ./objs/interrupt-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/memmap -o objs/1-test-run.elf  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libpi.a 
+arm-none-eabi-objdump -d objs/1-test-run.elf > 1-test-run.list
+arm-none-eabi-objcopy ./objs/1-test-run.elf -O binary 1-test-run.bin
+my-install  ./0-test-checks.bin
+opened tty port </dev/cu.usbserial-1140>.
+my-install: tty-usb=</dev/cu.usbserial-1140> program=<./0-test-checks.bin> about to boot
+TRACE:simple_boot: sending 5508 bytes, crc32=f90b0879
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1140>
+TRACE:notmain:aligned, non-null vector base: should be ok: passed
+TRACE:notmain:unaligned vector base: should detect: passed
+TRACE:notmain:about to set null vector base: should detect: passed!
+TRACE:notmain:about to set vector base: passed!
+TRACE:notmain:success
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./1-test-run.bin
+opened tty port </dev/cu.usbserial-1140>.
+my-install: tty-usb=</dev/cu.usbserial-1140> program=<./1-test-run.bin> about to boot
+TRACE:simple_boot: sending 6372 bytes, crc32=355db15c
+waiting for a start
+expected initial GET_PROG_INFO, got <494e4150>: discarding.
+expected initial GET_PROG_INFO, got <6950203a>: discarding.
+expected initial GET_PROG_INFO, got <6867696d>: discarding.
+expected initial GET_PROG_INFO, got <76616820>: discarding.
+expected initial GET_PROG_INFO, got <6d697420>: discarding.
+expected initial GET_PROG_INFO, got <756f2064>: discarding.
+expected initial GET_PROG_INFO, got <4f440a2e>: discarding.
+expected initial GET_PROG_INFO, got <21212145>: discarding.
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1140>
+slow: at addr=0x8480
+	vec[0] = 0xe59ff030
+	vec[1] = 0xe59ff030
+	vec[2] = 0xe59ff030
+	vec[3] = 0xe59ff030
+	vec[4] = 0xe59ff030
+	vec[5] = 0xe59ff030
+	vec[6] = 0xe320f000
+fast: at addr=0x84a0
+	vec[0] = 0xe59ff010
+	vec[1] = 0xe59ff010
+	vec[2] = 0xeaffffd4
+	vec[3] = 0xe59ff010
+	vec[4] = 0xe59ff010
+	vec[5] = 0xe59ff010
+	vec[6] = 0x8b48
+TRACE:test_swi:orig lab 5 vector(no cache)
+TRACE:test_swi:     single call took [340] cycles
+TRACE:test_swi:     single call took [341] cycles
+TRACE:test_swi:     single call took [341] cycles
+TRACE:test_swi:     10 calls took [3464] cycles [346] per call
+TRACE:test_swi:better relocation (no cache)
+TRACE:test_swi:     single call took [345] cycles
+TRACE:test_swi:     single call took [341] cycles
+TRACE:test_swi:     single call took [341] cycles
+TRACE:test_swi:     10 calls took [3466] cycles [346] per call
+TRACE:test_swi:fast relocation (no cache)
+TRACE:test_swi:     single call took [295] cycles
+TRACE:test_swi:     single call took [297] cycles
+TRACE:test_swi:     single call took [300] cycles
+TRACE:test_swi:     10 calls took [3024] cycles [302] per call
+
+TRACE:notmain:---------------------------------------------------------
+TRACE:notmain:------------------- turning on caching ------------------
+TRACE:test_swi:orig lab 5 (no cache)
+TRACE:test_swi:     single call took [134] cycles
+TRACE:test_swi:     single call took [134] cycles
+TRACE:test_swi:     single call took [135] cycles
+TRACE:test_swi:     10 calls took [1298] cycles [129] per call
+TRACE:test_swi:better relocation (icache enabled)
+TRACE:test_swi:     single call took [132] cycles
+TRACE:test_swi:     single call took [132] cycles
+TRACE:test_swi:     single call took [133] cycles
+TRACE:test_swi:     10 calls took [1264] cycles [126] per call
+TRACE:test_swi:fast relocation (icache enabled)
+TRACE:test_swi:     single call took [84] cycles
+TRACE:test_swi:     single call took [85] cycles
+TRACE:test_swi:     single call took [88] cycles
+TRACE:test_swi:     10 calls took [791] cycles [79] per call
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+make -C /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi
+-------------------------------------------------
+checking <0-test-checks>: 
+  about to emit new <0-test-checks.test>:
+     my-install  ./0-test-checks.bin  > 0-test-checks.test
+  about to compare contents:
+     diff 0-test-checks.out 0-test-checks.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <1-test-run>: 
+  about to emit new <1-test-run.test>:
+     my-install  ./1-test-run.bin  > 1-test-run.test
+  about to compare contents:
+     diff 1-test-run.out 1-test-run.test
+  SUCCESS!   Test output and reference match.
+2-gpio-int test
+rm -f *.o *.d *~ Makefile.bak  *.pitag   ././6-gpio-event-clear.fake  ././6-gpio-event-detected-n.fake  ././6-gpio-event-detected.fake  ././6-gpio-has-interrupt.fake  ././6-gpio-set-falling.fake  ././6-gpio-set-rising.fake  ././7-gpio-event-clear-n.fake  ././7-gpio-event-detected-n.fake  ././7-gpio-set-falling-n.fake  ././7-gpio-set-rising-n.fake libfake.a
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 7-gpio-set-rising-n.c -MM -MT 7-gpio-set-rising-n.o >7-gpio-set-rising-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 7-gpio-set-falling-n.c -MM -MT 7-gpio-set-falling-n.o >7-gpio-set-falling-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 7-gpio-event-detected-n.c -MM -MT 7-gpio-event-detected-n.o >7-gpio-event-detected-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 7-gpio-event-clear-n.c -MM -MT 7-gpio-event-clear-n.o >7-gpio-event-clear-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-set-rising.c -MM -MT 6-gpio-set-rising.o >6-gpio-set-rising.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-set-falling.c -MM -MT 6-gpio-set-falling.o >6-gpio-set-falling.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-has-interrupt.c -MM -MT 6-gpio-has-interrupt.o >6-gpio-has-interrupt.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-event-detected.c -MM -MT 6-gpio-event-detected.o >6-gpio-event-detected.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-event-detected-n.c -MM -MT 6-gpio-event-detected-n.o >6-gpio-event-detected-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-event-clear.c -MM -MT 6-gpio-event-clear.o >6-gpio-event-clear.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix gpio-int.c -MM -MT gpio-int.o >gpio-int.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix pi-random.c -MM -MT pi-random.o >pi-random.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix fake-random.c -MM -MT fake-random.o >fake-random.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix fake-pi.c -MM -MT fake-pi.o >fake-pi.d
+make -C /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/argv-print.o -MMD -MP -MF ./objs/argv-print.d -c argv-print.c -o objs/argv-print.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/can-read.o -MMD -MP -MF ./objs/can-read.d -c can-read.c -o objs/can-read.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/close-open-fds.o -MMD -MP -MF ./objs/close-open-fds.d -c close-open-fds.c -o objs/close-open-fds.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/crc.o -MMD -MP -MF ./objs/crc.d -c crc.c -o objs/crc.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/creat-file.o -MMD -MP -MF ./objs/creat-file.d -c creat-file.c -o objs/creat-file.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/fast-hash.o -MMD -MP -MF ./objs/fast-hash.d -c fast-hash.c -o objs/fast-hash.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/find-ttyusb.o -MMD -MP -MF ./objs/find-ttyusb.d -c find-ttyusb.c -o objs/find-ttyusb.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/get-exitcode.o -MMD -MP -MF ./objs/get-exitcode.d -c get-exitcode.c -o objs/get-exitcode.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/handoff-to.o -MMD -MP -MF ./objs/handoff-to.d -c handoff-to.c -o objs/handoff-to.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/open-tty.o -MMD -MP -MF ./objs/open-tty.d -c open-tty.c -o objs/open-tty.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/pi-cat.o -MMD -MP -MF ./objs/pi-cat.d -c pi-cat.c -o objs/pi-cat.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/pi-echo.o -MMD -MP -MF ./objs/pi-echo.d -c pi-echo.c -o objs/pi-echo.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/pitag-linker.o -MMD -MP -MF ./objs/pitag-linker.d -c pitag-linker.c -o objs/pitag-linker.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/put-get.o -MMD -MP -MF ./objs/put-get.d -c put-get.c -o objs/put-get.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/read-exact.o -MMD -MP -MF ./objs/read-exact.d -c read-exact.c -o objs/read-exact.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/read-file.o -MMD -MP -MF ./objs/read-file.d -c read-file.c -o objs/read-file.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/read-timeout.o -MMD -MP -MF ./objs/read-timeout.d -c read-timeout.c -o objs/read-timeout.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/resolve-pi-path.o -MMD -MP -MF ./objs/resolve-pi-path.d -c resolve-pi-path.c -o objs/resolve-pi-path.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/run-system.o -MMD -MP -MF ./objs/run-system.d -c run-system.c -o objs/run-system.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/set-tty-8n1.o -MMD -MP -MF ./objs/set-tty-8n1.d -c set-tty-8n1.c -o objs/set-tty-8n1.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/strcatf.o -MMD -MP -MF ./objs/strcatf.d -c strcatf.c -o objs/strcatf.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/suffix.o -MMD -MP -MF ./objs/suffix.d -c suffix.c -o objs/suffix.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/time-get-usec.o -MMD -MP -MF ./objs/time-get-usec.d -c time-get-usec.c -o objs/time-get-usec.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/tty-gone.o -MMD -MP -MF ./objs/tty-gone.d -c tty-gone.c -o objs/tty-gone.o
+gcc -g -Og -Wall -Wno-unused-function -Werror -Wno-unused-variable -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -Og -Wall -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -MT objs/write-exact.o -MMD -MP -MF ./objs/write-exact.d -c write-exact.c -o objs/write-exact.o
+ar cr libunix.a ./objs/argv-print.o ./objs/can-read.o ./objs/close-open-fds.o ./objs/crc.o ./objs/creat-file.o ./objs/fast-hash.o ./objs/find-ttyusb.o ./objs/get-exitcode.o ./objs/handoff-to.o ./objs/open-tty.o ./objs/pi-cat.o ./objs/pi-echo.o ./objs/pitag-linker.o ./objs/put-get.o ./objs/read-exact.o ./objs/read-file.o ./objs/read-timeout.o ./objs/resolve-pi-path.o ./objs/run-system.o ./objs/set-tty-8n1.o ./objs/strcatf.o ./objs/suffix.o ./objs/time-get-usec.o ./objs/tty-gone.o ./objs/write-exact.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c fake-pi.c -o fake-pi.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c fake-random.c -o fake-random.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c pi-random.c -o pi-random.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c gpio-int.c -o gpio-int.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-event-clear.c -o 6-gpio-event-clear.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-event-detected-n.c -o 6-gpio-event-detected-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-event-detected.c -o 6-gpio-event-detected.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-has-interrupt.c -o 6-gpio-has-interrupt.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-set-falling.c -o 6-gpio-set-falling.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-set-rising.c -o 6-gpio-set-rising.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 7-gpio-event-clear-n.c -o 7-gpio-event-clear-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 7-gpio-event-detected-n.c -o 7-gpio-event-detected-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 7-gpio-set-falling-n.c -o 7-gpio-set-falling-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 7-gpio-set-rising-n.c -o 7-gpio-set-rising-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-event-clear.o -o 6-gpio-event-clear.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-event-detected-n.o -o 6-gpio-event-detected-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-event-detected.o -o 6-gpio-event-detected.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-has-interrupt.o -o 6-gpio-has-interrupt.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-set-falling.o -o 6-gpio-set-falling.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-set-rising.o -o 6-gpio-set-rising.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 7-gpio-event-clear-n.o -o 7-gpio-event-clear-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 7-gpio-event-detected-n.o -o 7-gpio-event-detected-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 7-gpio-set-falling-n.o -o 7-gpio-set-falling-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 7-gpio-set-rising-n.o -o 7-gpio-set-rising-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+make -f ./Makefile.test checkall "TESTS= ././6-gpio-event-clear.fake  ././6-gpio-event-detected-n.fake  ././6-gpio-event-detected.fake  ././6-gpio-has-interrupt.fake  ././6-gpio-set-falling.fake  ././6-gpio-set-rising.fake  ././7-gpio-event-clear-n.fake  ././7-gpio-event-detected-n.fake  ././7-gpio-set-falling-n.fake  ././7-gpio-set-rising-n.fake"
+------------------------------------------
+-n checking 6-gpio-event-clear:
+
+./6-gpio-event-clear.fake 2>&1 | grep  "TRACE:" > ./6-gpio-event-clear.test
+diff ./6-gpio-event-clear.out ./6-gpio-event-clear.test
+Success!
+------------------------------------------
+-n checking 6-gpio-event-detected-n:
+
+./6-gpio-event-detected-n.fake 2>&1 | grep  "TRACE:" > ./6-gpio-event-detected-n.test
+diff ./6-gpio-event-detected-n.out ./6-gpio-event-detected-n.test
+Success!
+------------------------------------------
+-n checking 6-gpio-event-detected:
+
+./6-gpio-event-detected.fake 2>&1 | grep  "TRACE:" > ./6-gpio-event-detected.test
+diff ./6-gpio-event-detected.out ./6-gpio-event-detected.test
+Success!
+------------------------------------------
+-n checking 6-gpio-has-interrupt:
+
+./6-gpio-has-interrupt.fake 2>&1 | grep  "TRACE:" > ./6-gpio-has-interrupt.test
+diff ./6-gpio-has-interrupt.out ./6-gpio-has-interrupt.test
+Success!
+------------------------------------------
+-n checking 6-gpio-set-falling:
+
+./6-gpio-set-falling.fake 2>&1 | grep  "TRACE:" > ./6-gpio-set-falling.test
+diff ./6-gpio-set-falling.out ./6-gpio-set-falling.test
+Success!
+------------------------------------------
+-n checking 6-gpio-set-rising:
+
+./6-gpio-set-rising.fake 2>&1 | grep  "TRACE:" > ./6-gpio-set-rising.test
+diff ./6-gpio-set-rising.out ./6-gpio-set-rising.test
+Success!
+------------------------------------------
+-n checking 7-gpio-event-clear-n:
+
+./7-gpio-event-clear-n.fake 2>&1 | grep  "TRACE:" > ./7-gpio-event-clear-n.test
+diff ./7-gpio-event-clear-n.out ./7-gpio-event-clear-n.test
+Success!
+------------------------------------------
+-n checking 7-gpio-event-detected-n:
+
+./7-gpio-event-detected-n.fake 2>&1 | grep  "TRACE:" > ./7-gpio-event-detected-n.test
+diff ./7-gpio-event-detected-n.out ./7-gpio-event-detected-n.test
+Success!
+------------------------------------------
+-n checking 7-gpio-set-falling-n:
+
+./7-gpio-set-falling-n.fake 2>&1 | grep  "TRACE:" > ./7-gpio-set-falling-n.test
+diff ./7-gpio-set-falling-n.out ./7-gpio-set-falling-n.test
+Success!
+------------------------------------------
+-n checking 7-gpio-set-rising-n:
+
+./7-gpio-set-rising-n.fake 2>&1 | grep  "TRACE:" > ./7-gpio-set-rising-n.test
+diff ./7-gpio-set-rising-n.out ./7-gpio-set-rising-n.test
+Success!
+/Users/josephtan/140e-dumb-autograder/commands/lab8: line 18: 3-handlers test: command not found
+/Users/josephtan/140e-dumb-autograder/commands/lab8: line 19: cd: 3-handlers-gpio-int: No such file or directory
+rm -f *.o *.d *~ Makefile.bak  *.pitag   ././6-gpio-event-clear.fake  ././6-gpio-event-detected-n.fake  ././6-gpio-event-detected.fake  ././6-gpio-has-interrupt.fake  ././6-gpio-set-falling.fake  ././6-gpio-set-rising.fake  ././7-gpio-event-clear-n.fake  ././7-gpio-event-detected-n.fake  ././7-gpio-set-falling-n.fake  ././7-gpio-set-rising-n.fake libfake.a
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 7-gpio-set-rising-n.c -MM -MT 7-gpio-set-rising-n.o >7-gpio-set-rising-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 7-gpio-set-falling-n.c -MM -MT 7-gpio-set-falling-n.o >7-gpio-set-falling-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 7-gpio-event-detected-n.c -MM -MT 7-gpio-event-detected-n.o >7-gpio-event-detected-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 7-gpio-event-clear-n.c -MM -MT 7-gpio-event-clear-n.o >7-gpio-event-clear-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-set-rising.c -MM -MT 6-gpio-set-rising.o >6-gpio-set-rising.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-set-falling.c -MM -MT 6-gpio-set-falling.o >6-gpio-set-falling.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-has-interrupt.c -MM -MT 6-gpio-has-interrupt.o >6-gpio-has-interrupt.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-event-detected.c -MM -MT 6-gpio-event-detected.o >6-gpio-event-detected.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-event-detected-n.c -MM -MT 6-gpio-event-detected-n.o >6-gpio-event-detected-n.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix 6-gpio-event-clear.c -MM -MT 6-gpio-event-clear.o >6-gpio-event-clear.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix gpio-int.c -MM -MT gpio-int.o >gpio-int.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix pi-random.c -MM -MT pi-random.o >pi-random.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix fake-random.c -MM -MT fake-random.o >fake-random.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix fake-pi.c -MM -MT fake-pi.o >fake-pi.d
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-event-clear.c -o 6-gpio-event-clear.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c fake-pi.c -o fake-pi.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c fake-random.c -o fake-random.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c pi-random.c -o pi-random.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c gpio-int.c -o gpio-int.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-event-clear.o -o 6-gpio-event-clear.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-event-detected-n.c -o 6-gpio-event-detected-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-event-detected-n.o -o 6-gpio-event-detected-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-event-detected.c -o 6-gpio-event-detected.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-event-detected.o -o 6-gpio-event-detected.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-has-interrupt.c -o 6-gpio-has-interrupt.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-has-interrupt.o -o 6-gpio-has-interrupt.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-set-falling.c -o 6-gpio-set-falling.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-set-falling.o -o 6-gpio-set-falling.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 6-gpio-set-rising.c -o 6-gpio-set-rising.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 6-gpio-set-rising.o -o 6-gpio-set-rising.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 7-gpio-event-clear-n.c -o 7-gpio-event-clear-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 7-gpio-event-clear-n.o -o 7-gpio-event-clear-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 7-gpio-event-detected-n.c -o 7-gpio-event-detected-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 7-gpio-event-detected-n.o -o 7-gpio-event-detected-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 7-gpio-set-falling-n.c -o 7-gpio-set-falling-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 7-gpio-set-falling-n.o -o 7-gpio-set-falling-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix -c 7-gpio-set-rising-n.c -o 7-gpio-set-rising-n.o
+gcc -DRPI_UNIX -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -Og -Wall -g -std=gnu99  -Werror -Wno-unused-function -Wno-unused-variable -DRPI_UNIX -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix  ./fake-pi.o  ./fake-random.o  ./pi-random.o  ./gpio-int.o 7-gpio-set-rising-n.o -o 7-gpio-set-rising-n.fake  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a
+ld: warning: ignoring duplicate libraries: '/Users/josephtan/140e-dumb-autograder/repos/samgupta//libunix/libunix.a'
+make -f ./Makefile.test checkall "TESTS= ././6-gpio-event-clear.fake  ././6-gpio-event-detected-n.fake  ././6-gpio-event-detected.fake  ././6-gpio-has-interrupt.fake  ././6-gpio-set-falling.fake  ././6-gpio-set-rising.fake  ././7-gpio-event-clear-n.fake  ././7-gpio-event-detected-n.fake  ././7-gpio-set-falling-n.fake  ././7-gpio-set-rising-n.fake"
+------------------------------------------
+-n checking 6-gpio-event-clear:
+
+./6-gpio-event-clear.fake 2>&1 | grep  "TRACE:" > ./6-gpio-event-clear.test
+diff ./6-gpio-event-clear.out ./6-gpio-event-clear.test
+Success!
+------------------------------------------
+-n checking 6-gpio-event-detected-n:
+
+./6-gpio-event-detected-n.fake 2>&1 | grep  "TRACE:" > ./6-gpio-event-detected-n.test
+diff ./6-gpio-event-detected-n.out ./6-gpio-event-detected-n.test
+Success!
+------------------------------------------
+-n checking 6-gpio-event-detected:
+
+./6-gpio-event-detected.fake 2>&1 | grep  "TRACE:" > ./6-gpio-event-detected.test
+diff ./6-gpio-event-detected.out ./6-gpio-event-detected.test
+Success!
+------------------------------------------
+-n checking 6-gpio-has-interrupt:
+
+./6-gpio-has-interrupt.fake 2>&1 | grep  "TRACE:" > ./6-gpio-has-interrupt.test
+diff ./6-gpio-has-interrupt.out ./6-gpio-has-interrupt.test
+Success!
+------------------------------------------
+-n checking 6-gpio-set-falling:
+
+./6-gpio-set-falling.fake 2>&1 | grep  "TRACE:" > ./6-gpio-set-falling.test
+diff ./6-gpio-set-falling.out ./6-gpio-set-falling.test
+Success!
+------------------------------------------
+-n checking 6-gpio-set-rising:
+
+./6-gpio-set-rising.fake 2>&1 | grep  "TRACE:" > ./6-gpio-set-rising.test
+diff ./6-gpio-set-rising.out ./6-gpio-set-rising.test
+Success!
+------------------------------------------
+-n checking 7-gpio-event-clear-n:
+
+./7-gpio-event-clear-n.fake 2>&1 | grep  "TRACE:" > ./7-gpio-event-clear-n.test
+diff ./7-gpio-event-clear-n.out ./7-gpio-event-clear-n.test
+Success!
+------------------------------------------
+-n checking 7-gpio-event-detected-n:
+
+./7-gpio-event-detected-n.fake 2>&1 | grep  "TRACE:" > ./7-gpio-event-detected-n.test
+diff ./7-gpio-event-detected-n.out ./7-gpio-event-detected-n.test
+Success!
+------------------------------------------
+-n checking 7-gpio-set-falling-n:
+
+./7-gpio-set-falling-n.fake 2>&1 | grep  "TRACE:" > ./7-gpio-set-falling-n.test
+diff ./7-gpio-set-falling-n.out ./7-gpio-set-falling-n.test
+Success!
+------------------------------------------
+-n checking 7-gpio-set-rising-n:
+
+./7-gpio-set-rising-n.fake 2>&1 | grep  "TRACE:" > ./7-gpio-set-rising-n.test
+diff ./7-gpio-set-rising-n.out ./7-gpio-set-rising-n.test
+Success!
+logic analyzer test
+rm -rf ./objs logic-analyzer.bin logic-analyzer.list   .list
+rm -f *~ tags Makefile.bak  *.test
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/logic-analyzer.o -MMD -MP -MF ./objs/logic-analyzer.d -c logic-analyzer.c -o objs/logic-analyzer.o
+arm-none-eabi-ld  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-start.o objs/logic-analyzer.o  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-objs/interrupts-asm.o /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/staff-objs/interrupts-vec-asm.o   -T /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/memmap -o objs/logic-analyzer.elf  /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/samgupta//libpi/libpi.a 
+arm-none-eabi-objdump -d objs/logic-analyzer.elf > logic-analyzer.list
+arm-none-eabi-objcopy ./objs/logic-analyzer.elf -O binary logic-analyzer.bin
+my-install  ./logic-analyzer.bin
+opened tty port </dev/cu.usbserial-1140>.
+my-install: tty-usb=</dev/cu.usbserial-1140> program=<./logic-analyzer.bin> about to boot
+TRACE:simple_boot: sending 9880 bytes, crc32=9d88fa3c
+waiting for a start
+putting code
+pi sent print: <Joe: success: Received the program! Running with 10 second timeout
+>
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-1140>
+about to install interrupt handlers
+expect each read to take around 6076 cycles
+nevent=10
+	nbit=0: v=0, cyc=5894
+	nbit=1: v=1, cyc=6008
+	nbit=2: v=0, cyc=6051
+	nbit=3: v=1, cyc=6098
+	nbit=4: v=0, cyc=6057
+	nbit=5: v=1, cyc=6093
+	nbit=6: v=0, cyc=6059
+	nbit=7: v=1, cyc=6095
+	nbit=8: v=0, cyc=6065
+nevent=10
+	nbit=0: v=0, cyc=6082
+	nbit=1: v=1, cyc=6098
+	nbit=2: v=0, cyc=6054
+	nbit=3: v=1, cyc=6093
+	nbit=4: v=0, cyc=6059
+	nbit=5: v=1, cyc=6095
+	nbit=6: v=0, cyc=6057
+	nbit=7: v=1, cyc=6095
+	nbit=8: v=0, cyc=6057
+TRACE:notmain:SUCCESS!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+Make sure all the tests pass and your sw_uart_put8 gives reasonable timings in the above output!
+Make sure you aren't doing anything like accidentally using our staff code. We will manually check this
+Make sure your makefile is running all of the tests and not some subset. We will also manually check this
+IN particular, make sure that your makefile is using your sw-uart not ours in part 4
+
+Return code: 0
