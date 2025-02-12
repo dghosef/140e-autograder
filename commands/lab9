@@ -1,0 +1,8 @@
+cd ./libpi
+make clean
+make
+cd ..
+cd ./labs/
+cd 9-debug-hw
+cd code
+make check PROGS="\$(wildcard ./[1234567]-*.c)"

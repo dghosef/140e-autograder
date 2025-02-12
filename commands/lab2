@@ -1,0 +1,10 @@
+#!/bin/zsh
+pwd
+cd ./labs/2-gpio/code/
+make clean 
+make
+# make check
+echo ./4-loopback.c
+echo "running loopback"
+/Users/josephtan/bin/pi-install 3-loopback.bin
+

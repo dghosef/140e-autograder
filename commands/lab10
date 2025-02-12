@@ -1,0 +1,8 @@
+cd ./libpi
+make clean
+make
+cd ..
+cd ./labs/
+cd 10-interleave-checker
+cd code
+make check PROGS="\$(wildcard tests/[034567]*-test.c)"

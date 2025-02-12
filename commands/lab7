@@ -1,0 +1,16 @@
+echo "PLEASE RUN GIT PULL ON YOUR LOCAL MACHINE RIGHT NOW"
+cd ./libpi
+make clean
+make
+cd ..
+cd ./labs/
+cd 7-uart
+cd 2-fake-pi/tests-uart
+make clean
+make emit
+make checksum
+cd ../
+cd 3-sw-uart-put8
+make checkoff
+
+echo "Please make sure the make checkoff works and the checksum is correct"

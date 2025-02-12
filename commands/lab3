@@ -1,0 +1,29 @@
+cd ./libpi
+make clean
+make
+cd ..
+echo "CDing to lab"
+make clean
+cd ./labs/3-cross-checking
+echo "running 1-fake-pi tests"
+cd 1-fake-pi
+rm -rf ./objs
+make
+cd tests
+make clean
+rm -rf ./objs
+make emit TEST_SRC="\$(wildcard ./[0-5]-*.c) \$(wildcard ./prog-*.c)  \$(wildcard ./act-*.c)"
+cat *.out
+rm -rf ./objs
+make checkoff TEST_SRC="\$(wildcard ./[0-5]-*.c) \$(wildcard ./prog-*.c)  \$(wildcard ./act-*.c)"
+cd ../..
+cd 2-trace
+rm -rf ./objs
+make clean
+make
+cd tests
+make clean
+rm -rf ./objs
+make
+make emit TEST_SRC="\$(wildcard ./[0-5]-*.c) \$(wildcard ./prog-*.c)  \$(wildcard ./act-*.c)"
+make cksum TEST_SRC="\$(wildcard ./[0-5]-*.c) \$(wildcard ./prog-*.c)  \$(wildcard ./act-*.c)"

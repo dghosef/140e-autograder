@@ -1,0 +1,17 @@
+echo "PLEASE RUN GIT PULL ON YOUR LOCAL MACHINE RIGHT NOW"
+cd ./libpi
+make clean
+make
+cd ..
+cd ./labs/5-threads
+cd code-threads
+make clean && \
+make checkoff PROGS="\$(wildcard ./[234567]-test*.c)" && \
+echo "======================" && \
+echo "Please verify that the Environment line that was just printed only has" && \
+echo "  staff-kmalloc.o for STAFF_OBJS" && \
+echo "  rpi-thread-asm.S and rpi-thread.c for COMMON_SRC" && \
+echo "We will manually check this later when entering into the checkoff sheet" && \
+echo "Also make sure that make checkoff worked"
+
+echo "PLEASE RUN GIT PULL ON YOUR LOCAL MACHINE RIGHT NOW"

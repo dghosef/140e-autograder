@@ -1,0 +1,29 @@
+cd ./libpi
+make clean
+make
+cd ..
+echo "1-vector-base test"
+cd ./labs/
+cd 8-device-int
+cd 1-vector-base
+make clean
+make check
+cd ..
+echo "2-gpio-int test"
+cd 2-gpio-int
+make clean
+make check
+cd ..
+echo "3-handlers test"
+cd 3-handlers-gpio-int
+make clean
+make check
+cd ..
+echo "logic analyzer test"
+cd 4-logic-analyzer
+make clean
+make run
+echo "Make sure all the tests pass and your sw_uart_put8 gives reasonable timings in the above output!"
+echo "Make sure you aren't doing anything like accidentally using our staff code. We will manually check this"
+echo "Make sure your makefile is running all of the tests and not some subset. We will also manually check this"
+echo "IN particular, make sure that your makefile is using your sw-uart not ours in part 4"

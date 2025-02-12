@@ -1,0 +1,15 @@
+cd ./labs/4-interrupts
+cd 1-gprof
+echo "running gprof"
+make clean
+make
+cd ..
+echo "running syscall tests"
+cd 2-syscall
+make clean
+make
+make check
+echo "========================= 
+To verify everything worked, make sure the make check command didn't lead to any errors and the gprof output table is correct.
+gprof should show a lot of time in PUT32, GET32, and UART routines
+========================="
