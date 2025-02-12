@@ -1,0 +1,9 @@
+/Users/josephtan/140e-dumb-autograder/commands/lab10: line 1: cd: ./libpi: No such file or directory
+make: *** No rule to make target `clean'.  Stop.
+make: *** No targets specified and no makefile found.  Stop.
+/Users/josephtan/140e-dumb-autograder/commands/lab10: line 5: cd: ./labs/: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab10: line 6: cd: 10-interleave-checker: No such file or directory
+/Users/josephtan/140e-dumb-autograder/commands/lab10: line 7: cd: code: No such file or directory
+make: *** No rule to make target `check'.  Stop.
+
+Return code: 2
