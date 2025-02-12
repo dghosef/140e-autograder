@@ -220,8 +220,8 @@ def listener():
                 if validate_message(message):
                     sunet, repo, command = message.strip().split()
                     skip = False
-                    for message in message_queue.queue:
-                        if sunet == message.split()[0]:
+                    for m in message_queue.queue:
+                        if sunet == m.split()[0]:
                             print(f"[Listener] Ignoring message from {sunet} because it is already in the queue")
                             skip = True
                     if not skip:
