@@ -1,0 +1,470 @@
+rm -rf ./objs   libpi.a  libpi.a.list
+rm -f *~ tags Makefile.bak  *.test
+rm -f staff-start.o
+rm -f staff-start-fp.o
+make -C  libc clean
+make -C  staff-src clean
+rm -f *~ *.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -MT objs/staff-start.o -MMD -MP -MF ./objs/staff-start.d -c staff-start.S -o objs/staff-start.o
+cp ./objs/staff-start.o .
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/gpio.o -MMD -MP -MF ./objs/gpio.d -c src/gpio.c -o objs/gpio.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/gpio-pud.o -MMD -MP -MF ./objs/gpio-pud.d -c src/gpio-pud.c -o objs/gpio-pud.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/uart.o -MMD -MP -MF ./objs/uart.d -c src/uart.c -o objs/uart.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/sw-uart.o -MMD -MP -MF ./objs/sw-uart.d -c src/sw-uart.c -o objs/sw-uart.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memcmp.o -MMD -MP -MF ./objs/memcmp.d -c ./libc/memcmp.c -o objs/memcmp.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memcpy.o -MMD -MP -MF ./objs/memcpy.d -c ./libc/memcpy.c -o objs/memcpy.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memiszero.o -MMD -MP -MF ./objs/memiszero.d -c ./libc/memiszero.c -o objs/memiszero.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memmove.o -MMD -MP -MF ./objs/memmove.d -c ./libc/memmove.c -o objs/memmove.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/memset.o -MMD -MP -MF ./objs/memset.d -c ./libc/memset.c -o objs/memset.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/pi-random.o -MMD -MP -MF ./objs/pi-random.d -c ./libc/pi-random.c -o objs/pi-random.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/printk.o -MMD -MP -MF ./objs/printk.d -c ./libc/printk.c -o objs/printk.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/putchar.o -MMD -MP -MF ./objs/putchar.d -c ./libc/putchar.c -o objs/putchar.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/putk.o -MMD -MP -MF ./objs/putk.d -c ./libc/putk.c -o objs/putk.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/random.o -MMD -MP -MF ./objs/random.d -c ./libc/random.c -o objs/random.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/safe-strcpy.o -MMD -MP -MF ./objs/safe-strcpy.d -c ./libc/safe-strcpy.c -o objs/safe-strcpy.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/sprintk.o -MMD -MP -MF ./objs/sprintk.d -c ./libc/sprintk.c -o objs/sprintk.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strcat.o -MMD -MP -MF ./objs/strcat.d -c ./libc/strcat.c -o objs/strcat.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strchr.o -MMD -MP -MF ./objs/strchr.d -c ./libc/strchr.c -o objs/strchr.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strcmp.o -MMD -MP -MF ./objs/strcmp.d -c ./libc/strcmp.c -o objs/strcmp.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strcpy.o -MMD -MP -MF ./objs/strcpy.d -c ./libc/strcpy.c -o objs/strcpy.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strlen.o -MMD -MP -MF ./objs/strlen.d -c ./libc/strlen.c -o objs/strlen.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/strncmp.o -MMD -MP -MF ./objs/strncmp.d -c ./libc/strncmp.c -o objs/strncmp.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/asm-helpers.o -MMD -MP -MF ./objs/asm-helpers.d -c ./staff-src/asm-helpers.c -o objs/asm-helpers.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/cache.o -MMD -MP -MF ./objs/cache.d -c ./staff-src/cache.c -o objs/cache.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/clean-reboot.o -MMD -MP -MF ./objs/clean-reboot.d -c ./staff-src/clean-reboot.c -o objs/clean-reboot.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/cstart.o -MMD -MP -MF ./objs/cstart.d -c ./staff-src/cstart.c -o objs/cstart.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-data-abort.o -MMD -MP -MF ./objs/default-handler-data-abort.d -c ./staff-src/default-handler-data-abort.c -o objs/default-handler-data-abort.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-fast.o -MMD -MP -MF ./objs/default-handler-fast.d -c ./staff-src/default-handler-fast.c -o objs/default-handler-fast.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-int.o -MMD -MP -MF ./objs/default-handler-int.d -c ./staff-src/default-handler-int.c -o objs/default-handler-int.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-interrupt.o -MMD -MP -MF ./objs/default-handler-interrupt.d -c ./staff-src/default-handler-interrupt.c -o objs/default-handler-interrupt.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-prefetch.o -MMD -MP -MF ./objs/default-handler-prefetch.d -c ./staff-src/default-handler-prefetch.c -o objs/default-handler-prefetch.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-reset.o -MMD -MP -MF ./objs/default-handler-reset.d -c ./staff-src/default-handler-reset.c -o objs/default-handler-reset.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-swi.o -MMD -MP -MF ./objs/default-handler-swi.d -c ./staff-src/default-handler-swi.c -o objs/default-handler-swi.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/default-handler-undefined-inst.o -MMD -MP -MF ./objs/default-handler-undefined-inst.d -c ./staff-src/default-handler-undefined-inst.c -o objs/default-handler-undefined-inst.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/delay-ncycles.o -MMD -MP -MF ./objs/delay-ncycles.d -c ./staff-src/delay-ncycles.c -o objs/delay-ncycles.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -MT objs/enable-disable.o -MMD -MP -MF ./objs/enable-disable.d -c ./staff-src/enable-disable.S -o objs/enable-disable.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/hw-uart-disable.o -MMD -MP -MF ./objs/hw-uart-disable.d -c ./staff-src/hw-uart-disable.c -o objs/hw-uart-disable.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -MT objs/mem-barrier.o -MMD -MP -MF ./objs/mem-barrier.d -c ./staff-src/mem-barrier.S -o objs/mem-barrier.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -MT objs/put-get8.o -MMD -MP -MF ./objs/put-get8.d -c ./staff-src/put-get8.S -o objs/put-get8.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/reboot.o -MMD -MP -MF ./objs/reboot.d -c ./staff-src/reboot.c -o objs/reboot.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/rpi-wait.o -MMD -MP -MF ./objs/rpi-wait.d -c ./staff-src/rpi-wait.c -o objs/rpi-wait.o
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/timer.o -MMD -MP -MF ./objs/timer.d -c ./staff-src/timer.c -o objs/timer.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -MT objs/unhandled-exception.o -MMD -MP -MF ./objs/unhandled-exception.d -c ./staff-src/unhandled-exception.S -o objs/unhandled-exception.o
+arm-none-eabi-ar crf libpi.a  ./objs/gpio.o  ./objs/gpio-pud.o  ./objs/uart.o  ./objs/sw-uart.o  ./objs/memcmp.o  ./objs/memcpy.o  ./objs/memiszero.o  ./objs/memmove.o  ./objs/memset.o  ./objs/pi-random.o  ./objs/printk.o  ./objs/putchar.o  ./objs/putk.o  ./objs/random.o  ./objs/safe-strcpy.o  ./objs/sprintk.o  ./objs/strcat.o  ./objs/strchr.o  ./objs/strcmp.o  ./objs/strcpy.o  ./objs/strlen.o  ./objs/strncmp.o  ./objs/asm-helpers.o  ./objs/cache.o  ./objs/clean-reboot.o  ./objs/cstart.o  ./objs/default-handler-data-abort.o  ./objs/default-handler-fast.o  ./objs/default-handler-int.o  ./objs/default-handler-interrupt.o  ./objs/default-handler-prefetch.o  ./objs/default-handler-reset.o  ./objs/default-handler-swi.o  ./objs/default-handler-undefined-inst.o  ./objs/delay-ncycles.o  ./objs/enable-disable.o  ./objs/hw-uart-disable.o  ./objs/mem-barrier.o  ./objs/put-get8.o  ./objs/reboot.o  ./objs/rpi-wait.o  ./objs/timer.o  ./objs/unhandled-exception.o  ./objs/staff-start.o ./staff-objs/gpio-int.o    ./staff-objs/gpio-int.o   
+arm-none-eabi-objdump -D libpi.a > libpi.a.list
+"Setting <START> to ./objs/staff-start.o"
+rm -rf ./objs 3-reg-save.bin 3-reg-save-full.bin 2-reg-save-full.bin 2-reg-save.bin 1-rfe-example.bin 1-rfe-blk.bin 1-rfe-switchto-user.bin 0-any-mode-sp-lr.bin 0-mem-user-sp-lr.bin 0-user-sp-lr.bin 0-cps-user-sp-lr.bin 3-reg-save.list 3-reg-save-full.list 2-reg-save-full.list 2-reg-save.list 1-rfe-example.list 1-rfe-blk.list 1-rfe-switchto-user.list 0-any-mode-sp-lr.list 0-mem-user-sp-lr.list 0-user-sp-lr.list 0-cps-user-sp-lr.list   .list
+rm -f *~ tags Makefile.bak  *.test
+"Setting <START> to ./objs/staff-start.o"
+make -C /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/3-reg-save.o -MMD -MP -MF ./objs/3-reg-save.d -c 3-reg-save.c -o objs/3-reg-save.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -MT objs/0-user-sp-lr-asm.o -MMD -MP -MF ./objs/0-user-sp-lr-asm.d -c 0-user-sp-lr-asm.S -o objs/0-user-sp-lr-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -MT objs/1-rfe-asm.o -MMD -MP -MF ./objs/1-rfe-asm.d -c 1-rfe-asm.S -o objs/1-rfe-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -MT objs/2-reg-save-asm.o -MMD -MP -MF ./objs/2-reg-save-asm.d -c 2-reg-save-asm.S -o objs/2-reg-save-asm.o
+arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding   -Wa,--warn -Wa,--fatal-warnings -Wa,-mcpu=arm1176jzf-s -Wa,-march=armv6zk   -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -MT objs/staff-start.o -MMD -MP -MF ./objs/staff-start.d -c staff-start.S -o objs/staff-start.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/3-reg-save.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/3-reg-save.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/3-reg-save.elf > 3-reg-save.list
+arm-none-eabi-objcopy ./objs/3-reg-save.elf -O binary 3-reg-save.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/3-reg-save-full.o -MMD -MP -MF ./objs/3-reg-save-full.d -c 3-reg-save-full.c -o objs/3-reg-save-full.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/3-reg-save-full.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/3-reg-save-full.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/3-reg-save-full.elf > 3-reg-save-full.list
+arm-none-eabi-objcopy ./objs/3-reg-save-full.elf -O binary 3-reg-save-full.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/2-reg-save-full.o -MMD -MP -MF ./objs/2-reg-save-full.d -c 2-reg-save-full.c -o objs/2-reg-save-full.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/2-reg-save-full.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/2-reg-save-full.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/2-reg-save-full.elf > 2-reg-save-full.list
+arm-none-eabi-objcopy ./objs/2-reg-save-full.elf -O binary 2-reg-save-full.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/2-reg-save.o -MMD -MP -MF ./objs/2-reg-save.d -c 2-reg-save.c -o objs/2-reg-save.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/2-reg-save.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/2-reg-save.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/2-reg-save.elf > 2-reg-save.list
+arm-none-eabi-objcopy ./objs/2-reg-save.elf -O binary 2-reg-save.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/1-rfe-example.o -MMD -MP -MF ./objs/1-rfe-example.d -c 1-rfe-example.c -o objs/1-rfe-example.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/1-rfe-example.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/1-rfe-example.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/1-rfe-example.elf > 1-rfe-example.list
+arm-none-eabi-objcopy ./objs/1-rfe-example.elf -O binary 1-rfe-example.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/1-rfe-blk.o -MMD -MP -MF ./objs/1-rfe-blk.d -c 1-rfe-blk.c -o objs/1-rfe-blk.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/1-rfe-blk.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/1-rfe-blk.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/1-rfe-blk.elf > 1-rfe-blk.list
+arm-none-eabi-objcopy ./objs/1-rfe-blk.elf -O binary 1-rfe-blk.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/1-rfe-switchto-user.o -MMD -MP -MF ./objs/1-rfe-switchto-user.d -c 1-rfe-switchto-user.c -o objs/1-rfe-switchto-user.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/1-rfe-switchto-user.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/1-rfe-switchto-user.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/1-rfe-switchto-user.elf > 1-rfe-switchto-user.list
+arm-none-eabi-objcopy ./objs/1-rfe-switchto-user.elf -O binary 1-rfe-switchto-user.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/0-any-mode-sp-lr.o -MMD -MP -MF ./objs/0-any-mode-sp-lr.d -c 0-any-mode-sp-lr.c -o objs/0-any-mode-sp-lr.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/0-any-mode-sp-lr.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/0-any-mode-sp-lr.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/0-any-mode-sp-lr.elf > 0-any-mode-sp-lr.list
+arm-none-eabi-objcopy ./objs/0-any-mode-sp-lr.elf -O binary 0-any-mode-sp-lr.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/0-mem-user-sp-lr.o -MMD -MP -MF ./objs/0-mem-user-sp-lr.d -c 0-mem-user-sp-lr.c -o objs/0-mem-user-sp-lr.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/0-mem-user-sp-lr.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/0-mem-user-sp-lr.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/0-mem-user-sp-lr.elf > 0-mem-user-sp-lr.list
+arm-none-eabi-objcopy ./objs/0-mem-user-sp-lr.elf -O binary 0-mem-user-sp-lr.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/0-user-sp-lr.o -MMD -MP -MF ./objs/0-user-sp-lr.d -c 0-user-sp-lr.c -o objs/0-user-sp-lr.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/0-user-sp-lr.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/0-user-sp-lr.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/0-user-sp-lr.elf > 0-user-sp-lr.list
+arm-none-eabi-objcopy ./objs/0-user-sp-lr.elf -O binary 0-user-sp-lr.bin
+arm-none-eabi-gcc -D__RPI__ -Og -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -mtune=arm1176jzf-s  -std=gnu99 -I. -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/include -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/ -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/src  -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libc -I/Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/staff-private -ggdb -Wno-pointer-sign  -Werror  -Wno-unused-function -Wno-unused-variable  -mno-unaligned-access -mtp=soft -MT objs/0-cps-user-sp-lr.o -MMD -MP -MF ./objs/0-cps-user-sp-lr.d -c 0-cps-user-sp-lr.c -o objs/0-cps-user-sp-lr.o
+arm-none-eabi-ld  ./objs/staff-start.o objs/0-cps-user-sp-lr.o  ./objs/0-user-sp-lr-asm.o  ./objs/1-rfe-asm.o  ./objs/2-reg-save-asm.o    -T /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/memmap -o objs/0-cps-user-sp-lr.elf  /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a   /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi/libpi.a /Users/josephtan/140e-dumb-autograder/repos/robansal//lib/libgcc.a
+arm-none-eabi-objdump -d objs/0-cps-user-sp-lr.elf > 0-cps-user-sp-lr.list
+arm-none-eabi-objcopy ./objs/0-cps-user-sp-lr.elf -O binary 0-cps-user-sp-lr.bin
+my-install  ./3-reg-save.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./3-reg-save.bin> about to boot
+TRACE:simple_boot: sending 6544 bytes, crc32=b2d3eebc
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+about to check that swi test works
+TRACE:notmain:about to jump to pc=[0x80a4] with cpsr=0x1b
+TRACE:do_syscall:in syscall: sysno=0
+TRACE:do_syscall:reg(1)=0x1
+TRACE:do_syscall:reg(2)=0x2
+TRACE:do_syscall:reg(3)=0x3
+TRACE:do_syscall:reg(4)=0x4
+TRACE:do_syscall:reg(5)=0x5
+TRACE:do_syscall:reg(6)=0x6
+TRACE:do_syscall:reg(7)=0x7
+TRACE:do_syscall:reg(8)=0x8
+TRACE:do_syscall:reg(9)=0x9
+TRACE:do_syscall:reg(10)=0xa
+TRACE:do_syscall:reg(11)=0xb
+TRACE:do_syscall:reg(12)=0xc
+TRACE:do_syscall:reg(13)=0xd
+TRACE:do_syscall:reg(14)=0xe
+TRACE:do_syscall:reg(15)=0x80e4
+TRACE:do_syscall:reg(16)=0x1b
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./3-reg-save-full.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./3-reg-save-full.bin> about to boot
+TRACE:simple_boot: sending 6548 bytes, crc32=302b3f5f
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+about to check that swi test works
+TRACE:notmain:about to jump to pc=[0x80e0] with cpsr=0x11b
+TRACE:do_syscall:in syscall: sysno=0
+TRACE:do_syscall:reg(1)=0x1
+TRACE:do_syscall:reg(2)=0x2
+TRACE:do_syscall:reg(3)=0x3
+TRACE:do_syscall:reg(4)=0x4
+TRACE:do_syscall:reg(5)=0x5
+TRACE:do_syscall:reg(6)=0x6
+TRACE:do_syscall:reg(7)=0x7
+TRACE:do_syscall:reg(8)=0x8
+TRACE:do_syscall:reg(9)=0x9
+TRACE:do_syscall:reg(10)=0xa
+TRACE:do_syscall:reg(11)=0xb
+TRACE:do_syscall:reg(12)=0xc
+TRACE:do_syscall:reg(13)=0xd
+TRACE:do_syscall:reg(14)=0xe
+TRACE:do_syscall:reg(15)=0x80e4
+TRACE:do_syscall:reg(16)=0x11b
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./2-reg-save-full.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./2-reg-save-full.bin> about to boot
+TRACE:simple_boot: sending 6548 bytes, crc32=acc2256a
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+about to check that swi test works
+TRACE:notmain:about to jump to pc=[0x80e0] with cpsr=0x10
+TRACE:do_syscall:in syscall: sysno=0
+TRACE:do_syscall:reg(1)=0x1
+TRACE:do_syscall:reg(2)=0x2
+TRACE:do_syscall:reg(3)=0x3
+TRACE:do_syscall:reg(4)=0x4
+TRACE:do_syscall:reg(5)=0x5
+TRACE:do_syscall:reg(6)=0x6
+TRACE:do_syscall:reg(7)=0x7
+TRACE:do_syscall:reg(8)=0x8
+TRACE:do_syscall:reg(9)=0x9
+TRACE:do_syscall:reg(10)=0xa
+TRACE:do_syscall:reg(11)=0xb
+TRACE:do_syscall:reg(12)=0xc
+TRACE:do_syscall:reg(13)=0xd
+TRACE:do_syscall:reg(14)=0xe
+TRACE:do_syscall:reg(15)=0x80e4
+TRACE:do_syscall:reg(16)=0x10
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./2-reg-save.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./2-reg-save.bin> about to boot
+TRACE:simple_boot: sending 6512 bytes, crc32=e93ed0df
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+about to check that swi test works
+TRACE:notmain:about to jump to pc=[0x80a4] with cpsr=0x10
+TRACE:do_syscall:in syscall: sysno=0
+TRACE:do_syscall:reg(1)=0x1
+TRACE:do_syscall:reg(2)=0x2
+TRACE:do_syscall:reg(3)=0x3
+TRACE:do_syscall:reg(4)=0x4
+TRACE:do_syscall:reg(5)=0x5
+TRACE:do_syscall:reg(6)=0x6
+TRACE:do_syscall:reg(7)=0x7
+TRACE:do_syscall:reg(8)=0x8
+TRACE:do_syscall:reg(9)=0x9
+TRACE:do_syscall:reg(10)=0xa
+TRACE:do_syscall:reg(11)=0xb
+TRACE:do_syscall:reg(12)=0xc
+TRACE:do_syscall:reg(13)=0xd
+TRACE:do_syscall:reg(14)=0xe
+TRACE:do_syscall:reg(15)=0x80e4
+TRACE:do_syscall:reg(16)=0x10
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./1-rfe-example.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./1-rfe-example.bin> about to boot
+TRACE:simple_boot: sending 7168 bytes, crc32=ffc3d22b
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+TRACE:notmain:about to jump to pc=[0x84e0] with cpsr=0x10
+TRACE:rfe_c_code:sp=[0x9000000], should equal INT_STACK_ADDR=0x9000000
+TRACE:rfe_c_code:cpsr=0x10, mode=USER MODE
+TRACE:rfe_c_code:SUCCESS: we are at user level!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./1-rfe-blk.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./1-rfe-blk.bin> about to boot
+TRACE:simple_boot: sending 7164 bytes, crc32=d6317678
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+TRACE:notmain:about to jump to pc=[0x8554] with cpsr=0x10
+TRACE:rfe_c_code:sp=[0x9000000], should equal INT_STACK_ADDR=0x9000000
+TRACE:rfe_c_code:cpsr=0x10, mode=USER MODE
+TRACE:rfe_c_code:SUCCESS: we are at user level!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./1-rfe-switchto-user.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./1-rfe-switchto-user.bin> about to boot
+TRACE:simple_boot: sending 7452 bytes, crc32=5aabe596
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+TRACE:notmain:about to jump to pc=[0x81b4] with cpsr=0x10, sp=0x9000000
+TRACE:load_sp_code:r0=0x0, r1=0x1, r2=0x2, r3=0x3 sp=[0x8ffffe4]
+TRACE:load_sp_code:cpsr=0x10, mode=USER MODE
+TRACE:load_sp_code:SUCCESS: we are at user level!
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./0-any-mode-sp-lr.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./0-any-mode-sp-lr.bin> about to boot
+TRACE:simple_boot: sending 6556 bytes, crc32=8eff4f59
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+TRACE:notmain:-----------------------------------------------------------
+TRACE:notmain:part 4: now write and check mode_get_lr_sp_asm
+TRACE:notmain:sp=0xfeedface, lr=0xdeadbeef
+SUCCESS: all tests passed.
+TRACE:notmain:-----------------------------------------------------------
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./0-mem-user-sp-lr.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./0-mem-user-sp-lr.bin> about to boot
+TRACE:simple_boot: sending 9472 bytes, crc32=249cfa90
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+TRACE:notmain:-----------------------------------------------------------
+TRACE:notmain:part 2: set/get USER sp/lr using ldm/stm with ^
+TRACE:notmain:	got USER sp=0xfeedface
+TRACE:notmain:	got USER lr=0xdeadbeef
+TRACE:notmain:about to do [20] random runs
+TRACE:notmain:success for [20] random runs!
+TRACE:notmain:SUCCESS: part 2 passed
+TRACE:notmain:-----------------------------------------------------------
+TRACE:notmain:-----------------------------------------------------------
+TRACE:notmain:part 3: set/get USER sp/lr using single ldm/stm ^ instruction
+TRACE:notmain:	got USER sp=0xfeedface
+TRACE:notmain:	got USER lr=0xdeadbeef
+TRACE:notmain:part 3: passed
+TRACE:notmain:-----------------------------------------------------------
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./0-user-sp-lr.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./0-user-sp-lr.bin> about to boot
+TRACE:simple_boot: sending 10636 bytes, crc32=e07de804
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+uninitialized user sp=0x700033bb
+uninitialized user lr=0xd09a5a7f
+TRACE:notmain:-----------------------------------------------------------
+TRACE:notmain:part 1: get/set USER sp/lr by switching to SYSTEM and back
+TRACE:notmain:	got USER sp=0xfeedface
+TRACE:notmain:	got USER lr=0xdeadbeef
+TRACE:notmain:part 1: passed
+TRACE:notmain:-----------------------------------------------------------
+TRACE:notmain:part 2: set/get USER sp/lr using ldm/stm with ^
+TRACE:notmain:	got USER sp=0xfeedface
+TRACE:notmain:	got USER lr=0xdeadbeef
+TRACE:notmain:part 2 passed
+TRACE:notmain:-----------------------------------------------------------
+TRACE:notmain:part 3: set/get USER sp/lr using single ldm/stm ^ instruction
+TRACE:notmain:	got USER sp=0xfeedface
+TRACE:notmain:	got USER lr=0xdeadbeef
+TRACE:notmain:part 3: passed
+TRACE:notmain:-----------------------------------------------------------
+TRACE:notmain:part 4: now write and check mode_get_lr_sp_asm
+TRACE:notmain:sp=0xfeedface, lr=0xdeadbeef
+SUCCESS: all tests passed.
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+my-install  ./0-cps-user-sp-lr.bin
+opened tty port </dev/cu.usbserial-110>.
+my-install: tty-usb=</dev/cu.usbserial-110> program=<./0-cps-user-sp-lr.bin> about to boot
+TRACE:simple_boot: sending 8760 bytes, crc32=32b6c1a5
+waiting for a start
+putting code
+bootloader: Done.
+listening on ttyusb=</dev/cu.usbserial-110>
+uninitialized user sp=0x300023bb
+uninitialized user lr=0xd09a5a7f
+TRACE:notmain:-----------------------------------------------------------
+TRACE:notmain:part 1: get/set USER sp/lr by switching to SYSTEM and back
+TRACE:notmain:	got USER sp=0xfeedface
+TRACE:notmain:	got USER lr=0xdeadbeef
+TRACE:notmain:about to do [20] random runs
+TRACE:notmain:success for [20] random runs!
+TRACE:notmain:SUCCESS: part 1 passed
+TRACE:notmain:-----------------------------------------------------------
+DONE!!!
+
+Saw done
+
+bootloader: pi exited.  cleaning up
+running make check on tests 01234567
+"Setting <START> to ./objs/staff-start.o"
+make -C /Users/josephtan/140e-dumb-autograder/repos/robansal/libpi
+-------------------------------------------------
+checking <0-any-mode-sp-lr>: 
+  about to emit new <0-any-mode-sp-lr.test>:
+     my-install  ./0-any-mode-sp-lr.bin  > 0-any-mode-sp-lr.test
+  about to compare contents:
+     diff 0-any-mode-sp-lr.out 0-any-mode-sp-lr.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <0-cps-user-sp-lr>: 
+  about to emit new <0-cps-user-sp-lr.test>:
+     my-install  ./0-cps-user-sp-lr.bin  > 0-cps-user-sp-lr.test
+  about to compare contents:
+     diff 0-cps-user-sp-lr.out 0-cps-user-sp-lr.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <0-mem-user-sp-lr>: 
+  about to emit new <0-mem-user-sp-lr.test>:
+     my-install  ./0-mem-user-sp-lr.bin  > 0-mem-user-sp-lr.test
+  about to compare contents:
+     diff 0-mem-user-sp-lr.out 0-mem-user-sp-lr.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <0-user-sp-lr>: 
+  about to emit new <0-user-sp-lr.test>:
+     my-install  ./0-user-sp-lr.bin  > 0-user-sp-lr.test
+  about to compare contents:
+     diff 0-user-sp-lr.out 0-user-sp-lr.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <1-rfe-blk>: 
+  about to emit new <1-rfe-blk.test>:
+     my-install  ./1-rfe-blk.bin  > 1-rfe-blk.test
+  about to compare contents:
+     diff 1-rfe-blk.out 1-rfe-blk.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <1-rfe-example>: 
+  about to emit new <1-rfe-example.test>:
+     my-install  ./1-rfe-example.bin  > 1-rfe-example.test
+  about to compare contents:
+     diff 1-rfe-example.out 1-rfe-example.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <1-rfe-switchto-user>: 
+  about to emit new <1-rfe-switchto-user.test>:
+     my-install  ./1-rfe-switchto-user.bin  > 1-rfe-switchto-user.test
+  about to compare contents:
+     diff 1-rfe-switchto-user.out 1-rfe-switchto-user.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <2-reg-save-full>: 
+  about to emit new <2-reg-save-full.test>:
+     my-install  ./2-reg-save-full.bin  > 2-reg-save-full.test
+  about to compare contents:
+     diff 2-reg-save-full.out 2-reg-save-full.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <2-reg-save>: 
+  about to emit new <2-reg-save.test>:
+     my-install  ./2-reg-save.bin  > 2-reg-save.test
+  about to compare contents:
+     diff 2-reg-save.out 2-reg-save.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <3-reg-save-full>: 
+  about to emit new <3-reg-save-full.test>:
+     my-install  ./3-reg-save-full.bin  > 3-reg-save-full.test
+  about to compare contents:
+     diff 3-reg-save-full.out 3-reg-save-full.test
+  SUCCESS!   Test output and reference match.
+-------------------------------------------------
+checking <3-reg-save>: 
+  about to emit new <3-reg-save.test>:
+     my-install  ./3-reg-save.bin  > 3-reg-save.test
+  about to compare contents:
+     diff 3-reg-save.out 3-reg-save.test
+  SUCCESS!   Test output and reference match.
+
+Return code: 0
